@@ -1,0 +1,50 @@
+.screen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  max-width: 800px;
+  margin: 10px;
+}
+
+.mainTitle {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  width: 50%;
+}
+.buttonGroup {
+  width: 100%;
+}
+.option {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mainContent > * {
+  padding: 5px;
+  margin: 5px;
+}
+
+.subClass {
+  width: 45%;
+}
+
+.image {
+  height: 100px; 
+  width: 160px; 
+  background-size:cover; 
+  background-image: url(https://s13.stc.all.kpcdn.net/share/i/12/10318330/inx960x640.jpg);
+}
+
+.margin {
+  width: 151px;
+  margin: 5px auto;
+}

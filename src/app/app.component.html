@@ -1,21 +1,150 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!--  First screen -->
 
-<router-outlet></router-outlet>
+<div class="screen"  [style.minWidth.px] = "clientWidth" [style.minHeight.px] = "clientHeight" >
+  <div class="main">
+    <div class="mainTitle">
+      <h2>Мультидиллер</h2>
+    </div>
+    <div class="mainContent">
+      <p align="justify">
+          Мы проанализировали предложения 21 банка и 18 лизинговых компаний в области финансирования покупки автомобиля и подобрали самые выгодные условия в части переплаты процентов, скорости рассмотрения и доступности кредита/лизинга
+      </p>
+
+      <p align="center">
+        Подберите свой индивидуальный вариант покупки автомобиля:
+      </p>
+
+      <mat-button-toggle-group class="buttonGroup" name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle class="button" (click)="selectedNew = 'new'" value="new">Новый</mat-button-toggle>
+        <mat-button-toggle class="button" (click)="selectedNew = 'notNew'"  value="notNew">С пробегом</mat-button-toggle>
+      </mat-button-toggle-group>
+
+      <!-- Start template -->
+      <mat-button-toggle-group class="buttonGroup" name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle class="button" (click)="selectedFace = 'F'" value="fl">ФЛ</mat-button-toggle>
+        <mat-button-toggle class="button" (click)="selectedFace = 'U'" value="ul">ЮЛ</mat-button-toggle>
+      </mat-button-toggle-group>
+      <!-- End template -->
+
+    </div>
+  </div>
+</div>
+
+<!--  Second screen -->
+
+<div class="screen"  [style.minWidth.px] = "clientWidth" [style.minHeight.px] = "clientHeight" >
+  
+  <!-- begin form -->
+
+  <form *ngIf="selectedNew != 'notNew'" class="responsiveForm" >
+
+    <mat-form-field class="buttonGroup">
+      <mat-label>Марка</mat-label>
+      <mat-select (openedChange) = "openMarksOptions($event)" [(ngModel)]="selectedMark" name="mark">
+        <mat-option  (click)="closeMarksOptions()" *ngFor="let mark of allMarks" [value]="mark.name">
+          <div class="option">
+            <div>{{mark.name}}</div><div></div><div *ngIf="!isClosedMarksOptions">{{mark.minPrice | priceVisible}}</div>
+          </div>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <mat-form-field class="buttonGroup">
+      <mat-label>Модель</mat-label>
+      <mat-select (openedChange) = "openModelsOptions($event)" [(ngModel)]="selectedModel" name="model">
+        <mat-option (click)="closeModelsOptions()" *ngFor="let model of models" [value]="model.name">
+          <div class="option">
+            <div>{{model.name}}</div><div></div><div *ngIf="!isClosedModelsOptions">{{model.minPrice | priceVisible}}</div>
+          </div>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <mat-form-field  class="buttonGroup" >
+      <mat-label>Комплектация</mat-label>
+      <mat-select (openedChange) = "openCompsOptions($event)" [(ngModel)]="selectedComp" name="comp">
+        <mat-option (click)="closeCompsOptions()" *ngFor="let comp of comps" [value]="comp.name">
+          <div class="option">
+            <div>{{comp.name}}</div><div></div><div *ngIf="!isClosedCompsOptions">{{comp.price | priceVisible}}</div>
+          </div>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Цена" [(ngModel)] = "price" name="price">
+  </mat-form-field>
+
+  <!-- end form -->
+  
+  <div style="margin: 10px; display: flex; flex-wrap: wrap; justify-content: center;">
+
+    <mat-card class="slidersBlock">
+      <div *ngIf="selectedFace == 'F' else U">
+        <ng5-slider [(value)]="creditLisingValue"  [options]="creditLisingOptions"></ng5-slider>
+        <!-- (valueChange)="isChangedCreditLising()" -->
+      </div>
+      <ng-template #U>
+        <div>
+          <ng5-slider [(value)]="BYRorUSDvalue" [options]="BYRorUSDoptions"></ng5-slider>
+        </div>
+      </ng-template>
+
+      <div style="margin: 5px;">
+        Первый платёж:
+      </div>
+      <div style="margin: 5px;">
+        {{getFirstPayment()}}
+      </div>
+      
+      <ng5-slider *ngIf="creditLisingValue === 0 else lisingFirstPaymentSlider" [(value)]="firstPaymentPercentageValue" [options]="firstPaymentPercentageOptions"></ng5-slider>
+      <ng-template #lisingFirstPaymentSlider>
+        <ng5-slider [(value)]="lisingFirstPaymentPercentageValue" [options]="lisingFirstPaymentPercentageOptions"></ng5-slider>
+      </ng-template>
+
+      <div style="margin: 20px 5px 5px 5px; ">
+        Срок
+      </div>
+      <div style="margin: 5px;">
+        {{getPeriod()}}
+      </div>
+
+      <ng5-slider *ngIf="creditLisingValue === 0 else lisingRepaymentPeriodSlider" [(value)]="repaymentPeriodValue" [options]="repaymentPeriodOptions"></ng5-slider>
+      <ng-template #lisingRepaymentPeriodSlider>
+        <ng5-slider [(value)]="lisingRepaymentPeriodValue" [options]="lisingRepaymentPeriodOptions"></ng5-slider>
+      </ng-template>
+
+
+    </mat-card>
+
+    <mat-card class="slidersBlock">
+      <div style="display: flex; flex-direction: column; align-items: center; height: 100%; width: 100%">
+        <img [src]="link" class="image">
+        <div>Лучший выбор</div>
+        <div>Процентная ставка:</div>
+        <div>{{(calculateRate() * 100).toFixed(2)}} %</div>
+        <div>Ежемесячный платёж:</div>
+        <div>{{getPLT().toFixed(2)}} BYN</div>
+        <!--
+        <div>Выгода:</div>
+        <div>{{getExtraPayment()}}</div>
+        -->
+      </div>
+    </mat-card>
+
+  </div>
+</div>
+
+<div class="screen"  [style.minWidth.px] = "clientWidth" [style.minHeight.px] = "clientHeight" >
+  <button mat-raised-button (click)="openModal()" class="margin" color="primary" >Оформить заявку</button>
+</div>
+
+
+
+  
+  
+  
+  
+  
+  

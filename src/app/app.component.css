@@ -1,0 +1,77 @@
+.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  max-width: 800px;
+  padding: 20px;
+}
+
+.mainTitle {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  width: 50%;
+}
+.buttonGroup {
+  width: 100%;
+}
+.option {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.mainContent > * {
+  padding: 5px;
+  margin: 5px;
+}
+
+.image {
+  height: 100px; 
+  width: auto; 
+  background-size: cover; 
+}
+
+.margin {
+  width: 151px;
+  margin: 5px auto;
+}
+
+ng5-slider > * {
+  margin: 5px;
+}
+
+.slidersBlock {
+  min-width: 350px; 
+  margin: 10px;
+  min-height: 300px;
+  font-size: 10px;
+}
+ng5-slider > span {
+  display: none;
+}
+
+
+@media screen and (max-device-width: 824px) {
+  .slidersBlock {
+    min-width: 250px; 
+    margin: 10px;
+    min-height: 300px;
+    font-size: 10px;
+  }
+  .responsiveForm {
+    max-width: 230px;
+  }
+
+}
