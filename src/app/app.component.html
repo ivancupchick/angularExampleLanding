@@ -22,7 +22,7 @@
       <!-- Start template -->
       <mat-button-toggle-group class="buttonGroup" name="fontStyle" aria-label="Font Style">
         <mat-button-toggle class="button" (click)="selectedFace = 'F'" value="fl">ФЛ</mat-button-toggle>
-        <mat-button-toggle class="button" (click)="selectedFace = 'U'" value="ul">ЮЛ</mat-button-toggle>
+        <mat-button-toggle class="button" (click)="selectedFace = 'U'" (click)="scrollToSecondPage()" value="ul">ЮЛ</mat-button-toggle>
       </mat-button-toggle-group>
       <!-- End template -->
 
@@ -134,10 +134,27 @@
     </mat-card>
 
   </div>
+  <button mat-raised-button (click)="scrollToThirdPage()" class="margin" color="primary" >Оформить заявку</button>
 </div>
 
 <div class="screen"  [style.minWidth.px] = "clientWidth" [style.minHeight.px] = "clientHeight" >
-  <button mat-raised-button (click)="openModal()" class="margin" color="primary" >Оформить заявку</button>
+  <div style="display: flex; flex-direction: column; align-items: center; width: 100%; height: 100%;">
+    <div>
+      <h2>Заявка на финансирование</h2>
+    </div>
+    <form onsubmit="console.log('efsf')" style="display: flex; flex-direction: column; align-items: center; width: 100%; height: 90%;">
+      <mat-form-field style="width: 300px">
+        <input matInput placeholder="Имя" value="" required>
+      </mat-form-field>
+      <mat-form-field style="width: 300px">
+        <input matInput placeholder="Телефон" value="" required>
+      </mat-form-field>
+      <mat-form-field style="width: 300px">
+        <input matInput placeholder="E-mail" value="">
+      </mat-form-field>
+      <button mat-raised-button type="submit" color="warn">Отправить заявку</button>
+    </form>
+  </div>
 </div>
 
 

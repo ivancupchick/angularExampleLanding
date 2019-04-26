@@ -212,51 +212,6 @@ export class AppComponent {
       ]),
     ]),
   ];
-  /*
-  allMarks: Mark[] = [
-    {
-      value: 'Geely',
-      viewValue: 'Geely',
-      minPrice : '',
-      models: [
-        {
-          value: 'model1',
-          viewValue: 'Модель 1',
-          minPrice: '',
-          comps: [
-            new Comp('comp1', 'defrfddrfgd', '12000'),
-            {
-              value: 'comp1',
-              viewValue: 'defrfddrfgd',
-              price: '12000'
-            },
-            {
-              value: 'comp1',
-              viewValue: 'defrfddrfgd',
-              price: '12000'
-            },
-          ]
-        },
-      ]
-    }
-  ];
-  */
-  /*
-  marks: Mark[] = [
-    {value: 'Wolkswagen', viewValue: 'Волксваген', price: ' от 12000 BYR'},
-    {value: 'Audi', viewValue: 'Ауди', price: '                 от 12000 BYR'},
-    {value: 'Marsedes', viewValue: 'Марседес', price: '         от 12000 BYR'}
-  ];
-
-  audiModels: Model[] = [
-    {value: 'model1', viewValue: 'Волксsesfrваген', price: ' от 12000 BYR'},
-  ];
-
-  audiModel1Comps: Comp[] = [
-    {value: 'comp1', viewValue: 'defrfddrfgd', price: ' от 12000 BYR'},
-  ];
-  */
-  
 
   selectedMark = 'Geely';
   models: Model[] = this.allMarks[ (this.findMark(this.selectedMark)) ].models;
@@ -377,7 +332,12 @@ export class AppComponent {
     });
   }
 
-  
+  scrollToSecondPage() {
+    window.scrollTo({ left: 0, top: this.clientHeight, behavior: 'smooth'});
+  }
+  scrollToThirdPage() {
+    window.scrollTo({ left: 0, top: (this.clientHeight * 2), behavior: 'smooth'});
+  }
 
 
 
