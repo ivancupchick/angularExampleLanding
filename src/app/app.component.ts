@@ -3,6 +3,7 @@ import { RequestComponent } from './request/request.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Options, CustomStepDefinition, LabelType } from 'ng5-slider';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
+import { HttpClient } from '@angular/common/http';
 
 export class Mark {
   constructor(public name: string, public minPrice: number, public models: Model[]) { }
@@ -41,127 +42,15 @@ export class Percentages {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'projTest';
+  name: string;
+  phone: string;
+  project_name: string;
+  admin_email: string;
+  form_subject: string;
 
-  clientWidth = 100;
-  clientHeight = 100;
+  // need to delete
+  selectedNew = 'notNew';
 
-  selectedFace = 'F';
-  selectedNew = 'new';
-
-  creditLisingValue = 0;
-  creditLisingOptions: Options = {
-    floor: 0,
-    ceil: 1,
-    step: 1,
-    showTicks: true,
-    showSelectionBar: true,
-    hidePointerLabels: true,
-    hideLimitLabels: true,
-  };
-
-  BYRorUSDvalue = 0;
-  BYRorUSDoptions: Options = {
-    floor: 0,
-    ceil: 1,
-    step: 1,
-    showTicks: true,
-    showSelectionBar: true,
-    hidePointerLabels: true,
-    hideLimitLabels: true,
-  };
-
-  firstPaymentPercentageValue = 15;
-  firstPaymentPercentageOptions: Options = {
-    floor: 0,
-    ceil: 90,
-    step: 5,
-    showTicks: true,
-    hideLimitLabels: true,
-    hidePointerLabels: true,
-    getTickColor: (value: number): string => {
-      return 'rgba(255, 255, 255, 0)';
-    },
-    getLegend: (value: number): string => {
-      if (value % 10 === 0) {
-        return value + '%';
-      }
-    },
-  };
-
-  // creditRepaymentValues: string[] = ['0%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%'];
-  repaymentPeriodValue = 12;
-  repaymentPeriodOptions: Options = {
-    floor: 6,
-    ceil: 120,
-    step: 6,
-    showTicks: true,
-    hideLimitLabels: true,
-    hidePointerLabels: true,
-    getTickColor: (value: number): string => {
-      return 'rgba(255, 255, 255, 0)';
-    },
-    getLegend: (value: number): string => {
-      if (value % 12 === 0) {
-        return value + ' мес';
-      }
-    },
-  };
-
-  lisingFirstPaymentPercentageValue = 15;
-  lisingFirstPaymentPercentageOptions: Options = {
-    floor: 10,
-    ceil: 90,
-    step: 5,
-    showTicks: true,
-    hideLimitLabels: true,
-    hidePointerLabels: true,
-    getTickColor: (value: number): string => {
-      return 'rgba(255, 255, 255, 0)';
-    },
-    getLegend: (value: number): string => {
-      if (value % 10 === 0) {
-        return value + '%';
-      }
-    },
-  };
-
-  lisingRepaymentPeriodValue = 12;
-  lisingRepaymentPeriodOptions: Options = {
-    floor: 6,
-    ceil: 60,
-    step: 6,
-    showTicks: true,
-    hideLimitLabels: true,
-    hidePointerLabels: true,
-    getTickColor: (value: number): string => {
-      return 'rgba(255, 255, 255, 0)';
-    },
-    getLegend: (value: number): string => {
-      if (value % 12 === 0) {
-        return value + ' мес';
-      }
-    },
-  };
-
-  oldText = ' ';
-
-  percentagesForUFNewCredit = {
-    1: new Percentages(10.5, 9.5, 9.0, 7.0, 5.5, 3.0, 0.01, 0.01),
-    2: new Percentages(13.5, 12.5, 11.9, 10.99, 9.99, 8.5, 5.99, 2.5),
-    3: new Percentages(14.5, 13.5, 13.2, 12.5, 11.5, 10.5, 8.5, 5.5),
-    5: new Percentages(14.99, 14.5, 14.2, 13.7, 13.0, 11.99, 10.7, 8.5),
-    7: new Percentages(0, 14.99, 14.6, 14.2, 13.7, 12.9, 11.8, 9.7),
-    10: new Percentages(0, 14.99, 14.6, 14.2, 13.7, 12.9, 11.8, 9.7)
-  };
-
-  percentagesForUFNewLising = {
-    1: new Percentages(null, 5.9, 1.9, 0.01, 0.01, 0.01, 0.01, 0.01),
-    2: new Percentages(null, 8.9, 2.9, 1.9, 0.01, 0.01, 0.01, 0.01),
-    3: new Percentages(null, 9.9, 3.9, 2.9, 1.9, 0.01, 0.01, 0.01),
-    4: new Percentages(null, 10.5, 4.9, 3.9, 2.9, 1.9, 0.01, 0.01),
-    5: new Percentages(null, 10.9, 5.9, 4.9, 3.9, 2.9, 1.9, 0.01),
-  };
   allMarks: Mark[] = [
     new Mark('Geely', null, [
       new Model('Atlas', null, './../assets/images/Geely Atlas.png', [
@@ -226,14 +115,152 @@ export class AppComponent {
   isClosedModelsOptions = true;
   isClosedCompsOptions = true;
 
+
+
+  percentagesForUFNewCredit = {
+    1: new Percentages(10.5, 9.5, 9.0, 7.0, 5.5, 3.0, 0.01, 0.01),
+    2: new Percentages(13.5, 12.5, 11.9, 10.99, 9.99, 8.5, 5.99, 2.5),
+    3: new Percentages(14.5, 13.5, 13.2, 12.5, 11.5, 10.5, 8.5, 5.5),
+    5: new Percentages(14.99, 14.5, 14.2, 13.7, 13.0, 11.99, 10.7, 8.5),
+    7: new Percentages(0, 14.99, 14.6, 14.2, 13.7, 12.9, 11.8, 9.7),
+    10: new Percentages(0, 14.99, 14.6, 14.2, 13.7, 12.9, 11.8, 9.7)
+  };
+
+  percentagesForUFNewLising = {
+    1: new Percentages(null, 5.9, 1.9, 0.01, 0.01, 0.01, 0.01, 0.01),
+    2: new Percentages(null, 8.9, 2.9, 1.9, 0.01, 0.01, 0.01, 0.01),
+    3: new Percentages(null, 9.9, 3.9, 2.9, 1.9, 0.01, 0.01, 0.01),
+    4: new Percentages(null, 10.5, 4.9, 3.9, 2.9, 1.9, 0.01, 0.01),
+    5: new Percentages(null, 10.9, 5.9, 4.9, 3.9, 2.9, 1.9, 0.01),
+  };
+
+
+
+
+  BYRorUSDvalue = 0;
+
+  // end block which need to delete
+
+  title = 'projTest';
+
+  clientWidth = 100;
+  clientHeight = 100;
+
+  selectedFace = 'F';
+
+  creditLisingValue = 0;
+  creditLisingOptions: Options = {
+    floor: 0,
+    ceil: 1,
+    step: 1,
+    showTicks: true,
+    showSelectionBar: true,
+    hidePointerLabels: true,
+    hideLimitLabels: true,
+  };
+
+  firstPaymentPercentageValue = 15;
+  firstPaymentPercentageOptions: Options = {
+    floor: 0,
+    ceil: 90,
+    step: 5,
+    showTicks: true,
+    hideLimitLabels: true,
+    hidePointerLabels: true,
+    getTickColor: (value: number): string => {
+      return 'rgba(255, 255, 255, 0)';
+    },
+    getLegend: (value: number): string => {
+      if (value % 10 === 0) {
+        return value + '%';
+      }
+    },
+  };
+
+  creditFirstPaymentPercentageValues: string[] = ['0%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%'];
+
+  repaymentPeriodValue = 12;
+  repaymentPeriodOptions: Options = {
+    floor: 6,
+    ceil: 84,
+    step: 6,
+    showTicks: true,
+    hideLimitLabels: true,
+    hidePointerLabels: true,
+    getTickColor: (value: number): string => {
+      return 'rgba(255, 255, 255, 0)';
+    },
+    getLegend: (value: number): string => {
+      if (value % 12 === 0) {
+        return value + ' мес';
+      }
+    },
+  };
+
+  lisingFirstPaymentPercentageValue = 15;
+  lisingFirstPaymentPercentageOptions: Options = {
+    floor: 10,
+    ceil: 90,
+    step: 5,
+    showTicks: true,
+    hideLimitLabels: true,
+    hidePointerLabels: true,
+    getTickColor: (value: number): string => {
+      return 'rgba(255, 255, 255, 0)';
+    },
+    getLegend: (value: number): string => {
+      if (value % 10 === 0) {
+        return value + '%';
+      }
+    },
+  };
+
+  lisingRepaymentPeriodValue = 12;
+  lisingRepaymentPeriodOptions: Options = {
+    floor: 6,
+    ceil: 60,
+    step: 6,
+    showTicks: true,
+    hideLimitLabels: true,
+    hidePointerLabels: true,
+    getTickColor: (value: number): string => {
+      return 'rgba(255, 255, 255, 0)';
+    },
+    getLegend: (value: number): string => {
+      if (value % 12 === 0) {
+        return value + ' мес';
+      }
+    },
+  };
+
+  oldText = ' ';
+
+
+
+  percentagesForPFOldCredit = {
+    1: new Percentages(15.55, 13.7, 13.5, 13.3, 12.99, 12.7, 11.99, 11.00),
+    2: new Percentages(15.55, 15.55, 14.5, 14.3, 13.99, 13.7, 13.15, 12.20),
+    3: new Percentages(15.55, 15.55, 15.55, 14.7, 14.5, 14.1, 13.6, 12.70),
+    5: new Percentages(15.55, 15.55, 15.55, 15.55, 14.9, 14.5, 13.99, 13.13),
+    7: new Percentages(15.55, 15.55, 15.55, 15.55, 15.55, 14.7, 14.14, 13.5),
+  };
+
+  percentagesForPFOldLising = {
+    1: new Percentages(null, 12.7, 12.5, 12.3, 11.99, 11.7, 10.99, 10.00),
+    2: new Percentages(null, 14.5, 13.5, 13.3, 12.99, 12.7, 12.15, 11.2),
+    3: new Percentages(null, 14.5, 14.5, 13.7, 13.5, 13.1, 12.6, 11.7),
+    4: new Percentages(null, 14.5, 14.5, 14.5, 13.99, 13.5, 12.99, 12.12),
+    5: new Percentages(null, 14.5, 14.5, 14.5, 13.99, 13.5, 12.99, 12.12),
+  };
+
   firstScreenFirstHalfStyle: SafeStyle;
   firstScreenSecondHalfStyle: SafeStyle;
   secondScreenStyle: SafeStyle;
   thirdScreenStyle: SafeStyle;
 
-  constructor(private dialog: MatDialog, protected sanitizer: DomSanitizer) {
+  constructor(private dialog: MatDialog, protected sanitizer: DomSanitizer, private http: HttpClient) {
     this.setLibeSizes();
-    //let firstScreenSecondHaldLineSize = 
+    //let firstScreenSecondHaldLineSize =
 
 
 
@@ -249,7 +276,7 @@ export class AppComponent {
     this.clientHeight = document.documentElement.clientHeight;
     window.addEventListener('resize', () => {
       this.setLibeSizes();
-      
+
       this.clientWidth = document.documentElement.clientWidth;
       this.clientHeight = document.documentElement.clientHeight;
       /*
@@ -403,10 +430,54 @@ export class AppComponent {
 
 
 
+  submitForm(data:any) {
+    const price = `${this.price}`;
+    const percentage = `${this.getFirstPayment()}`;
+    const period = `${this.getPeriod()}`;
+    const percentageStavka = `${(this.calculateRate() * 100).toFixed(2)} %`;
+    const mountyPayment = `${this.getPLT().toFixed(2)} BYN`;
+    const lisingOrCredit = this.creditLisingValue === 0 ? 'Кредит' : 'Лизинг';
+    console.log(data.value);
+    this.http.post('../assets/mail.php', {
+      name: data.value.name,
+      phone: data.value.phone,
+      price,
+      percentage,
+      period,
+      percentageStavka,
+      mountyPayment,
+      lisingOrCredit,
+    })
+      .subscribe( (data) => {
+        console.log(data);
+      },
+      error => console.log(error)
+  );
+  }
 
-
-
-
+/*
+  $("#forma1").submit(function() { //Change
+    var th = $(this);
+    $.ajax({
+    type: "POST",
+    url: "../assets/mail.php", //Change
+    data: th.serialize()
+  }).done(function() {
+    swal({
+      title: "Обратный звонок",
+      text: "Write something interesting:",
+      showCancelButton: true,
+      closeOnConfirm: false,
+      animation: "slide-from-top",
+      html: true,
+    });
+    setTimeout(function() {
+      // Done Functions
+      th.trigger("reset");
+    }, 1000);
+  });
+  return false;
+  });*/
 
 
 
@@ -469,11 +540,20 @@ export class AppComponent {
       return this.percentagesForUFNewLising;
     }
   }
+  getPercentagesForOldAndPF() {
+    if (this.creditLisingValue === 0) {
+      return this.percentagesForPFOldCredit;
+    } else {
+      return this.percentagesForPFOldLising;
+    }
+  }
   calculateRate(): number {
     // start IF BLOCK
     let array;
     if (this.selectedNew === 'new' && this.selectedFace === 'F') {
       array = this.getPersentagesForNewAndFL();
+    } else if (this.selectedNew === 'notNew' && this.selectedFace === 'F') {
+      array = this.getPercentagesForOldAndPF();
     }
     // end IF BLOCK
 

@@ -1,9 +1,9 @@
 
-<div class="blackLine">
-  <div class="logo"></div> 
+<div [style.minWidth.px] = "clientWidth" class="blackLine">
+  <div class="logo"></div>
   <span class="numberForConnection">
-    <div class="yellowTreangle"></div> 
-    +375(25)529-78-06
+    <div class="yellowTreangle"></div>
+    +375(33)689-29-89
   </span>
 </div>
 
@@ -16,12 +16,13 @@
   </div>
   </div>
   </div>
-  
+
   <div [style.minWidth.px] = "clientWidth" [style.minHeight.px] = "clientHeight*0.45">
   <div [style]="firstScreenSecondHalfStyle">
   <div class="secondHalfFirstScreenBlocks" [style.minWidth.px] = "clientWidth" [style.minHeight.px] = "clientHeight*0.45">
-    <button class="bottonToDown"><p>Подобрать условия</p></button>
-
+    <div class="textTitle">
+      <p>КРЕДИТ И ЛИЗИНГ АВТОМОБИЛЕЙ<br> С ПРОБЕГОМ ДЛЯ ФИЗИЧЕСКИХ ЛИЦ</p>
+    </div>
     <div class="iconContainer">
       <div class="iconForAttract">
         <div class="iconTime iconSize"></div>
@@ -40,7 +41,7 @@
         <p class="iconTitleSize">Любой автомобиль</p>
       </div>
     </div>
-    <div class="textTitle"><p>КРЕДИТ/ЛИЗИНГ НОВЫХ И<br>ПОДЕРЖАННЫХ АВТОМОБИЛЕЙ</p></div>
+    <button class="bottonToDown" (click)="scrollToSecondPage()"><p>Подобрать условия</p></button>
   </div>
   </div>
   </div>
@@ -51,63 +52,11 @@
 <div [style.minWidth.px] = "clientWidth" [style.minHeight.px] = "clientHeight">
 <div [style]="secondScreenStyle">
 <div class="screenPage2" [style.minWidth.px] = "clientWidth" [style.minHeight.px] = "clientHeight">
-  <h1 class="page2Title">ПОДБЕРИТЕ ИНДИВИДУАЛЬНЫЙ ВАРИАНТ</h1>
+  <h1 class="page2Title">ПОДБЕРИТЕ ИНДИВИДУАЛЬНЫЙ ВАРИАНТ ФИНАНСИРОВАНИЯ</h1>
   <div class="choiseAutoType">
-    <div style=" width: 90%">
-      <h3 class="margin5padding5">Автомобиль:</h3>
-    </div>
-    <mat-button-toggle-group class="buttonGroup" name="fontStyle" aria-label="Font Style">
-      <mat-button-toggle class="radioButton" (click)="selectedNew = 'new'" value="new">Новый</mat-button-toggle>
-      <mat-button-toggle class="radioButton" (click)="selectedNew = 'notNew'"  value="notNew">С пробегом</mat-button-toggle>
-    </mat-button-toggle-group>
-  
-    <div style=" width: 90%">
-      <h3 class="margin5padding5">Вы:</h3>
-    </div>
-    <mat-button-toggle-group class="buttonGroup" name="fontStyle" aria-label="Font Style">
-      <mat-button-toggle class="radioButton" (click)="selectedFace = 'F'" value="fl">ФЛ</mat-button-toggle>
-      <mat-button-toggle class="radioButton" (click)="selectedFace = 'U'" (click)="scrollToSecondPage()" value="ul">ЮЛ</mat-button-toggle>
-    </mat-button-toggle-group>
-    <div *ngIf="selectedNew != 'notNew'" class="markModelCompBlock">
-      <form  class="markModelCompForm responsiveForm">
-        <mat-form-field class="markModelCompButtons">
-          <mat-label>Марка</mat-label>
-          <mat-select (openedChange) = "openMarksOptions($event)" [(ngModel)]="selectedMark" name="mark">
-            <mat-option  (click)="closeMarksOptions()" *ngFor="let mark of allMarks" [value]="mark.name">
-              <div class="option">
-                <div>{{mark.name}}</div><div></div><div *ngIf="!isClosedMarksOptions">{{mark.minPrice | priceVisible}}</div>
-              </div>
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        
-        <mat-form-field class="markModelCompButtons">
-          <mat-label>Модель</mat-label>
-          <mat-select (openedChange) = "openModelsOptions($event)" [(ngModel)]="selectedModel" name="model">
-            <mat-option (click)="closeModelsOptions()" *ngFor="let model of models" [value]="model.name">
-              <div class="option">
-                <div>{{model.name}}</div><div></div><div *ngIf="!isClosedModelsOptions">{{model.minPrice | priceVisible}}</div>
-              </div>
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        
-        
-        <mat-form-field  class="markModelCompButtons" >
-          <mat-label>Комплектация</mat-label>
-          <mat-select (openedChange) = "openCompsOptions($event)" [(ngModel)]="selectedComp" name="comp">
-            <mat-option (click)="closeCompsOptions()" *ngFor="let comp of comps" [value]="comp.name">
-              <div class="option">
-                <div>{{comp.name}}</div><div></div><div *ngIf="!isClosedCompsOptions">{{comp.price | priceVisible}}</div>
-              </div>
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        </form>
-    </div>
-
-    <mat-form-field style="width: 100%" class="example-full-width">
-      <input matInput placeholder="Стоимость автомобиля..." [(ngModel)] = "price" name="price">
+    <p>Введите стоимсоть автомобиля:</p>
+    <mat-form-field class="price">
+      <input matInput placeholder="" [(ngModel)] = "price" name="price">
     </mat-form-field>
   </div>
 
@@ -115,7 +64,7 @@
     <mat-card class="slidersBlock">
 
       <!-- START CREDIT-LISING; USD-BYR SLIDERS -->
-      <div *ngIf="selectedFace == 'F' else U">
+      <div *ngIf="selectedFace == 'F'">
         <div class="booleanSliderLables">
           <span>Кредит</span>
           <span>Лизинг</span>
@@ -123,26 +72,20 @@
         <ng5-slider [(value)]="creditLisingValue"  [options]="creditLisingOptions"></ng5-slider>
         <!-- (valueChange)="isChangedCreditLising()" -->
       </div>
-      <ng-template #U>
-        <div class="booleanSliderLables">
-          <span>BYR</span>
-          <span>USD</span>
-        </div>
-        <div>
-          <ng5-slider [(value)]="BYRorUSDvalue" [options]="BYRorUSDoptions"></ng5-slider>
-        </div>
-      </ng-template>
       <!-- END CREDIT-LISING; USD-BYR SLIDERS -->
-    
-      
+
+
       <h2 style="margin: 8px 0 0 0; font-size: 1.7em;">
         Первый платёж: {{getFirstPayment()}}
       </h2>
       <div class="divForSlider">
-        <ng5-slider *ngIf="creditLisingValue === 0 else lisingFirstPaymentSlider" [(value)]="firstPaymentPercentageValue" [options]="firstPaymentPercentageOptions"></ng5-slider>
-        <ng-template #lisingFirstPaymentSlider>
-          <ng5-slider [(value)]="lisingFirstPaymentPercentageValue" [options]="lisingFirstPaymentPercentageOptions"></ng5-slider>
-        </ng-template>
+
+        <div class="divSliderContainer">
+          <ng5-slider *ngIf="creditLisingValue === 0" [(value)]="firstPaymentPercentageValue" [options]="firstPaymentPercentageOptions"></ng5-slider>
+          <ng5-slider *ngIf="creditLisingValue === 1" [(value)]="lisingFirstPaymentPercentageValue" [options]="lisingFirstPaymentPercentageOptions"></ng5-slider>
+        </div>
+
+
         <div  matTooltip="Текст подсказки про бегунок c процентом первого платежа"
               matTooltipPosition="above"
               matTooltipHideDelay="1000"
@@ -151,20 +94,22 @@
           ?
         </div>
       </div>
-      
-      <!-- <div style="display: flex; margin-top:20px">
-        <span *ngFor="let persentage of creditRepaymentValues">{{persentage}}</span>
-      </div> -->
-    
+
+      <div class="firstRepaymentValues">
+        <span *ngFor="let persentage of creditFirstPaymentPercentageValues">{{persentage}}</span>
+      </div>
+
       <h2 style="margin: 20px 0 0 0; font-size: 1.7em; ">
         Срок: {{getPeriod()}}
       </h2>
-  
+
       <div class="divForSlider">
-        <ng5-slider *ngIf="creditLisingValue === 0 else lisingRepaymentPeriodSlider" [(value)]="repaymentPeriodValue" [options]="repaymentPeriodOptions"></ng5-slider>
-        <ng-template #lisingRepaymentPeriodSlider>
-          <ng5-slider [(value)]="lisingRepaymentPeriodValue" [options]="lisingRepaymentPeriodOptions"></ng5-slider>
-        </ng-template>
+          <div class="divSliderContainer">
+            <ng5-slider *ngIf="creditLisingValue === 0 else lisingRepaymentPeriodSlider" [(value)]="repaymentPeriodValue" [options]="repaymentPeriodOptions"></ng5-slider>
+            <ng-template #lisingRepaymentPeriodSlider>
+              <ng5-slider [(value)]="lisingRepaymentPeriodValue" [options]="lisingRepaymentPeriodOptions"></ng5-slider>
+            </ng-template>
+          </div>
         <div  matTooltip="Текст подсказки про бегунок с периодом"
               matTooltipPosition="above"
               matTooltipHideDelay="1000"
@@ -173,16 +118,17 @@
           ?
         </div>
       </div>
+      <div style="height: 40px;"></div>
     </mat-card>
-    
+
     <mat-card class="slidersBlock">
       <div class="slidersRightBlock">
-        <h3>Лучший выбор:</h3>
-        <img [src]="link" class="image">
+        <!-- <h3>Лучший выбор:</h3>
+        <img [src]="link" class="image"> -->
         <h3>Процентная ставка:</h3>
-        <h3 class="values">{{(calculateRate() * 100).toFixed(2)}} %</h3>
+        <h2 class="values">{{(calculateRate() * 100).toFixed(2)}} %</h2>
         <h3>Ежемесячный платёж:</h3>
-        <h3 class="values">{{getPLT().toFixed(2)}} BYN</h3>
+        <h2 class="values">{{getPLT().toFixed(2)}} BYN</h2>
         <!--
         <div>Выгода:</div>
         <div>{{getExtraPayment()}}</div>
@@ -191,7 +137,7 @@
     </mat-card>
   </div>
 
-  <button mat-raised-button style="font-size: 1.1em; padding: 2px 10px" (click)="scrollToThirdPage()" color="primary" >Подробнее об условиях</button>
+  <button mat-raised-button class="aboutConditions" (click)="scrollToThirdPage()" color="primary" >Подробнее об условиях</button>
 </div>
 </div>
 </div>
@@ -206,45 +152,22 @@
   <mat-card class="request" >
     <p class="requestTitle"><strong>Заявка на финансирование</strong></p>
     <p class="requestDescription">Наш специалист свяжется с вами и подробно проконсультирует вас обо всех условиях покупки автомобиля</p>
-    <form onsubmit="console.log('efsf')" id="formaToPost" style="display: flex; flex-direction: column; align-items: center; width: 90%; height: 90%;">
-      <input type="hidden" name="project_name" value="Обратный Звонок">
-      <input type="hidden" name="admin_email" value="fligo14@gmail.com">
-      <input type="hidden" name="form_subject" value="New order">
-      <mat-form-field style="width: 400px">
-        <input matInput placeholder="Имя" value="" name="name" required>
+    <form #formData='ngForm' (ngSubmit)="submitForm(formData)" id="formaToPost" style="display: flex; flex-direction: column; align-items: center; width: 90%; height: 90%;">
+      <input type="hidden" name="project_name" (ngModel)="project_name" value="Обратный Звонок">
+      <input type="hidden" name="admin_email" (ngModel)="admin_email" value="info@av-finance.by">
+      <input type="hidden" name="form_subject" (ngModel)="form_subject" value="New order">
+      <mat-form-field class="requestInputs">
+        <input matInput placeholder="Имя" value="" name="name" (ngModel)="name" required>
       </mat-form-field>
-      <mat-form-field style="width: 400px">
-        <input matInput placeholder="Телефон" value="" name="phone" required>
+      <mat-form-field class="requestInputs">
+        <input matInput placeholder="Телефон" value="" name="phone" (ngModel)="phone" required>
       </mat-form-field>
-      <button style="width: 200px; height: 40px; font-size: 1.1em;" mat-raised-button type="submit" color="warn">Отправить заявку</button>
+      <button style="width: 200px; height: 40px; font-size: 1.1em;" mat-raised-button [disabled]="!formData.valid" type="submit" color="warn">Отправить заявку</button>
     </form>
   </mat-card>
+  <div class="footer">
+    <p>(с) 2019 Компания AV-Finance - продажа любых автомобилей с пробегом в кредит/лизинг на выгодных условиях. </p>
+  </div>
 </div>
 </div>
 </div>
-<div class="footer"></div>
-
-<script type="text/javascript">
-  $("#forma1").submit(function() { //Change
-    var th = $(this);
-    $.ajax({
-    type: "POST",
-    url: "mail.php", //Change
-    data: th.serialize()
-  }).done(function() {
-    swal({
-      title: "Обратный звонок",
-      text: "Write something interesting:",
-      showCancelButton: true,
-      closeOnConfirm: false,
-      animation: "slide-from-top",
-      html: true,
-    });
-    setTimeout(function() {
-      // Done Functions
-      th.trigger("reset");
-    }, 1000);
-  });
-  return false;
-});
-</script>
