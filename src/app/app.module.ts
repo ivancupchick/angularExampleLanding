@@ -14,9 +14,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-import { RequestComponent } from './request/request.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RequestComponent } from './request/request.component';
 
 import { Ng5SliderModule } from 'ng5-slider';
 import { PriceVisiblePipe } from './price-visible.pipe';
@@ -41,6 +43,7 @@ import { PriceVisiblePipe } from './price-visible.pipe';
     MatSliderModule,
     MatButtonModule,
     MatDialogModule,
+    MatTooltipModule,
     NgbModule,
     Ng5SliderModule,
   ],

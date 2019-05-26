@@ -1,13 +1,413 @@
+p, h1, div {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue' ,sans-serif;
+}
+
+/*
+.firstHalfFirstScreen {
+  background-image:  linear-gradient(41deg, #6666007e 20%, #6666007e 20%,  #ff000001 80%,  #ff000001 80%);
+  background-image:  linear-gradient(41deg, #6666007e 424px, #ff000001 425px, #ff000001 80%, #ff000001 80%);
+}
+.secondHalfFirstScreen {
+  background-image:  linear-gradient(41deg, #ffcc00d4 684px, #33333376 685px, #33333376 44%, #33333376 44%);
+}
+/*
+.secondScreen {
+  background: linear-gradient(41deg, #00000000 540px, #ffcc0099 541px, #ffcc0099 1262px, #00000000 1263px), url(../assets/images/service/secondScreen.jpg);
+  background: linear-gradient(41deg, #00000000 37%, #ffcc0099 37.04%, #ffcc0099 84.3%, #00000000 84.34%), url(../assets/images/service/secondScreen.jpg);
+  background-size: cover;
+}
+
+  background-image:  linear-gradient(41deg, #FFDDD6 20%, #FFF9ED 20%, #FFF9ED 80%, #DBDBDB 80%), url(../assets/images/service/firstScreen.jpg);
+
+.secondScreen {
+  background: url(../assets/images/service/secondScreen.jpg);
+  background-size: cover;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
 .screen {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+.blackLine {
+  width: 100%; 
+  height: 40px; 
+  position: fixed; 
+  background: linear-gradient(41deg, #ffcc00 120px, #333333 122px, #333333 80%, #333333 80%); 
+  z-index: 4;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff
+}
+.numberForConnection {
+  margin-right: 30px;
+  font-size: 1.3em;
+  display: flex;
+}
+.yellowTreangle {
+  background: url(../assets/images/service/triangle.svg);
+  background-size: cover;
+  margin-top: 3px;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.firstScreen {
+  background-image: url(../assets/images/service/firstScreen.jpg);
+  background-size: cover;
+}
+.secondHalfFirstScreenBlocks {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.bottonToDown {
+  position: absolute;
+  left: 101vmin;
+
+  background: #ffffff00;
+  border-color: #00000000;
+
+  border-top: 90px solid #ffffffcc;
+  border-left: 103px solid transparent;
+  height: 0;
+  width: 400px;
+}
+.bottonToDown p {
+  font-size: 32px;
+  color: #d70000;
+  margin-top: -65px;
+  margin-left: -10px;
+  position: absolute;
+}
+
+#logoAbsolute {
+  /* 
+  display: none;
+  */
+  position: absolute;
+  top: 40px;
+  left: 185px;
+
+  border-top: 90px solid #eee;
+  border-left: 103px solid transparent;
+  height: 0;
+  width: 300px;
+}
+#logoAbsolute div {
+  background: url(../assets/images/service/logo.png) no-repeat;
+  background-size: 300px auto;
+  height: 300px;
+  width: 500px;
+  margin-top: -75px;
+  position: absolute;
+}
+
+
+.iconContainer {
+  position: relative;
+  top: 6vmin;
+  left: 2%;
+  width: 105vmin;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.iconForAttract {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 24vmin;
+}
+.iconSize {
+  height: 20vmin;
+  width: 20vmin;
+}
+.iconTitleSize {
+  font-size: 2vmin;
+  font-weight: bold;
+  text-align: center;
+}
+.iconTime {
+  background: url(../assets/images/service/iconClock.png);
+  background-size: cover;
+}
+.iconDocument {
+  background: url(../assets/images/service/iconDocument.png);
+  background-size: cover;
+}
+.iconPercentage {
+  background: url(../assets/images/service/iconPercentage.png);
+  background-size: cover;
+}
+.iconTrafic {
+  background: url(../assets/images/service/iconTraffic.png);
+  background-size: cover;
+}
+.textTitle {
+  position: absolute;
+  top: -10px;
+  left: 30px;
+}
+.textTitle p {
+  margin-top: 20px;
+  font-size: 4.9vmin;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue' ,sans-serif;
+}
+.marginTop0 {
+  margin-top: 0;
+}
+.marginBot0 {
+  margin-bottom: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.screenPage2 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.page2Title {
+  font-size: 5.5vmin;
+  position: relative;
+  right: 0vmin;
+  margin: 0 0 0 0;
+  text-align: center;
+}
+.choiseAutoType {
+  width: 80vmin;
+}
+.choiseAutoType h3 {
+  margin: 0;
+}
+.buttonGroup {
+  width: 100%;
+  border-width: 2px;
+  border-color: #333333ee;
+}
+.buttonGroup * {
+  border-width: 2px;
+  border-color: #333333ee;
+}
+.radioButton {
+  width: 50%;
+  background: #ffffff21;
+}
+.button {
+  width: 50%;
+}
+.markModelCompBlock {
+  margin-top: 5px;
+}
+.markModelCompForm {
+  display: flex;
+  justify-content: space-between;
+}
+.markModelCompButtons {
+  width: 30%;
+}
+.booleanSliderLables {
+  width: 100%;
+  display: flex;
+  justify-content:space-between;
+  margin-bottom: 7px;
+}
+.booleanSliderLables span {
+  font-size: 1.6em;
+  font-weight: bold;
+}
+.slidersAndBestChoise {
+  margin: -20px 10px 0 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.slidersBlock {
+  min-width: 350px; 
+  margin: 10px;
+  min-height: 200px;
+  font-size: 10px;
+  background-color: #ffffff40;
+}
+.slidersRightBlock {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  height: 100%; 
+  width: 100%
+}
+.slidersRightBlock h3 {
+  margin: 4px 0;
+  font-size: 1.5em;
+}
+.values {
+  font-weight: 900;
+}
+ng5-slider {
+  margin: 10px 0 10px 0;
+}
+.toolTip {
+  width: 20px; 
+  height: 20px; 
+  margin: 21px 0 0 7px; 
+  font-size: 1.5em; 
+
+  border-radius: 3px; 
+  border:solid 1px gray; 
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* MAYBE I NOT NEED THIS RULE */
+.margin {
+  width: 151px;
+  margin: 5px auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.thirdScreen {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.thirdScreen > * {
+  font-family: 'Times New Roman', Times, serif;
+}
+.request {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+
+  min-width: 600px;
+  background: #ffcc00;
+  margin-bottom: 150px;
+}
+.requestTitle {
+  font-size: 38px; 
+  margin: 0;
+}
+.requestDescription {
+  font-size: 20px;  
+  margin: 2px;
+  width: 600px;
+  text-align: justify;
+}
+
+
+
+
+.footer {
+  height: 150px;
+  width: 100%;
+
+  background: #333333;
+
+  color: #ffcc00;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .main {
   max-width: 800px;
   padding: 20px;
+}
+
+.mainContent > * {
+  color: #F2F3F5;
 }
 
 .mainTitle {
@@ -15,12 +415,6 @@
   justify-content: center;
 }
 
-.button {
-  width: 50%;
-}
-.buttonGroup {
-  width: 100%;
-}
 .option {
   display: flex;
   justify-content: space-between;
@@ -32,7 +426,7 @@
   align-items: center;
   justify-content: center;
 }
-.mainContent > * {
+.margin5padding5 {
   padding: 5px;
   margin: 5px;
 }
@@ -43,27 +437,25 @@
   background-size: cover; 
 }
 
-.margin {
-  width: 151px;
-  margin: 5px auto;
-}
-
 ng5-slider > * {
   margin: 5px;
 }
 
-.slidersBlock {
-  min-width: 350px; 
-  margin: 10px;
-  min-height: 300px;
-  font-size: 10px;
-}
+
 ng5-slider > span {
   display: none;
 }
 
+.divForSlider {
+  display: flex; 
+  justify-content:space-between; 
+  align-items:center;
+}
+
+
 
 @media screen and (max-device-width: 824px) {
+  /*
   .slidersBlock {
     min-width: 250px; 
     margin: 10px;
@@ -73,5 +465,16 @@ ng5-slider > span {
   .responsiveForm {
     max-width: 230px;
   }
-
+  */
+  .request {
+    min-width: 80%;
+  }
+  .requestTitle {
+    font-size: 6vmin; 
+    margin: 0;
+  }
+  .requestDescription {
+    font-size: 5vmin;  
+    margin: 2px;
+  }
 }

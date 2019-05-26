@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RequestComponent } from './request/request.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Options, CustomStepDefinition, LabelType } from 'ng5-slider';
+import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 
 export class Mark {
   constructor(public name: string, public minPrice: number, public models: Model[]) { }
@@ -48,32 +49,26 @@ export class AppComponent {
   selectedFace = 'F';
   selectedNew = 'new';
 
-  CreditOrLisingOutput: string[] = ['Кредит', 'Лизинг'];
-  creditLisingValue = this.wordToIndex('Кредит', this.CreditOrLisingOutput);
+  creditLisingValue = 0;
   creditLisingOptions: Options = {
-    stepsArray: this.CreditOrLisingOutput.map((word: string): CustomStepDefinition => {
-      return { value: this.wordToIndex(word, this.CreditOrLisingOutput) };
-    }),
-    translate: (value: number, label: LabelType): string => {
-      return this.indexToWord(value, this.CreditOrLisingOutput);
-    },
+    floor: 0,
+    ceil: 1,
+    step: 1,
     showTicks: true,
     showSelectionBar: true,
     hidePointerLabels: true,
+    hideLimitLabels: true,
   };
 
-  BYRorUSDOutput: string[] = ['BYR', 'USD'];
-  BYRorUSDvalue = this.wordToIndex('BYR', this.BYRorUSDOutput);
+  BYRorUSDvalue = 0;
   BYRorUSDoptions: Options = {
-    stepsArray: this.BYRorUSDOutput.map((word: string): CustomStepDefinition => {
-      return { value: this.wordToIndex(word, this.BYRorUSDOutput) };
-    }),
-    translate: (value: number, label: LabelType): string => {
-      return this.indexToWord(value, this.BYRorUSDOutput);
-    },
+    floor: 0,
+    ceil: 1,
+    step: 1,
     showTicks: true,
     showSelectionBar: true,
     hidePointerLabels: true,
+    hideLimitLabels: true,
   };
 
   firstPaymentPercentageValue = 15;
@@ -94,6 +89,7 @@ export class AppComponent {
     },
   };
 
+  // creditRepaymentValues: string[] = ['0%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%'];
   repaymentPeriodValue = 12;
   repaymentPeriodOptions: Options = {
     floor: 6,
@@ -213,6 +209,7 @@ export class AppComponent {
     ]),
   ];
 
+
   selectedMark = 'Geely';
   models: Model[] = this.allMarks[ (this.findMark(this.selectedMark)) ].models;
   selectedModel: string = this.allMarks[ (this.findMark(this.selectedMark)) ].models[0].name;
@@ -229,16 +226,77 @@ export class AppComponent {
   isClosedModelsOptions = true;
   isClosedCompsOptions = true;
 
-  constructor(private dialog: MatDialog) {
-    // Screen size
+  firstScreenFirstHalfStyle: SafeStyle;
+  firstScreenSecondHalfStyle: SafeStyle;
+  secondScreenStyle: SafeStyle;
+  thirdScreenStyle: SafeStyle;
+
+  constructor(private dialog: MatDialog, protected sanitizer: DomSanitizer) {
+    this.setLibeSizes();
+    //let firstScreenSecondHaldLineSize = 
+
+
+
+    /*
+    let newFigure = 1118 + ((document.documentElement.clientHeight - 766) * 0.755);
+    this.styleScreen = this.transform(
+      `background: linear-gradient(41deg, #3333334d 30%, #3333334d 30%, #3333334d ${newFigure}px, #ffcc0099 ${newFigure + 1}px),
+       url(../assets/images/service/thirdScreen.jpg); background-size: cover;`);
+    */
+
+       // Screen size
     this.clientWidth = document.documentElement.clientWidth;
     this.clientHeight = document.documentElement.clientHeight;
     window.addEventListener('resize', () => {
+      this.setLibeSizes();
+      
       this.clientWidth = document.documentElement.clientWidth;
       this.clientHeight = document.documentElement.clientHeight;
+      /*
+      let newFigure = 1118 + ((document.documentElement.clientHeight - 766) * 0.755);
+      this.styleScreen = this.transform(
+        `background: linear-gradient(41deg, #3333334d 30%, #3333334d 30%, #3333334d ${newFigure}px, #ffcc0099 ${newFigure + 1}px),
+        url(../assets/images/service/thirdScreen.jpg); background-size: cover;`);
+      */
     });
 
     this.calculateMinPricesForMarks();
+  }
+
+  private setLibeSizes() {
+    // first page
+    const height = document.documentElement.clientHeight;
+
+    const firstScreenFirstHalfLineSize = 424 + (((height * 0.55) - (766 * 0.55)) * 0.755);
+    this.firstScreenFirstHalfStyle = this.transform(
+      `background: linear-gradient(41deg, #6666007e ${firstScreenFirstHalfLineSize}px, #ff000001
+      ${firstScreenFirstHalfLineSize + 1}px, #ff000001 80%, #ff000001 80%)`
+    );
+    const firstScreenSecondHalfLineSize = 684 + (((height * 0.45) - (766 * 0.45)) * 1.675);
+    this.firstScreenSecondHalfStyle = this.transform(
+      `background:  linear-gradient(41deg, #ffcc0099 ${firstScreenSecondHalfLineSize}px, #33333376
+       ${firstScreenSecondHalfLineSize + 1}px, #33333376 1%, #33333376 1%)` // ffcc00d4
+    );
+
+    // second page
+    const secondScreenFirstLineSize = 540 + ((height - 766) * 0.755);
+    const secondScreenSecondLineSize = 1262 + ((height - 766) * 1.509);
+    this.secondScreenStyle = this.transform(
+      `background:  linear-gradient(41deg, #00000000 ${secondScreenFirstLineSize}px, #ffcc0099 ${secondScreenFirstLineSize + 1}px,
+       #ffcc0099 ${secondScreenSecondLineSize}px, #00000000 ${secondScreenSecondLineSize + 1}px),
+       url(../assets/images/service/secondScreen.jpg); background-size: cover;`
+    );
+
+    // third page
+    const thirdScreenLineSize = 1118 + ((height - 766) * 1.509);
+    this.thirdScreenStyle = this.transform(
+      `background: linear-gradient(41deg, #3333334d 30%, #3333334d 30%, #3333334d ${thirdScreenLineSize}px,
+       #ffcc0099 ${thirdScreenLineSize + 1}px), url(../assets/images/service/thirdScreen.jpg); background-size: cover;`
+    );
+  }
+
+  public transform(style: string): SafeStyle {
+    return this.sanitizer.bypassSecurityTrustStyle(style);
   }
 
   findModel(name: string) {
@@ -336,7 +394,7 @@ export class AppComponent {
     window.scrollTo({ left: 0, top: this.clientHeight, behavior: 'smooth'});
   }
   scrollToThirdPage() {
-    window.scrollTo({ left: 0, top: (this.clientHeight * 2), behavior: 'smooth'});
+    window.scrollTo({ left: 0, top: (this.clientHeight * 3), behavior: 'smooth'});
   }
 
 
