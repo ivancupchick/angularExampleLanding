@@ -1,4 +1,3 @@
-
 <div [style.minWidth.px] = "clientWidth" class="blackLine">
   <div class="logo"></div>
   <span class="numberForConnection">
@@ -54,7 +53,7 @@
 <div class="screenPage2" [style.minWidth.px] = "clientWidth" [style.minHeight.px] = "clientHeight">
   <h1 class="page2Title">ПОДБЕРИТЕ ИНДИВИДУАЛЬНЫЙ ВАРИАНТ ФИНАНСИРОВАНИЯ</h1>
   <div class="choiseAutoType">
-    <p>Введите стоимсоть автомобиля:</p>
+    <p>Введите стоимость автомобиля:</p>
     <mat-form-field class="price">
       <input matInput placeholder="" [(ngModel)] = "price" name="price">
     </mat-form-field>
@@ -75,7 +74,7 @@
       <!-- END CREDIT-LISING; USD-BYR SLIDERS -->
 
 
-      <h2 style="margin: 8px 0 0 0; font-size: 1.7em;">
+      <h2 class="titlesWithValues">
         Первый платёж: {{getFirstPayment()}}
       </h2>
       <div class="divForSlider">
@@ -99,7 +98,7 @@
         <span *ngFor="let persentage of creditFirstPaymentPercentageValues">{{persentage}}</span>
       </div>
 
-      <h2 style="margin: 20px 0 0 0; font-size: 1.7em; ">
+      <h2 class="titlesWithValues marginTopForMobile">
         Срок: {{getPeriod()}}
       </h2>
 

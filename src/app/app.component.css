@@ -349,6 +349,10 @@ ng5-slider {
 .firstRepaymentValues span {
 
 }
+.titlesWithValues {
+  margin: 8px 0 0 0;
+  font-size: 1.7em;
+}
 .toolTip {
   width: 20px;
   height: 20px;
@@ -358,7 +362,7 @@ ng5-slider {
   border-radius: 3px;
   border:solid 1px gray;
 
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
 }
@@ -630,13 +634,54 @@ ng5-slider > span {
 
 
 @media screen and (max-device-width: 430px) {
+  .iconTitleSize {
+    font-size: 3.2vmin;
+  }
+  .choiseAutoType {
+    align-items: center;
+  }
+  .choiseAutoType p {
+    font-size: 1.6em;
+  }
+
+  .page2Title {
+    margin-bottom: 10px;
+  }
   .price {
     width: 60%;
-    margin-left: 30%;
+    margin-left: 0;
+    font-size: 7vmin;
+    margin-top: -24px;
+    text-align: center;
   }
   .slidersBlock {
     width: 90%;
     height: 50%;
     min-height: 50%;
+    font-size: 3.2vmin;
+    background-color: #ffffffea;
+  }
+  .request {
+    padding: 20px;
+  }
+  .requestTitle {
+    font-size: 1.37em;
+  }
+  .requestDescription {
+    text-align: justify;
+    font-size: 13pt;
+    width: 105%;
+  }
+  .titlesWithValues {
+    margin: 10px 0 10px 0;
+    font-size: 1.50em;
+  }
+  .marginTopForMobile {
+    margin-top: 25px;
+  }
+  .footer p {
+    font-size: 12pt;
+    text-align: justify;
+    width: 97%;
   }
 }
