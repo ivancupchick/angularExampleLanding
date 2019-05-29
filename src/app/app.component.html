@@ -20,7 +20,7 @@
   <div [style]="firstScreenSecondHalfStyle">
   <div class="secondHalfFirstScreenBlocks" [style.minWidth.px] = "clientWidth" [style.minHeight.px] = "clientHeight*0.45">
     <div class="textTitle">
-      <p>КРЕДИТ И ЛИЗИНГ АВТОМОБИЛЕЙ<br> С ПРОБЕГОМ ДЛЯ ФИЗИЧЕСКИХ ЛИЦ</p>
+      <p>ПРОДАЖА АВТОМОБИЛЕЙ С ПРОБЕГОМ<br> В КРЕДИТ/ЛИЗИНГ ДЛЯ ФИЗИЧЕСКИХ ЛИЦ</p>
     </div>
     <div class="iconContainer">
       <div class="iconForAttract">
@@ -98,7 +98,7 @@
         <span *ngFor="let persentage of creditFirstPaymentPercentageValues">{{persentage}}</span>
       </div>
 
-      <h2 class="titlesWithValues marginTopForMobile">
+      <h2 class="marginTopForMobile">
         Срок: {{getPeriod()}}
       </h2>
 
@@ -165,7 +165,26 @@
     </form>
   </mat-card>
   <div class="footer">
-    <p>(с) 2019 Компания AV-Finance - продажа любых автомобилей с пробегом в кредит/лизинг на выгодных условиях. </p>
+    <div class="footerBlockLeft">
+      <p>(с) 2019 Компания AV-Finance - продажа любых автомобилей с пробегом в кредит/лизинг на выгодных условиях. </p>
+    </div>
+    <div class="footerBlockRight" style="display: flex;">
+      <div class="divFooterIcons">
+        <i class="footerIconPhone"></i>
+        <div style="display: flex; flex-direction: column; align-items: left; justify-content: space-around">
+          <span>ТЕЛЕФОНЫ</span>
+          <span class="value">+375(33)689-29-89</span>
+        </div>
+      </div>
+      <div class="divFooterIcons">
+        <i class="footerIconMail"></i>
+        <div style="display: flex; flex-direction: column; align-items: left; justify-content: space-around">
+          <span>НАПИСАТЬ НАМ</span>
+          <span class="value">info@av-finance.by</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 </div>

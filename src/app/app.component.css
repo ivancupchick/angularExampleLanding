@@ -113,6 +113,9 @@ p, h1, div {
   font-weight: bolder;
   font-size: 31px;
 }
+.marginTopForMobile {
+  margin-top: 25px;
+}
 .bottonToDown p {
   font-size: 32px;
   color: #d70000;
@@ -190,12 +193,12 @@ p, h1, div {
 .textTitle {
   position: absolute;
   top: -10px;
-  left: 30px;
+  left: 20px;
   text-align: left;
 }
 .textTitle p {
   margin: 20px 0 10px 0;
-  font-size: 4.9vmin;
+  font-size: 4.2vmin;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue' ,sans-serif;
 }
 .marginTop0 {
@@ -429,7 +432,7 @@ ng5-slider {
   font-size: 20px;
   margin: 2px;
   width: 600px;
-  text-align: center3;
+  text-align: center;
 }
 .requestInputs {
   width: 100%;
@@ -439,7 +442,7 @@ ng5-slider {
 
 
 .footer {
-  height: 80px;
+  height: 120px;
   width: 100%;
 
   background: #333333;
@@ -449,10 +452,65 @@ ng5-slider {
   bottom: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+
 }
-
-
+.footerBlockLeft {
+  width: 40%;
+}
+.footerBlockRight {
+  width: 50%;
+  /* font-size: 1em; */
+}
+.divFooterIcons {
+  width: 50%;
+  display: flex;
+}
+.divFooterIcons div .value {
+  font-size: 0.9em;
+}
+.divFooterIconPhone {
+  display: flex;
+}
+.footerIconPhone {
+  width: 60px;
+  height: 60px;
+  margin-right: 17px;
+  border-radius: 50%;
+  border: 1px solid #ffcc00;
+  transition: background .5s;
+  display: flex;
+}
+.footerIconPhone:before {
+  margin:auto;
+  content: "";
+  background-position: 0 0;
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  background-image: url(../assets/images/service/phone.png);
+}
+.divFooterIconMail {
+  display: flex;
+}
+.footerIconMail {
+  width: 60px;
+  height: 60px;
+  margin-right: 17px;
+  border-radius: 50%;
+  border: 1px solid #ffcc00;
+  transition: background .5s;
+  display: flex;
+}
+.footerIconMail:before {
+  margin:auto;
+  content: "";
+  background-position: 0 0;
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  background-image: url(../assets/images/service/mail.png);
+}
 
 
 
@@ -678,6 +736,7 @@ ng5-slider > span {
   }
   .marginTopForMobile {
     margin-top: 25px;
+    font-size: 1.7em;
   }
   .footer p {
     font-size: 12pt;

@@ -607,9 +607,4 @@ export class AppComponent {
   }
   */
   // THE END CALCULATIONS FUNCTIONS
-
-
-
-
-
 }
