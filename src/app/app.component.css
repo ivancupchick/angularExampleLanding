@@ -472,7 +472,7 @@ ng5-slider {
 .divFooterIconPhone {
   display: flex;
 }
-.footerIconPhone {
+.footerIcon {
   width: 60px;
   height: 60px;
   margin-right: 17px;
@@ -491,15 +491,6 @@ ng5-slider {
   background-image: url(../assets/images/service/phone.png);
 }
 .divFooterIconMail {
-  display: flex;
-}
-.footerIconMail {
-  width: 60px;
-  height: 60px;
-  margin-right: 17px;
-  border-radius: 50%;
-  border: 1px solid #ffcc00;
-  transition: background .5s;
   display: flex;
 }
 .footerIconMail:before {
@@ -742,5 +733,70 @@ ng5-slider > span {
     font-size: 12pt;
     text-align: justify;
     width: 97%;
+  }
+  .footer {
+    height: 170px;
+    width: 100%;
+
+    background: #333333;
+
+    color: #ffcc00;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-around;
+
+  }
+  .footerBlockLeft {
+    width: 95%;
+  }
+  .footerBlockRight {
+    width: 95%;
+    /* font-size: 1em; */
+  }
+  .divFooterIcons {
+    width: 50%;
+    display: flex;
+  }
+  .divFooterIcons div .value {
+    font-size: 0.7em;
+  }
+  .divFooterIcons div span {
+    font-size: 0.8em;
+  }
+  .divFooterIconPhone {
+    display: flex;
+  }
+  .footerIconPhone:before {
+    margin:auto;
+    content: "";
+    background-position: 0 0;
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    background-image: url(../assets/images/service/phone.png);
+  }
+  .divFooterIconMail {
+    display: flex;
+  }
+  .footerIcon {
+    width: 40px;
+    height: 40px;
+    margin-right: 3px;
+    border-radius: 50%;
+    border: 1px solid #ffcc00;
+    transition: background .5s;
+    display: flex;
+  }
+  .footerIconMail:before {
+    margin:auto;
+    content: "";
+    background-position: 0 0;
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    background-image: url(../assets/images/service/mail.png);
   }
 }
