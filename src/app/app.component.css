@@ -1,5 +1,5 @@
 p, h1, div {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue' ,sans-serif;
+  font-family: Roboto-Light,Helvetica,Arial,sans-serif;
 }
 
 /*
@@ -44,7 +44,7 @@ p, h1, div {
 .blackLine {
   height: 40px;
   position: fixed;
-  background: linear-gradient(41deg, #ffcc00 120px, #333333 122px, #333333 80%, #333333 80%);
+  background: #333333;
   z-index: 4;
 
   display: flex;
@@ -52,9 +52,23 @@ p, h1, div {
   align-items: center;
   color: #fff
 }
+
+.logo {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+.emptyDivForPositionLogo {
+  width: 65px;
+}
+.logo span {
+  color: white;
+  font-family: Roboto-Bold, Helvetica, Arial, sans-serif;
+  font-size: 25px;
+}
 .numberForConnection {
   margin-right: 30px;
-  font-size: 1.3em;
+  font-size: 2.2rem;
   display: flex;
 }
 .yellowTreangle {
@@ -82,13 +96,36 @@ p, h1, div {
 
 
 .firstScreen {
-  background-image: url(../assets/images/service/firstScreen.jpg);
+  background-image: linear-gradient(41deg, #00000099 540px, #00000099 541px, #00000099 1262px, #00000099 1263px), url(../assets/images/service/firstScreen.jpg);
   background-size: cover;
 }
 .secondHalfFirstScreenBlocks {
   position: relative;
   display: flex;
+}
+.mainTitleAndDescription {
+  width: 100%;
+  height: 100%;
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.mainTitle {
+}
+.mainTitle p {
+  color: white;
+  font-size: 4rem;
+  font-family: "Rubik",sans-serif;
+  text-align: center;
+}
+.mainDescription {
+  color: white;
+  width: 50%;
+}
+.mainDescription p {
+  font-size: 1.6rem;
+  text-align: center;
 }
 .bottonToDown {
   position: absolute;
@@ -126,33 +163,11 @@ p, h1, div {
   width: 300px;
 }
 
-#logoAbsolute {
-  /*
-  display: none;
-  */
-  position: absolute;
-  top: 40px;
-  left: 185px;
 
-  border-top: 90px solid #eee;
-  border-left: 103px solid transparent;
-  height: 0;
-  width: 300px;
-}
-#logoAbsolute div {
-  background: url(../assets/images/service/logo.png) no-repeat;
-  background-size: 300px auto;
-  height: 300px;
-  width: 500px;
-  margin-top: -75px;
-  position: absolute;
-}
+
 
 
 .iconContainer {
-  position: relative;
-  top: 16vmin;
-  left: 1%;
   width: 105vmin;
   display: flex;
   align-items: center;
@@ -190,17 +205,7 @@ p, h1, div {
   background: url(../assets/images/service/iconTraffic.png);
   background-size: cover;
 }
-.textTitle {
-  position: absolute;
-  top: -10px;
-  left: 20px;
-  text-align: left;
-}
-.textTitle p {
-  margin: 20px 0 10px 0;
-  font-size: 4.2vmin;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue' ,sans-serif;
-}
+
 .marginTop0 {
   margin-top: 0;
 }
@@ -294,7 +299,7 @@ p, h1, div {
   margin-bottom: 7px;
 }
 .booleanSliderLables span {
-  font-size: 1.5em;
+  font-size: 2rem;
   font-weight: bold;
 }
 .slidersAndBestChoise {
@@ -307,7 +312,7 @@ p, h1, div {
   width: 50%;
   margin: 10px;
   min-height: 200px;
-  font-size: 1.5vmin;
+  font-size: 1.4rem;
   background-color: #ffffff40;
 }
 .slidersRightBlock {
@@ -320,11 +325,11 @@ p, h1, div {
 }
 .slidersRightBlock h3 {
   margin: 4px 0;
-  font-size: 1.5em;
+  font-size: 2.1rem;
 }
 .slidersRightBlock h2 {
   margin: 4px 0;
-  font-size: 2.1em;
+  font-size: 2.4rem;
 }
 .values {
   font-weight: 900;
@@ -353,14 +358,14 @@ ng5-slider {
 
 }
 .titlesWithValues {
-  margin: 8px 0 0 0;
-  font-size: 1.7em;
+  margin: 8px 0 8px 0;
+  font-size: 2rem;
 }
 .toolTip {
   width: 20px;
   height: 20px;
   margin: 2px 0 0 7px;
-  font-size: 1.5em;
+  font-size: 1.5rem;
 
   border-radius: 3px;
   border:solid 1px gray;
@@ -370,7 +375,7 @@ ng5-slider {
   justify-content: center;
 }
 .aboutConditions {
-  font-size: 1.6em;
+  font-size: 1.6rem;
   padding: 10px 30px;
 }
 
@@ -467,7 +472,7 @@ ng5-slider {
   display: flex;
 }
 .divFooterIcons div .value {
-  font-size: 0.9em;
+  /* font-size: 2rem; */
 }
 .divFooterIconPhone {
   display: flex;
@@ -683,6 +688,29 @@ ng5-slider > span {
 
 
 @media screen and (max-device-width: 430px) {
+  .emptyDivForPositionLogo {
+    width: 4px;
+  }
+  .mainTitle p {
+    color: white;
+    font-size: 2rem;
+    font-family: "Rubik",sans-serif;
+    text-align: center;
+  }
+  .mainDescription {
+    color: white;
+    width: 90%;
+  }
+  .mainDescription p {
+    text-indent: 1.5em;
+    font-size: 1.4rem;
+    text-align: justify;
+  }
+  .secondHalfFirstScreenBlocks {
+    padding-top: 10px;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
   .iconTitleSize {
     font-size: 3.2vmin;
   }
@@ -690,9 +718,9 @@ ng5-slider > span {
     align-items: center;
   }
   .choiseAutoType p {
-    font-size: 1.6em;
+    font-size: 1.9rem;
+    border-bottom: #d70000 solid 2px;
   }
-
   .page2Title {
     margin-bottom: 10px;
   }
@@ -715,6 +743,7 @@ ng5-slider > span {
   }
   .requestTitle {
     font-size: 1.37em;
+    text-align: center;
   }
   .requestDescription {
     text-align: justify;
