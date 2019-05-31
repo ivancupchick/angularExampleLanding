@@ -148,7 +148,7 @@ p, h1, div {
 }
 .bottonToDown:hover p {
   font-weight: bolder;
-  font-size: 31px;
+  font-size: 30px;
 }
 .marginTopForMobile {
   margin-top: 25px;
@@ -259,9 +259,12 @@ p, h1, div {
 }
 .choiseAutoType p {
   margin: 0;
+  text-align: center;
+  border-bottom: #d70000 solid 1px;
 }
 .price {
   width: 80%;
+  text-align: center;
 }
 .choiseAutoType h3 {
   margin: 0;
@@ -431,6 +434,7 @@ ng5-slider {
 }
 .requestTitle {
   font-size: 38px;
+  text-align: center;
   margin: 0;
 }
 .requestDescription {
@@ -598,7 +602,6 @@ ng5-slider > span {
   }
   .requestTitle {
     font-size: 5.9vmin;
-    margin: 0;
   }
   .requestDescription {
     font-size: 3vmin;
@@ -611,8 +614,9 @@ ng5-slider > span {
     width: 90%;
   }
   .secondHalfFirstScreenBlocks {
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
   }
   .bottonToDown {
     position: static;
@@ -666,6 +670,13 @@ ng5-slider > span {
     align-items: center;
     justify-content: space-around;
   }
+  .footerBlockLeft {
+    width: 40%;
+  }
+  .footerBlockRight {
+    width: 56%;
+    /* font-size: 1em; */
+  }
 
   .textTitle {
     position: static;
@@ -674,9 +685,8 @@ ng5-slider > span {
     margin-right: 2%;
   }
   .price {
-    width: 50%;
+    width: 100%;
     font-size: 5vmin;
-    margin-left: 30%;
   }
   .page2Title {
     margin-top: 50px;
@@ -719,7 +729,6 @@ ng5-slider > span {
   }
   .choiseAutoType p {
     font-size: 1.9rem;
-    border-bottom: #d70000 solid 2px;
   }
   .page2Title {
     margin-bottom: 10px;
@@ -743,7 +752,6 @@ ng5-slider > span {
   }
   .requestTitle {
     font-size: 1.37em;
-    text-align: center;
   }
   .requestDescription {
     text-align: justify;
@@ -827,5 +835,17 @@ ng5-slider > span {
     height: 35px;
     display: inline-block;
     background-image: url(../assets/images/service/mail.png);
+  }
+}
+@media screen and (max-device-width: 340px) {
+  .logo span {
+    font-size: 1.8rem;
+  }
+  .numberForConnection {
+    font-size: 1.8rem;
+  }
+  .yellowTreangle {
+    margin: 0 4px 0 0;
+    height: auto;
   }
 }
