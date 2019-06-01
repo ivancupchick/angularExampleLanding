@@ -1,0 +1,63 @@
+
+.header {
+  height: 100%;
+  width: 100%;
+  background: #333333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff
+}
+
+.logo {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+.emptyDivForPositionLogo {
+  width: 65px;
+}
+.logo span {
+  color: white;
+  font-family: Roboto-Bold, Helvetica, Arial, sans-serif;
+  font-size: 25px;
+}
+.numberForConnection {
+  margin-right: 30px;
+  font-size: 2.2rem;
+  display: flex;
+}
+.yellowTreangle {
+  background: url(../../assets/images/service/triangle.svg);
+  background-size: cover;
+  margin-top: 3px;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+@media screen and (max-device-width: 824px) {
+  .numberForConnection {
+    margin-right: 5%;
+  }
+  .logo {
+    margin-left: 5%
+  }
+
+  .emptyDivForPositionLogo {
+    width: 4px;
+  }
+}
+
+@media screen and (max-device-width: 340px) {
+  .logo span {
+    font-size: 1.8rem;
+  }
+  .numberForConnection {
+    font-size: 1.8rem;
+  }
+  .yellowTreangle {
+    margin: 0 4px 0 0;
+    height: auto;
+  }
+}

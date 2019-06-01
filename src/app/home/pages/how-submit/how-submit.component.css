@@ -47,23 +47,23 @@ p {
   margin-top: 0;
 }
 .step1Image {
-  background-image: url(../../../assets/images/service/stepToSubmit/step1.png);
+  background-image: url(../../../../assets/images/service/stepToSubmit/step1.png);
   background-size: cover;
 }
 .step2Image {
-  background-image: url(../../../assets/images/service/stepToSubmit/step2.png);
+  background-image: url(../../../../assets/images/service/stepToSubmit/step2.png);
   background-size: cover;
 }
 .step3Image {
-  background-image: url(../../../assets/images/service/stepToSubmit/step3.png);
+  background-image: url(../../../../assets/images/service/stepToSubmit/step3.png);
   background-size: cover;
 }
 .step4Image {
-  background-image: url(../../../assets/images/service/stepToSubmit/step4.png);
+  background-image: url(../../../../assets/images/service/stepToSubmit/step4.png);
   background-size: cover;
 }
 .step5Image {
-  background-image: url(../../../assets/images/service/stepToSubmit/step5.png);
+  background-image: url(../../../../assets/images/service/stepToSubmit/step5.png);
   background-size: cover;
 }
 .toNextStep {
@@ -75,7 +75,7 @@ p {
 .toNextStep div {
   min-width: 40px;
   height: 40px;
-  background-image: url(../../../assets/images/service/stepToSubmit/arrow.png);
+  background-image: url(../../../../assets/images/service/stepToSubmit/arrow.png);
   background-size: cover;
 }
 
@@ -88,22 +88,22 @@ p {
   width: 19%;
 }
 .advantage1Image {
-  background-image: url(../../../assets/images/service/ourAdvantages/advant1.png);
+  background-image: url(../../../../assets/images/service/ourAdvantages/advant1.png);
   background-size: cover;
 }
 .advantage2Image {
-  background-image: url(../../../assets/images/service/ourAdvantages/advant2.png);
+  background-image: url(../../../../assets/images/service/ourAdvantages/advant2.png);
   background-size: cover;
 }
 .advantage3Image {
-  background-image: url(../../../assets/images/service/ourAdvantages/advant3.png);
+  background-image: url(../../../../assets/images/service/ourAdvantages/advant3.png);
   background-size: cover;
 }
 .advantage4Image {
-  background-image: url(../../../assets/images/service/ourAdvantages/advant4.png);
+  background-image: url(../../../../assets/images/service/ourAdvantages/advant4.png);
   background-size: cover;
 }
 .advantage5Image {
-  background-image: url(../../../assets/images/service/ourAdvantages/advant5.png);
+  background-image: url(../../../../assets/images/service/ourAdvantages/advant5.png);
   background-size: cover;
 }

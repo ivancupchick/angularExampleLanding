@@ -1,9 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+p, h1, div {
+  font-family: Roboto-Light,Helvetica,Arial,sans-serif;
+}
 
 .toolTipText {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: Roboto-Light,Helvetica,Arial,sans-serif;
   font-size: 0.9em;
 }
 

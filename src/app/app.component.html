@@ -1,59 +1,14 @@
-<div [style.minWidth.px] = "clientWidth" class="blackLine">
-  <div class="logo">
-    <div class="emptyDivForPositionLogo"></div>
-      <span>AV-Finance</span>
-  </div>
-  <span class="numberForConnection">
-    <div class="yellowTreangle"></div>
-    +375(33)689-29-89
-  </span>
+<div [style.minWidth.px] = "clientWidth" class="header">
+  <app-header>
+  </app-header>
 </div>
 
-<!--  First screen -->
-<div class="screen firstScreen" [style.minWidth.px] = "clientWidth" [style.minHeight.px] = "clientHeight">
-  <div [style.minWidth.px] = "clientWidth" [style.minHeight.px] = "clientHeight*0.55" >
-  <div [style]="firstScreenFirstHalfStyle">
-  <div class="screen" [style.minWidth.px] = "clientWidth" [style.minHeight.px] = "clientHeight*0.55" >
-    <div class="mainTitleAndDescription">
-      <div class="mainTitle">
-        <p>КРЕДИТ / ЛИЗИНГ АВТОМОБИЛЕЙ С ПРОБЕГОМ<br> ДЛЯ ФИЗИЧЕСКИХ ЛИЦ</p>
-      </div>
-      <div class="mainDescription">
-        <p>Мы проанализировали все предложения банков и лизинговых компаний в области финансирования покупки автомобиля и подобрали для Вас самые выгодные условия. Наши партнерские соглашения с банками позволяют выбрать Вам самый лучший вариант финансирования.</p>
-      </div>
-    </div>
-  </div>
-  </div>
-  </div>
-
-  <div [style.minWidth.px] = "clientWidth" [style.minHeight.px] = "clientHeight*0.45">
-  <div [style]="firstScreenSecondHalfStyle">
-  <div class="secondHalfFirstScreenBlocks" [style.minWidth.px] = "clientWidth" [style.minHeight.px] = "clientHeight*0.45">
-    <div class="iconContainer">
-      <div class="iconForAttract">
-        <div class="iconTime iconSize"></div>
-        <p class="iconTitleSize">Быстрое рассмотрение</p>
-      </div>
-      <div class="iconForAttract">
-        <div class="iconDocument iconSize"></div>
-        <p class="iconTitleSize">Минимум документов</p>
-      </div>
-      <div class="iconForAttract">
-        <div class="iconPercentage iconSize"></div>
-        <p class="iconTitleSize">Выгодные условия</p>
-      </div>
-      <div class="iconForAttract">
-        <div class="iconTrafic iconSize"></div>
-        <p class="iconTitleSize">Любой автомобиль</p>
-      </div>
-    </div>
-    <button class="bottonToDown" (click)="scrollToSecondPage()"><p>Подобрать условия</p></button>
-  </div>
-  </div>
-  </div>
-</div>
 
 <!-- New Screens -->
+
+<app-first-page [minwidth]="clientWidth" [minheight]="clientHeight">
+</app-first-page>
+
 <app-credit-lising-difference [minwidth]="clientWidth" [minheight]="clientHeight">
 </app-credit-lising-difference>
 
@@ -184,26 +139,7 @@
     </form>
   </mat-card>
   <div class="footer">
-    <div class="footerBlockLeft">
-      <p>(с) 2019 Компания AV-Finance - продажа любых автомобилей с пробегом в кредит/лизинг на выгодных условиях. </p>
-    </div>
-    <div class="footerBlockRight" style="display: flex;">
-      <div class="divFooterIcons">
-        <i class="footerIconPhone footerIcon"></i>
-        <div style="display: flex; flex-direction: column; align-items: left; justify-content: space-around">
-          <span>ТЕЛЕФОНЫ</span>
-          <span class="value">+375(33)689-29-89</span>
-        </div>
-      </div>
-      <div class="divFooterIcons">
-        <i class="footerIconMail footerIcon"></i>
-        <div style="display: flex; flex-direction: column; align-items: left; justify-content: space-around">
-          <span>НАПИСАТЬ НАМ</span>
-          <span class="value">info@av-finance.by</span>
-        </div>
-      </div>
-    </div>
-
+    <app-footer></app-footer>
   </div>
 </div>
 </div>

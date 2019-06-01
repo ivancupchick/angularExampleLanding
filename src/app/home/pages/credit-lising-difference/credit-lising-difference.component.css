@@ -71,7 +71,7 @@ p {
   width: 50%;
 }
 .imageAuto {
-  background-image: url(../../../assets/images/service/advantagesPage/auto.png);
+  background-image: url(../../../../assets/images/service/advantagesPage/auto.png);
   background-size: cover;
 }
 .imageAutoDescription p {
@@ -82,7 +82,7 @@ p {
   width: 50%;
 }
 .imageDocuments {
-  background-image: url(../../../assets/images/service/advantagesPage/documents.png);
+  background-image: url(../../../../assets/images/service/advantagesPage/documents.png);
   background-size: cover;
 }
 .thirdBlockAdvantages {
@@ -90,7 +90,7 @@ p {
   width: 50%;
 }
 .imageForWho {
-  background-image: url(../../../assets/images/service/advantagesPage/forwho.png);
+  background-image: url(../../../../assets/images/service/advantagesPage/forwho.png);
   background-size: cover;
 }
 .imageForWhoDescription, .imageHowSpeedDescription, .imageDocumentsDescription {
@@ -101,6 +101,6 @@ p {
   width: 50%;
 }
 .imageHowSpeed {
-  background-image: url(../../../assets/images/service/advantagesPage/howspeed.png);
+  background-image: url(../../../../assets/images/service/advantagesPage/howspeed.png);
   background-size: cover;
 }

@@ -1,0 +1,48 @@
+<!-- <div [style]="cornerYellowLine">
+  <div style="display: flex; justify-content: center; align-items: center;" [style.minWidth.px] = "minwidth" [style.minHeight.px] ="minheight">
+  </div>
+</div>
+ -->
+
+<div class="screen firstScreen" [style.minWidth.px] = "minwidth" [style.minHeight.px] = "minheight">
+    <div [style.minWidth.px] = "minwidth" [style.minHeight.px] = "minheight*0.55" >
+    <div [style]="firstScreenFirstHalfStyle">
+    <div class="screen" [style.minWidth.px] = "minwidth" [style.minHeight.px] = "minheight*0.55" >
+      <div class="mainTitleAndDescription">
+        <div class="mainTitle">
+          <p>КРЕДИТ / ЛИЗИНГ АВТОМОБИЛЕЙ С ПРОБЕГОМ<br> ДЛЯ ФИЗИЧЕСКИХ ЛИЦ</p>
+        </div>
+        <div class="mainDescription">
+          <p>Мы проанализировали все предложения банков и лизинговых компаний в области финансирования покупки автомобиля и подобрали для Вас самые выгодные условия. Наши партнерские соглашения с банками позволяют выбрать Вам самый лучший вариант финансирования.</p>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+
+    <div [style.minWidth.px] = "minwidth" [style.minHeight.px] = "minheight*0.45">
+    <div [style]="firstScreenSecondHalfStyle">
+    <div class="secondHalfFirstScreenBlocks" [style.minWidth.px] = "minwidth" [style.minHeight.px] = "minheight*0.45">
+      <div class="iconContainer">
+        <div class="iconForAttract">
+          <div class="iconTime iconSize"></div>
+          <p class="iconTitleSize">Быстрое рассмотрение</p>
+        </div>
+        <div class="iconForAttract">
+          <div class="iconDocument iconSize"></div>
+          <p class="iconTitleSize">Минимум документов</p>
+        </div>
+        <div class="iconForAttract">
+          <div class="iconPercentage iconSize"></div>
+          <p class="iconTitleSize">Выгодные условия</p>
+        </div>
+        <div class="iconForAttract">
+          <div class="iconTrafic iconSize"></div>
+          <p class="iconTitleSize">Любой автомобиль</p>
+        </div>
+      </div>
+      <button class="bottonToDown" (click)="scrollToSecondPage()"><p>Подобрать условия</p></button>
+    </div>
+    </div>
+    </div>
+  </div>
