@@ -118,29 +118,12 @@
 <app-how-submit [minwidth]="clientWidth" [minheight]="clientHeight">
 </app-how-submit>
 
-
-<div [style.minWidth.px] = "clientWidth" [style.minHeight.px] = "clientHeight">
-<div [style] = "thirdScreenStyle">
-<div class="screen thirdScreen" [style.minWidth.px] = "clientWidth" [style.minHeight.px] = "clientHeight">
-  <mat-card class="request" >
-    <p class="requestTitle"><strong>Заявка на финансирование</strong></p>
-    <p class="requestDescription">Наш специалист свяжется с вами и подробно проконсультирует вас обо всех условиях покупки автомобиля</p>
-    <form #formData='ngForm' (ngSubmit)="submitForm(formData)" id="formaToPost" style="display: flex; flex-direction: column; align-items: center; width: 90%; height: 90%;">
-      <input type="hidden" name="project_name" (ngModel)="project_name" value="Обратный Звонок">
-      <input type="hidden" name="admin_email" (ngModel)="admin_email" value="info@av-finance.by">
-      <input type="hidden" name="form_subject" (ngModel)="form_subject" value="New order">
-      <mat-form-field class="requestInputs">
-        <input matInput placeholder="Имя" value="" name="name" (ngModel)="name" required>
-      </mat-form-field>
-      <mat-form-field class="requestInputs">
-        <input matInput placeholder="Телефон" value="" name="phone" (ngModel)="phone" required>
-      </mat-form-field>
-      <button style="width: 200px; height: 40px; font-size: 1.1em;" mat-raised-button [disabled]="!formData.valid" type="submit" color="warn">Отправить заявку</button>
-    </form>
-  </mat-card>
-  <div class="footer">
-    <app-footer></app-footer>
-  </div>
-</div>
-</div>
-</div>
+<app-request [price]="price"
+             [firstPayment]="getFirstPayment()"
+             [period]="getPeriod()"
+             [rate]="calculateRate()"
+             [plt]="getPLT()"
+             [creditLisingValue]="creditLisingValue"
+             [minwidth]="clientWidth"
+             [minheight]="clientHeight">
+</app-request>

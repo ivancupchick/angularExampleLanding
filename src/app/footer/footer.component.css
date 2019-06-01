@@ -75,7 +75,7 @@
 
 
 
-@media screen and (max-device-width: 824px) {
+@media screen and (max-width: 824px) {
   .footerBlockLeft {
     width: 40%;
   }
@@ -90,7 +90,7 @@
 
 
 
-@media screen and (max-device-width: 430px) {
+@media screen and (max-width: 430px){
   .footer p {
     font-size: 12pt;
     text-align: justify;

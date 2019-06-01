@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Options, CustomStepDefinition, LabelType } from 'ng5-slider';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
-import { HttpClient } from '@angular/common/http';
 
 export class Mark {
   constructor(public name: string, public minPrice: number, public models: Model[]) { }
@@ -252,9 +251,8 @@ export class AppComponent {
   };
 
   secondScreenStyle: SafeStyle;
-  thirdScreenStyle: SafeStyle;
 
-  constructor(protected sanitizer: DomSanitizer, private http: HttpClient) {
+  constructor(protected sanitizer: DomSanitizer) {
     this.setLibeSizes();
     //let firstScreenSecondHaldLineSize =
 
@@ -296,13 +294,6 @@ export class AppComponent {
       `background:  linear-gradient(41deg, #00000000 ${secondScreenFirstLineSize}px, #ffcc0099 ${secondScreenFirstLineSize + 1}px,
        #ffcc0099 ${secondScreenSecondLineSize}px, #00000000 ${secondScreenSecondLineSize + 1}px),
        url(../assets/images/service/secondScreen.jpg); background-size: cover;`
-    );
-
-    // third page
-    const thirdScreenLineSize = 1118 + ((height - 766) * 1.509);
-    this.thirdScreenStyle = this.transform(
-      `background: linear-gradient(41deg, #3333334d 30%, #3333334d 30%, #3333334d ${thirdScreenLineSize}px,
-       #ffcc0099 ${thirdScreenLineSize + 1}px), url(../assets/images/service/thirdScreen.jpg); background-size: cover;`
     );
   }
 
@@ -400,33 +391,6 @@ export class AppComponent {
 
 
 
-
-
-
-  submitForm(data:any) {
-    const price = `${this.price}`;
-    const percentage = `${this.getFirstPayment()}`;
-    const period = `${this.getPeriod()}`;
-    const percentageStavka = `${(this.calculateRate() * 100).toFixed(2)} %`;
-    const mountyPayment = `${this.getPLT().toFixed(2)} BYN`;
-    const lisingOrCredit = this.creditLisingValue === 0 ? 'Кредит' : 'Лизинг';
-    console.log(data.value);
-    this.http.post('../assets/mail.php', {
-      name: data.value.name,
-      phone: data.value.phone,
-      price,
-      percentage,
-      period,
-      percentageStavka,
-      mountyPayment,
-      lisingOrCredit,
-    })
-      .subscribe( (data) => {
-        console.log(data);
-      },
-      error => console.log(error)
-  );
-  }
 
   wordToIndex(word: string, array: string[]): number {
     return array.indexOf(word);

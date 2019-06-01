@@ -27,6 +27,7 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { FirstPageComponent } from './home/pages/first-page/first-page.component';
 import { HeaderComponent } from './header/header.component';
+import { RequestComponent } from './home/pages/request/request.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { HeaderComponent } from './header/header.component';
     FooterComponent,
     FirstPageComponent,
     HeaderComponent,
+    RequestComponent,
   ],
   imports: [
     BrowserModule,

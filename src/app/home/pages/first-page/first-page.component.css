@@ -135,7 +135,7 @@ p, h1, div {
 
 
 
-@media screen and (max-device-width: 824px) {
+@media screen and (max-width: 824px) {
   .secondHalfFirstScreenBlocks {
     justify-content: center;
     align-items: center;
@@ -172,7 +172,7 @@ p, h1, div {
 
 
 
-@media screen and (max-device-width: 430px) {
+@media screen and (max-width: 430px) {
   .mainTitle p {
     color: white;
     font-size: 2rem;

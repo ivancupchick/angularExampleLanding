@@ -24,10 +24,6 @@ p, h1, div {
   background-size: cover;
 }
 */
-
-
-
-
 .header {
   height: 40px;
   position: fixed;
@@ -38,16 +34,6 @@ p, h1, div {
 
 
 
-
-
-
-
-.screen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
 
 .screenPage2 {
   position: relative;
@@ -220,57 +206,6 @@ ng5-slider {
 
 
 
-
-
-
-
-
-
-
-.thirdScreen {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-.thirdScreen > * {
-  font-family: 'Times New Roman', Times, serif;
-}
-.request {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  min-width: 600px;
-  background: #ffcc00;
-  margin-bottom: 150px;
-  padding: 40px;
-}
-.requestTitle {
-  font-size: 38px;
-  text-align: center;
-  margin: 0;
-}
-.requestDescription {
-  font-size: 20px;
-  margin: 2px;
-  width: 600px;
-  text-align: center;
-}
-.requestInputs {
-  width: 100%;
-}
-
-
-.footer {
-  height: 120px;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-}
-
-
-
-
 .main {
   max-width: 800px;
   padding: 20px;
@@ -319,7 +254,7 @@ ng5-slider > span {
 
 
 
-@media screen and (max-device-width: 824px) {
+@media screen and (max-width: 824px) {
   /*
   .slidersBlock {
     min-width: 250px;
@@ -340,23 +275,6 @@ ng5-slider > span {
     width: 90%;
     min-width: 90%;
   }
-  .request {
-    min-width: 80%;
-  }
-  .requestTitle {
-    font-size: 5.9vmin;
-  }
-  .requestDescription {
-    font-size: 3vmin;
-    margin: 2px;
-  }
-  .request {
-    width: 80%;
-  }
-  .requestDescription {
-    width: 90%;
-  }
-
   .iconContainer {
     position: static;
     width: 94%;
@@ -381,13 +299,7 @@ ng5-slider > span {
 }
 
 
-@media screen and (max-device-width: 430px) {
-  .footer {
-    height: 170px;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-  }
+@media screen and (max-width: 430px) {
   .iconTitleSize {
     font-size: 3.2vmin;
   }
@@ -413,17 +325,6 @@ ng5-slider > span {
     min-height: 50%;
     font-size: 3.2vmin;
     background-color: #ffffffea;
-  }
-  .request {
-    padding: 20px;
-  }
-  .requestTitle {
-    font-size: 1.37em;
-  }
-  .requestDescription {
-    text-align: justify;
-    font-size: 13pt;
-    width: 105%;
   }
   .titlesWithValues {
     margin: 10px 0 10px 0;

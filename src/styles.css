@@ -10,6 +10,13 @@ p, h1, div {
   font-size: 0.9em;
 }
 
+.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 body {
   scroll-behavior: smooth;
   font-size: 160%;

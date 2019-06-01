@@ -1,0 +1,70 @@
+.thirdScreen {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.request {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  min-width: 600px;
+  background: #ffcc00;
+  margin-bottom: 150px;
+  padding: 40px;
+}
+.requestTitle {
+  font-size: 38px;
+  text-align: center;
+  margin: 0;
+}
+.requestDescription {
+  font-size: 20px;
+  margin: 2px;
+  width: 600px;
+  text-align: center;
+}
+.requestInputs {
+  width: 100%;
+}
+.footer {
+  height: 120px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+@media screen and (max-width: 824px) {
+  .request {
+    width: 80%;
+  }
+  .requestTitle {
+    font-size: 5.9vmin;
+  }
+  .requestDescription {
+    font-size: 3vmin;
+    margin: 2px;
+  }
+  .requestDescription {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 430px) {
+  .footer {
+    height: 170px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+  .request {
+    padding: 20px;
+  }
+  .requestTitle {
+    font-size: 1.37em;
+  }
+  .requestDescription {
+    text-align: justify;
+    font-size: 13pt;
+    width: 105%;
+  }
+}
