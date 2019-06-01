@@ -53,6 +53,11 @@
   </div>
 </div>
 
+<!-- New Screens -->
+<app-credit-lising-difference [minwidth]="clientWidth" [minheight]="clientHeight">
+</app-credit-lising-difference>
+
+<!-- Olf Screens -->
 
 <!--  Second screen -->
 <div [style.minWidth.px] = "clientWidth" [style.minHeight.px] = "clientHeight">
@@ -152,6 +157,13 @@
 
 
 <!-- Third screen -->
+<app-installment-plan [minwidth]="clientWidth" [minheight]="clientHeight">
+</app-installment-plan>
+
+<app-how-submit [minwidth]="clientWidth" [minheight]="clientHeight">
+</app-how-submit>
+
+
 <div [style.minWidth.px] = "clientWidth" [style.minHeight.px] = "clientHeight">
 <div [style] = "thirdScreenStyle">
 <div class="screen thirdScreen" [style.minWidth.px] = "clientWidth" [style.minHeight.px] = "clientHeight">

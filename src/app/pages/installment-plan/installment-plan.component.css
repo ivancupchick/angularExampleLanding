@@ -1,0 +1,109 @@
+table {
+  border-collapse: collapse;
+  table-layout: initial;
+  width: 100%;
+}
+td {
+  border: black solid 1px;
+  text-align: center;
+  padding: 3px 15px;
+  width: 25%;
+}
+p {
+  margin: 0 2px;
+  width: 100%;
+}
+.parentFlexColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.borderBlack {
+  border: black solid 2px;
+}
+.flexContentBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title {
+  width: 100%;
+  text-align: center;
+}
+.conditionBorderLeft {
+  border-left: black solid 1px;
+}
+.conditionBorderRight {
+  border-left: black solid 1px;
+  border-right: black solid 1px;
+}
+
+.container {
+  margin: 5%;
+  width: 95%;
+  height: 95%;
+}
+.content {
+  width: 100%;
+}
+.conditions {
+  width: 95%;
+}
+.whoCanUse {
+  width: 95%;
+  display: flex;
+  margin-bottom: 20px;
+}
+.whoCanUseChildrenSize {
+  width: 50%;
+  position: relative;
+}
+.whoCanUseChildrenSize::after, .whoCanUseChildrenSize::before   {
+  position: absolute;
+  content: '';
+}
+.whoCanUseChildrenSize::before {
+  top: 0;
+  height: 1px;
+  left: 17px;
+  right: 17px;
+  border-top: 1px solid black;
+}
+.whoCanUseChildrenSize::after {
+  top: 7px;
+  bottom: 7px;
+  left: 0px;
+  border-left: 1px solid black;
+  width: 1px;
+}
+.whoCanUseContent::after, .whoCanUseContent::before   {
+  position: absolute;
+  content: '';
+}
+.whoCanUseContent::before {
+  bottom: 0;
+  height: 1px;
+  left: 17px;
+  right: 17px;
+  border-top: 1px solid black;
+}
+.whoCanUseContent::after {
+  top: 7px;
+  bottom: 7px;
+  right: 0px;
+  border-left: 1px solid black;
+  width: 1px;
+}
+.whoCanUseContent {
+  width: 100%;
+  height: 95%;
+}
+.whoCanUseContent p {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.marginMinus {
+  margin-left: -2px;
+}

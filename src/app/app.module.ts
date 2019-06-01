@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MainComponent } from './main/main.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSelectModule } from '@angular/material/select';
@@ -14,22 +13,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RequestComponent } from './request/request.component';
+
 
 import { Ng5SliderModule } from 'ng5-slider';
 import { PriceVisiblePipe } from './price-visible.pipe';
+import { CreditLisingDifferenceComponent } from './pages/credit-lising-difference/credit-lising-difference.component';
+import { InstallmentPlanComponent } from './pages/installment-plan/installment-plan.component';
+import { HowSubmitComponent } from './pages/how-submit/how-submit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
-    RequestComponent,
     PriceVisiblePipe,
+    CreditLisingDifferenceComponent,
+    InstallmentPlanComponent,
+    HowSubmitComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +44,6 @@ import { PriceVisiblePipe } from './price-visible.pipe';
     MatInputModule,
     MatSliderModule,
     MatButtonModule,
-    MatDialogModule,
     MatTooltipModule,
     NgbModule,
     Ng5SliderModule,
@@ -52,6 +52,6 @@ import { PriceVisiblePipe } from './price-visible.pipe';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ RequestComponent ]
+  entryComponents: [ ]
 })
 export class AppModule { }

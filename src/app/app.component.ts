@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { RequestComponent } from './request/request.component';
-import { MatDialog } from '@angular/material/dialog';
 import { Options, CustomStepDefinition, LabelType } from 'ng5-slider';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
@@ -258,7 +256,7 @@ export class AppComponent {
   secondScreenStyle: SafeStyle;
   thirdScreenStyle: SafeStyle;
 
-  constructor(private dialog: MatDialog, protected sanitizer: DomSanitizer, private http: HttpClient) {
+  constructor(protected sanitizer: DomSanitizer, private http: HttpClient) {
     this.setLibeSizes();
     //let firstScreenSecondHaldLineSize =
 
@@ -406,17 +404,6 @@ export class AppComponent {
 
   // end Slider Functions
 
-  openModal() {
-    const dialogRef = this.dialog.open(RequestComponent, {
-      height: '300px',
-      width: '600px',
-      data: { sum: 12000 },
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`); // Pizza!
-    });
-  }
-
   scrollToSecondPage() {
     window.scrollTo({ left: 0, top: this.clientHeight, behavior: 'smooth'});
   }
@@ -454,42 +441,6 @@ export class AppComponent {
       error => console.log(error)
   );
   }
-
-/*
-  $("#forma1").submit(function() { //Change
-    var th = $(this);
-    $.ajax({
-    type: "POST",
-    url: "../assets/mail.php", //Change
-    data: th.serialize()
-  }).done(function() {
-    swal({
-      title: "Обратный звонок",
-      text: "Write something interesting:",
-      showCancelButton: true,
-      closeOnConfirm: false,
-      animation: "slide-from-top",
-      html: true,
-    });
-    setTimeout(function() {
-      // Done Functions
-      th.trigger("reset");
-    }, 1000);
-  });
-  return false;
-  });*/
-
-
-
-
-
-
-
-
-
-
-
-
 
   wordToIndex(word: string, array: string[]): number {
     return array.indexOf(word);

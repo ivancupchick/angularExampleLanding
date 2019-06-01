@@ -1,0 +1,106 @@
+p {
+  margin: 0 2px;
+  width: 100%;
+}
+.parentFlexColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.borderBlack {
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+}
+.borderGreen {
+  border: green solid 2px;
+}
+.flexContentBetween {
+  display: flex;
+  align-items: center;
+}
+.imageSize {
+  min-width: 100px;
+  height: 100px;
+  margin: auto 25px;
+}
+
+.container {
+  margin: 5%;
+  width: 95%;
+  height: 95%;
+}
+.title {
+  width: 100%;
+  text-align: center;
+}
+.content {
+  border-bottom: black solid 2px;
+  border-left: black solid 2px;
+  border-right: black solid 2px;
+  width: 100%;
+}
+.creditDescriptionBlock {
+  width:45%;
+}
+.creditDescriptionBlock p {
+  width: 95%;
+}
+.lisingDescriptionBlock {
+  width:45%;
+}
+.lisingDescriptionBlock p {
+  width: 95%;
+}
+
+
+
+
+
+.firstLineBlockAdvantages {
+  display: flex;
+  width: 100%;
+}
+.secondLineBlockAdvantages {
+  margin-top: 15px;
+  display: flex;
+  width: 100%;
+}
+.firstBlockAdvantages {
+  display: flex;
+  width: 50%;
+}
+.imageAuto {
+  background-image: url(../../../assets/images/service/advantagesPage/auto.png);
+  background-size: cover;
+}
+.imageAutoDescription p {
+  width: auto;
+}
+.secondBlockAdvantages {
+  display: flex;
+  width: 50%;
+}
+.imageDocuments {
+  background-image: url(../../../assets/images/service/advantagesPage/documents.png);
+  background-size: cover;
+}
+.thirdBlockAdvantages {
+  display: flex;
+  width: 50%;
+}
+.imageForWho {
+  background-image: url(../../../assets/images/service/advantagesPage/forwho.png);
+  background-size: cover;
+}
+.imageForWhoDescription, .imageHowSpeedDescription, .imageDocumentsDescription {
+  width: 100%;
+}
+.fourthBlockAdvantages {
+  display: flex;
+  width: 50%;
+}
+.imageHowSpeed {
+  background-image: url(../../../assets/images/service/advantagesPage/howspeed.png);
+  background-size: cover;
+}
