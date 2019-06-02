@@ -9,6 +9,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RequestComponent implements OnInit {
 
+  name: string;
+  phone: string;
+
+  // not need code
+  project_name: string;
+  admin_email: string;
+  form_subject: string;
+  // end not need code
+
   @Input() minwidth: string;
   @Input() minheight: string;
 
@@ -53,8 +62,7 @@ export class RequestComponent implements OnInit {
     const mountyPayment = `${this.plt.toFixed(2)} BYN`;
     const lisingOrCredit = this.creditLisingValue === 0 ? 'Кредит' : 'Лизинг';
     console.log(data.value);
-
-    this.http.post('../../../../assets/mail.php', {
+    console.log({
       name: data.value.name,
       phone: data.value.phone,
       price,
@@ -63,9 +71,19 @@ export class RequestComponent implements OnInit {
       percentageStavka,
       mountyPayment,
       lisingOrCredit,
-    }).subscribe( (data: any) => {
-        console.log(data);
-      }, (error) => console.log(error)
-    );
+    });
+    // this.http.post('../../../../assets/mail.php', {
+    //   name: data.value.name,
+    //   phone: data.value.phone,
+    //   price,
+    //   percentage,
+    //   period,
+    //   percentageStavka,
+    //   mountyPayment,
+    //   lisingOrCredit,
+    // }).subscribe( (data: any) => {
+    //     console.log(data);
+    //   }, (error) => console.log(error)
+    // );
   }
 }

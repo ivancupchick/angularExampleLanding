@@ -28,6 +28,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FirstPageComponent } from './home/pages/first-page/first-page.component';
 import { HeaderComponent } from './header/header.component';
 import { RequestComponent } from './home/pages/request/request.component';
+import { CreditLisingCalculatorComponent } from './home/pages/credit-lising-calculator/credit-lising-calculator.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { RequestComponent } from './home/pages/request/request.component';
     FirstPageComponent,
     HeaderComponent,
     RequestComponent,
+    CreditLisingCalculatorComponent,
   ],
   imports: [
     BrowserModule,

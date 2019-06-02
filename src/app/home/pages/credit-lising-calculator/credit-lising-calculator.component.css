@@ -1,0 +1,297 @@
+/*
+.firstHalfFirstScreen {
+  background-image:  linear-gradient(41deg, #6666007e 20%, #6666007e 20%,  #ff000001 80%,  #ff000001 80%);
+  background-image:  linear-gradient(41deg, #6666007e 424px, #ff000001 425px, #ff000001 80%, #ff000001 80%);
+}
+.secondHalfFirstScreen {
+  background-image:  linear-gradient(41deg, #ffcc00d4 684px, #33333376 685px, #33333376 44%, #33333376 44%);
+}
+/*
+.secondScreen {
+  background: linear-gradient(41deg, #00000000 540px, #ffcc0099 541px, #ffcc0099 1262px, #00000000 1263px), url(../assets/images/service/secondScreen.jpg);
+  background: linear-gradient(41deg, #00000000 37%, #ffcc0099 37.04%, #ffcc0099 84.3%, #00000000 84.34%), url(../assets/images/service/secondScreen.jpg);
+  background-size: cover;
+}
+
+  background-image:  linear-gradient(41deg, #FFDDD6 20%, #FFF9ED 20%, #FFF9ED 80%, #DBDBDB 80%), url(../assets/images/service/firstScreen.jpg);
+
+.secondScreen {
+  background: url(../assets/images/service/secondScreen.jpg);
+  background-size: cover;
+}
+*/
+
+/* for choise new cars */
+
+/* .buttonGroup {
+  width: 100%;
+  border-width: 2px;
+  border-color: #333333ee;
+}
+.buttonGroup * {
+  border-width: 2px;
+  border-color: #333333ee;
+}
+.radioButton {
+  width: 50%;
+  background: #ffffff21;
+}
+.button {
+  width: 50%;
+}
+.markModelCompBlock {
+  margin-top: 5px;
+}
+.markModelCompForm {
+  display: flex;
+  justify-content: space-between;
+}
+.markModelCompButtons {
+  width: 30%;
+} */
+
+/* tollTips */
+
+/* .toolTip {
+  width: 20px;
+  height: 20px;
+  margin: 2px 0 0 7px;
+  font-size: 1.5rem;
+
+  border-radius: 3px;
+  border:solid 1px gray;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+} */
+
+
+
+
+
+
+
+
+
+/*
+for sliders better
+.firstRepaymentValues {
+  display: flex;
+  margin: 20px 32px 0 8px;
+  justify-content: space-between;
+}
+.firstRepaymentValues span {
+}
+*/
+
+.screenPage2 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.page2Title {
+  font-size: 4vmin;
+  position: relative;
+  right: 0vmin;
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+.choiseAutoType {
+  width: 80vmin;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 3.3vmin;
+}
+.choiseAutoType p {
+  margin: 0;
+  text-align: center;
+  border-bottom: #d70000 solid 1px;
+}
+.price {
+  width: 80%;
+  text-align: center;
+}
+.choiseAutoType h3 {
+  margin: 0;
+}
+
+.booleanSliderLables {
+  width: 100%;
+  display: flex;
+  justify-content:space-between;
+  margin-bottom: 7px;
+}
+.booleanSliderLables span {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.slidersAndBestChoise {
+  margin: -20px 10px 0 10px;
+  display: flex;
+  justify-content: center;
+  width: 60%;
+}
+.slidersBlock {
+  width: 50%;
+  margin: 10px;
+  min-height: 200px;
+  font-size: 1.4rem;
+  background-color: #ffffff40;
+}
+.slidersRightBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+.slidersRightBlock h3 {
+  margin: 4px 0;
+  font-size: 2.1rem;
+}
+.slidersRightBlock h2 {
+  margin: 4px 0;
+  font-size: 2.4rem;
+}
+.values {
+  font-weight: 900;
+}
+ng5-slider {
+  margin: 10px 0 10px 0;
+}
+.divForSlider {
+  display: flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.divSliderContainer {
+
+  width: 100%;
+  display: flex;
+  justify-content:space-between;
+  flex-direction: column;
+}
+
+
+
+.titlesWithValues {
+  margin: 8px 0 8px 0;
+  font-size: 2rem;
+}
+
+.aboutConditions {
+  font-size: 1.6rem;
+  padding: 10px 30px;
+}
+
+
+
+
+.mainTitle {
+  display: flex;
+  justify-content: center;
+}
+
+
+.image {
+  height: 100px;
+  width: auto;
+  background-size: cover;
+}
+
+ng5-slider > * {
+  margin: 5px;
+}
+
+
+ng5-slider > span {
+  display: none;
+}
+
+
+@media screen and (max-width: 824px) {
+  /*
+  .slidersBlock {
+    min-width: 250px;
+    margin: 10px;
+    min-height: 300px;
+    font-size: 10px;
+  }
+  .responsiveForm {
+    max-width: 230px;
+  }
+  */
+  .slidersAndBestChoise {
+    flex-wrap: wrap;
+    width: 90%;
+    height: 50%;
+  }
+  .slidersBlock {
+    width: 90%;
+    min-width: 90%;
+  }
+  .iconContainer {
+    position: static;
+    width: 94%;
+    margin: 0 3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .textTitle {
+    position: static;
+  }
+  .price {
+    width: 100%;
+    font-size: 5vmin;
+  }
+  .page2Title {
+    margin-top: 50px;
+  }
+  .aboutConditions {
+    margin-bottom: 10px;
+  }
+}
+
+
+@media screen and (max-width: 430px) {
+  .iconTitleSize {
+    font-size: 3.2vmin;
+  }
+  .choiseAutoType {
+    align-items: center;
+  }
+  .choiseAutoType p {
+    font-size: 1.9rem;
+  }
+  .page2Title {
+    margin-bottom: 10px;
+  }
+  .price {
+    width: 60%;
+    margin-left: 0;
+    font-size: 7vmin;
+    margin-top: -24px;
+    text-align: center;
+  }
+  .slidersBlock {
+    width: 90%;
+    height: 50%;
+    min-height: 50%;
+    font-size: 3.2vmin;
+    background-color: #ffffffea;
+  }
+  .titlesWithValues {
+    margin: 10px 0 10px 0;
+    font-size: 1.50em;
+  }
+  .marginTopForMobile {
+    margin-top: 25px;
+    font-size: 1.7em;
+  }
+}
