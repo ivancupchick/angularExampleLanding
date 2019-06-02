@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { SizeServiceService } from '../service/size-service.service';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  @Input() minwidth: string;
-  @Input() minheight: string;
-
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

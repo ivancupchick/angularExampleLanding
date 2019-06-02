@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser';
 import { Options } from 'ng5-slider';
 import { CalculatorToRequestService } from '../../services/calculator-to-request.service';
+import { SizeServiceService } from 'src/app/service/size-service.service';
 
 
 export class Percentages {
@@ -39,8 +40,8 @@ export class CreditLisingCalculatorComponent implements OnInit {
 
   // end
 
-  @Input() minwidth: string;
-  @Input() minheight: string;
+  minwidth: number;
+  minheight: number;
 
   secondScreenStyle: SafeStyle;
 
@@ -147,9 +148,20 @@ export class CreditLisingCalculatorComponent implements OnInit {
 
   price = 0;
 
-  constructor(protected sanitizer: DomSanitizer, private calculatorService: CalculatorToRequestService) { }
+  constructor(protected sanitizer: DomSanitizer,
+              private calculatorService: CalculatorToRequestService,
+              private sizeService: SizeServiceService) { }
+
+
 
   ngOnInit() {
+    this.sizeService.clientWidth.subscribe( (clientWidth) => {
+      this.minwidth = clientWidth;
+    });
+    this.sizeService.clientHeight.subscribe( (clientHeight) => {
+      this.minheight = clientHeight;
+    });
+
     this.setLineSizes();
     window.addEventListener('resize', () => {
       this.setLineSizes();

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SizeServiceService } from './service/size-service.service';
 
 @Component({
   selector: 'app-root',
@@ -11,21 +12,21 @@ export class AppComponent {
   clientWidth = 0;
   clientHeight = 0;
 
-  constructor() {
-    this.clientWidth = document.documentElement.clientWidth;
-    this.clientHeight = document.documentElement.clientHeight;
+  constructor(private sizeService: SizeServiceService) {
+    this.sizeService.clientWidth.next(document.documentElement.clientWidth);
+    this.sizeService.clientHeight.next(document.documentElement.clientHeight);
     window.addEventListener('resize', () => {
-      this.clientWidth = document.documentElement.clientWidth;
-      this.clientHeight = document.documentElement.clientHeight;
+      this.sizeService.clientWidth.next(document.documentElement.clientWidth);
+      this.sizeService.clientHeight.next(document.documentElement.clientHeight);
     });
   }
 
 
   // need to modify
-  scrollToSecondPage() {
-    window.scrollTo({ left: 0, top: this.clientHeight, behavior: 'smooth'});
-  }
-  scrollToThirdPage() {
-    window.scrollTo({ left: 0, top: (this.clientHeight * 3), behavior: 'smooth'});
-  }
+  // scrollToSecondPage() {
+  //   window.scrollTo({ left: 0, top: this.clientHeight, behavior: 'smooth'});
+  // }
+  // scrollToThirdPage() {
+  //   window.scrollTo({ left: 0, top: (this.clientHeight * 3), behavior: 'smooth'});
+  // }
 }

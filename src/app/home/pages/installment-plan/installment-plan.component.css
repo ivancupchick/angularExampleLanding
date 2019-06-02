@@ -4,23 +4,21 @@ table {
   width: 100%;
 }
 td {
-  border: black solid 1px;
+  border: 1px solid #e6e6e6;
   text-align: center;
-  padding: 3px 15px;
+  padding: 15px 20px;
   width: 25%;
 }
 p {
   margin: 0 2px;
   width: 100%;
+  font-size: 2rem;
 }
 .parentFlexColumn {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.borderBlack {
-  border: black solid 2px;
 }
 .flexContentBetween {
   display: flex;
@@ -32,17 +30,16 @@ p {
   text-align: center;
 }
 .conditionBorderLeft {
-  border-left: black solid 1px;
+  border-left: 1px solid #e6e6e6;
 }
 .conditionBorderRight {
-  border-left: black solid 1px;
-  border-right: black solid 1px;
+  border-left: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
 }
 
 .container {
-  margin: 5%;
-  width: 95%;
-  height: 95%;
+  width: 100%;
+  height: 100%;
 }
 .content {
   width: 100%;
@@ -68,13 +65,13 @@ p {
   height: 1px;
   left: 17px;
   right: 17px;
-  border-top: 1px solid black;
+  border-top: 1px solid #e6e6e6;
 }
 .whoCanUseChildrenSize::after {
   top: 7px;
   bottom: 7px;
   left: 0px;
-  border-left: 1px solid black;
+  border-left: 1px solid #e6e6e6;
   width: 1px;
 }
 .whoCanUseContent::after, .whoCanUseContent::before   {
@@ -86,18 +83,19 @@ p {
   height: 1px;
   left: 17px;
   right: 17px;
-  border-top: 1px solid black;
+  border-top: 1px solid #e6e6e6;
 }
 .whoCanUseContent::after {
   top: 7px;
   bottom: 7px;
   right: 0px;
-  border-left: 1px solid black;
+  border-left: 1px solid #e6e6e6;
   width: 1px;
 }
 .whoCanUseContent {
   width: 100%;
   height: 95%;
+  padding: 15px;
 }
 .whoCanUseContent p {
   text-align: center;

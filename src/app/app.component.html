@@ -1,6 +1,5 @@
-<div [style.minWidth.px] = "clientWidth" class="header">
+<div class="header">
   <app-header>
   </app-header>
 </div>
-
-<app-home [minwidth]="clientWidth" [minheight]="clientHeight"></app-home>
+<router-outlet></router-outlet>

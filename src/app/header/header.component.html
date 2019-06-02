@@ -1,7 +1,12 @@
-<div class="header">
-  <div class="logo">
+<div [style.minWidth.px] = "clientWidth" class="header">
+  <div style="display: flex;">
     <div class="emptyDivForPositionLogo"></div>
+    <div routerLink = "/home" routerLinkActive="active-link" class="logo button">
       <span>AV-Finance</span>
+    </div>
+  <div routerLink = "/calculator" class="logo button">
+    <span>Calculator</span>
+  </div>
   </div>
   <span class="numberForConnection">
     <div class="yellowTreangle"></div>

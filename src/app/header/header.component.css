@@ -14,11 +14,22 @@
   display: flex;
   align-items: center;
 }
+.button {
+  color: white;
+  cursor: pointer;
+  padding: 0 10px;
+}
+.button:focus {
+  outline: 0;
+}
+.button:hover span {
+  color: #ccc;
+}
+
 .emptyDivForPositionLogo {
   width: 65px;
 }
 .logo span {
-  color: white;
   font-family: Roboto-Bold, Helvetica, Arial, sans-serif;
   font-size: 25px;
 }

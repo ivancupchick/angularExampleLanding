@@ -2,14 +2,14 @@
   <!-- [style]="cornerYellowLine" -->
   <div style="display: flex; justify-content: center; align-items: center;" [style.minWidth.px] = "minwidth" [style.minHeight.px] ="minheight">
     <div class="container">
-      <div class="title borderGreen">
-        <span>КРЕДИТ/ЛИЗИНГ</span>
+      <div class="title">
+        <span>КРЕДИТ или ЛИЗИНГ?</span>
       </div>
       <div class="content parentFlexColumn">
         <span>на покупку автомобиля с пробегом</span>
         <span style="font-weight: bold; margin: 10px;">ОСНОВНЫЕ УСЛОВИЯ</span>
         <div style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; width: 95%;">
-          <div class="creditDescriptionBlock parentFlexColumn borderBlack">
+          <div class="creditDescriptionBlock parentFlexColumn border">
             <h3>КРЕДИТ</h3>
             <p>Процентная ставка: <strong>от 11% годовых</strong></p>
             <p>Срок кредита: <strong>до 7 лет</strong></p>
@@ -18,7 +18,7 @@
             <p>Сумма кредита: <strong>до 100000 BYN</strong></p>
             <p>Досрочное погашение: <strong>без ограничений</strong></p>
           </div>
-          <div class="lisingDescriptionBlock parentFlexColumn borderBlack">
+          <div class="lisingDescriptionBlock parentFlexColumn border">
             <h3>ЛИЗИНГ</h3>
             <p>Процентная ставка: <strong>от 10% годовых</strong></p>
             <p>Срок кредита: <strong>до 5 лет</strong></p>
@@ -28,7 +28,7 @@
             <p>Досрочное погашение: <strong>без ограничений</strong></p>
           </div>
         </div>
-        <div style=" padding: 10px; margin-bottom: 20px; width: 95%;" class="borderBlack parentFlexColumn">
+        <div style="box-sizing:border-box; padding: 10px; margin-bottom: 20px; width: 95%;" class="border parentFlexColumn">
           <div class="firstLineBlockAdvantages ">
             <div class="firstBlockAdvantages flexContentBetween">
               <div class="imageAuto imageSize"></div>
@@ -37,7 +37,7 @@
                 <p>Вы можете приобрести в кредит или лизинг автомобиль любой марки, года выпуска, стоимости.</p>
               </div>
             </div>
-            <div class="secondBlockAdvantages flexContentBetween">
+            <div class="secondBlockAdvantages flexContentBetween borderLeft">
               <div class="imageDocuments imageSize"></div>
               <div class="imageDocumentsDescription parentFlexColumn">
                 <h3>НЕОБХОДИМЫЕ ДОКУМЕНТЫ</h3>
@@ -46,7 +46,7 @@
             </div>
           </div>
           <div  class="secondLineBlockAdvantages">
-            <div class="thirdBlockAdvantages flexContentBetween">
+            <div class="thirdBlockAdvantages flexContentBetween borderTop">
               <div class="imageForWho imageSize"></div>
               <div class="imageForWhoDescription parentFlexColumn">
                 <h3>ДЛЯ КОГО</h3>
@@ -54,7 +54,7 @@
                 <p>Для граждан имеющих вид на жительство.</p>
               </div>
             </div>
-            <div class="fourthBlockAdvantages flexContentBetween">
+            <div class="fourthBlockAdvantages flexContentBetween borderLeft borderTop">
               <div class="imageHowSpeed imageSize"></div>
               <div class="imageHowSpeedDescription parentFlexColumn">
                 <h3>КАК БЫСТРО</h3>

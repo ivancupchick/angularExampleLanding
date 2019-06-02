@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import { CalculatorToRequestService } from '../../services/calculator-to-request.service';
+import { SizeServiceService } from 'src/app/service/size-service.service';
 
 @Component({
   selector: 'app-request',
@@ -19,8 +20,8 @@ export class RequestComponent implements OnInit {
   form_subject: string;
   // end not need code
 
-  @Input() minwidth: string;
-  @Input() minheight: string;
+  minwidth: number;
+  minheight: number;
 
 
   price: number;
@@ -32,9 +33,18 @@ export class RequestComponent implements OnInit {
 
   thirdScreenStyle: SafeStyle;
 
-  constructor(private calculatorService: CalculatorToRequestService ,protected sanitizer: DomSanitizer,  private http: HttpClient) { }
+  constructor(private calculatorService: CalculatorToRequestService,
+              protected sanitizer: DomSanitizer,
+              private http: HttpClient,
+              private sizeService: SizeServiceService) { }
 
   ngOnInit() {
+    this.sizeService.clientWidth.subscribe( (clientWidth) => {
+      this.minwidth = clientWidth;
+    });
+    this.sizeService.clientHeight.subscribe( (clientHeight) => {
+      this.minheight = clientHeight;
+    });
     this.calculatorService.price.subscribe( (price) => {
       this.price = price;
     });

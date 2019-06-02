@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser';
+import { SizeServiceService } from 'src/app/service/size-service.service';
 
 @Component({
   selector: 'app-first-page',
@@ -8,17 +9,23 @@ import { SafeStyle, DomSanitizer } from '@angular/platform-browser';
 })
 export class FirstPageComponent implements OnInit {
 
-  @Input() minwidth: string;
-  @Input() minheight: string;
+  minwidth: number;
+  minheight: number;
 
   firstScreenFirstHalfStyle: SafeStyle;
   firstScreenSecondHalfStyle: SafeStyle;
 
-  constructor(protected sanitizer: DomSanitizer) { }
+  constructor(protected sanitizer: DomSanitizer, private sizeService: SizeServiceService) { }
 
   ngOnInit() {
-    this.setLineSizes();
+    this.sizeService.clientWidth.subscribe( (clientWidth) => {
+      this.minwidth = clientWidth;
+    });
+    this.sizeService.clientHeight.subscribe( (clientHeight) => {
+      this.minheight = clientHeight;
+    });
 
+    this.setLineSizes();
     window.addEventListener('resize', () => {
       this.setLineSizes();
     });

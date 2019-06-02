@@ -30,6 +30,7 @@ import { HeaderComponent } from './header/header.component';
 import { RequestComponent } from './home/pages/request/request.component';
 import { CreditLisingCalculatorComponent } from './home/pages/credit-lising-calculator/credit-lising-calculator.component';
 import { CalculatorToRequestService } from './home/services/calculator-to-request.service';
+import { SizeServiceService } from './service/size-service.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,7 @@ import { CalculatorToRequestService } from './home/services/calculator-to-reques
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [ CalculatorToRequestService ],
+  providers: [ CalculatorToRequestService, SizeServiceService ],
   bootstrap: [ AppComponent ],
   entryComponents: [ ]
 })

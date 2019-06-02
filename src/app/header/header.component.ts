@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SizeServiceService } from '../service/size-service.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  clientWidth = 0;
+
+  constructor(private sizeService: SizeServiceService) { }
 
   ngOnInit() {
+    this.sizeService.clientWidth.subscribe( (clientWidth) => {
+      this.clientWidth = clientWidth;
+    });
   }
-
 }

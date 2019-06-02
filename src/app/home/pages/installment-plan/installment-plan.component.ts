@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { SizeServiceService } from 'src/app/service/size-service.service';
 
 @Component({
   selector: 'app-installment-plan',
@@ -7,12 +8,18 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class InstallmentPlanComponent implements OnInit {
 
-  @Input() minwidth: string;
-  @Input() minheight: string;
+  minwidth: number;
+  minheight: number;
 
-  constructor() { }
+  constructor(private sizeService: SizeServiceService) { }
 
   ngOnInit() {
+    this.sizeService.clientWidth.subscribe( (clientWidth) => {
+      this.minwidth = clientWidth;
+    });
+    this.sizeService.clientHeight.subscribe( (clientHeight) => {
+      this.minheight = clientHeight;
+    });
   }
 
 }
