@@ -14,7 +14,7 @@
     <mat-card class="slidersBlock">
 
       <!-- START CREDIT-LISING; USD-BYR SLIDERS -->
-      <div *ngIf="selectedFace == 'F'">
+      <div>
         <div class="booleanSliderLables">
           <span>Кредит</span>
           <span>Лизинг</span>
@@ -36,13 +36,13 @@
         </div>
 
 
-        <div  matTooltip="Текст подсказки про бегунок c процентом первого платежа"
+        <!-- <div  matTooltip="Текст подсказки про бегунок c процентом первого платежа"
               matTooltipPosition="above"
               matTooltipHideDelay="1000"
               matTooltipClass="toolTipText"
               class="toolTip">
           ?
-        </div>
+        </div> -->
       </div>
 
       <!--
@@ -64,13 +64,13 @@
               <ng5-slider [(value)]="lisingRepaymentPeriodValue" [options]="lisingRepaymentPeriodOptions"></ng5-slider>
             </ng-template>
           </div>
-        <div  matTooltip="Текст подсказки про бегунок с периодом"
+        <!-- <div  matTooltip="Текст подсказки про бегунок с периодом"
               matTooltipPosition="above"
               matTooltipHideDelay="1000"
               matTooltipClass="toolTipText"
               class="toolTip">
           ?
-        </div>
+        </div> -->
       </div>
       <div style="height: 40px;"></div>
     </mat-card>

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser';
 import { Options } from 'ng5-slider';
+import { CalculatorToRequestService } from '../../services/calculator-to-request.service';
 
 
 export class Percentages {
@@ -40,14 +41,6 @@ export class CreditLisingCalculatorComponent implements OnInit {
 
   @Input() minwidth: string;
   @Input() minheight: string;
-
-  @Output() getPriceValue = new EventEmitter<number>();
-  @Output() getFirstPaymentValue = new EventEmitter<string>();
-  @Output() getPeriodValue = new EventEmitter<string>();
-  @Output() getRateValue = new EventEmitter<number>();
-  @Output() getPlTValue = new EventEmitter<number>();
-  @Output() getCreditOrLisingValue = new EventEmitter<number>();
-
 
   secondScreenStyle: SafeStyle;
 
@@ -154,7 +147,7 @@ export class CreditLisingCalculatorComponent implements OnInit {
 
   price = 0;
 
-  constructor(protected sanitizer: DomSanitizer) { }
+  constructor(protected sanitizer: DomSanitizer, private calculatorService: CalculatorToRequestService) { }
 
   ngOnInit() {
     this.setLineSizes();
@@ -203,11 +196,12 @@ export class CreditLisingCalculatorComponent implements OnInit {
     } else {
       firstPaymentValue = this.lisingFirstPaymentPercentageValue;
     }
-    this.getFirstPaymentValue.emit(`${this.calculateFirstPayment()} BYN (${firstPaymentValue}%)`)
+    this.calculatorService.firstPayment.next(`${this.calculateFirstPayment()} BYN (${firstPaymentValue}%)`);
+    //this.getFirstPaymentValue.emit(`${this.calculateFirstPayment()} BYN (${firstPaymentValue}%)`)
     return `${this.calculateFirstPayment()} BYN (${firstPaymentValue}%)`;
   }
   getPeriod(): string {
-    this.getPeriodValue.emit(`${this.calculatePeriod()} Месяцв`);
+    this.calculatorService.period.next(`${this.calculatePeriod()} Месяцв`);
     return this.calculatePeriod() + ' Месяца';
   }
 
@@ -247,9 +241,10 @@ export class CreditLisingCalculatorComponent implements OnInit {
       temporaryPecentagePaymentKey = key;
     }
 
-    this.getPriceValue.emit(this.price);
-    this.getCreditOrLisingValue.emit(this.creditLisingValue);
-    this.getRateValue.emit(selectedPercentagePayment * 0.01);
+    this.calculatorService.price.next(this.price);
+    this.calculatorService.creditOrLising.next(this.creditLisingValue);
+    this.calculatorService.rate.next(selectedPercentagePayment * 0.01);
+
     return selectedPercentagePayment * 0.01;
   }
 
@@ -260,7 +255,7 @@ export class CreditLisingCalculatorComponent implements OnInit {
       // show ERROR MESSAGE NOT POSSIBLE GET CREDIT WITH 0 PERCETAGE FIRST PAYMENT AND > 5 YEARS PERIOD REPAYMENT
       return 0;
     }
-    this.getPlTValue.emit(result);
+    this.calculatorService.plt.next(result);
     return result;
   }
   PLT(rate: number, period: number, creditSum: number): number {

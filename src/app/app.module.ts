@@ -29,6 +29,7 @@ import { FirstPageComponent } from './home/pages/first-page/first-page.component
 import { HeaderComponent } from './header/header.component';
 import { RequestComponent } from './home/pages/request/request.component';
 import { CreditLisingCalculatorComponent } from './home/pages/credit-lising-calculator/credit-lising-calculator.component';
+import { CalculatorToRequestService } from './home/services/calculator-to-request.service';
 
 @NgModule({
   declarations: [
@@ -62,8 +63,8 @@ import { CreditLisingCalculatorComponent } from './home/pages/credit-lising-calc
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent],
+  providers: [ CalculatorToRequestService ],
+  bootstrap: [ AppComponent ],
   entryComponents: [ ]
 })
 export class AppModule { }

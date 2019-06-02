@@ -112,7 +112,7 @@ for sliders better
   border-bottom: #d70000 solid 1px;
 }
 .price {
-  width: 80%;
+  width: 100%;
   text-align: center;
 }
 .choiseAutoType h3 {
@@ -133,7 +133,7 @@ for sliders better
   margin: -20px 10px 0 10px;
   display: flex;
   justify-content: center;
-  width: 60%;
+  width: 85%;
 }
 .slidersBlock {
   width: 50%;
@@ -177,7 +177,9 @@ ng5-slider {
   flex-direction: column;
 }
 
-
+.marginTopForMobile {
+  margin-top: 25px;
+}
 
 .titlesWithValues {
   margin: 8px 0 8px 0;

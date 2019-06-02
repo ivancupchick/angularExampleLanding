@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
+import { CalculatorToRequestService } from '../../services/calculator-to-request.service';
 
 @Component({
   selector: 'app-request',
@@ -21,18 +22,38 @@ export class RequestComponent implements OnInit {
   @Input() minwidth: string;
   @Input() minheight: string;
 
-  @Input() price: number;
-  @Input() firstPayment: string;
-  @Input() period: string;
-  @Input() rate: number;
-  @Input() plt: number;
-  @Input() creditLisingValue: number;
+
+  price: number;
+  firstPayment: string;
+  period: string;
+  rate: number;
+  plt: number;
+  creditLisingValue: number;
 
   thirdScreenStyle: SafeStyle;
 
-  constructor(protected sanitizer: DomSanitizer,  private http: HttpClient) { }
+  constructor(private calculatorService: CalculatorToRequestService ,protected sanitizer: DomSanitizer,  private http: HttpClient) { }
 
   ngOnInit() {
+    this.calculatorService.price.subscribe( (price) => {
+      this.price = price;
+    });
+    this.calculatorService.firstPayment.subscribe( (firstPayment) => {
+      this.firstPayment = firstPayment;
+    });
+    this.calculatorService.period.subscribe( (period) => {
+      this.period = period;
+    });
+    this.calculatorService.rate.subscribe( (rate) => {
+      this.rate = rate;
+    });
+    this.calculatorService.plt.subscribe( (plt) => {
+      this.plt = plt;
+    });
+    this.calculatorService.creditOrLising.subscribe( (creditLisingValue) => {
+      this.creditLisingValue = creditLisingValue;
+    });
+
     this.setLineSizes();
 
     window.addEventListener('resize', () => {

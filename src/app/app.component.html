@@ -3,43 +3,4 @@
   </app-header>
 </div>
 
-
-<!-- New Screens -->
-
-<app-first-page [minwidth]="clientWidth" [minheight]="clientHeight">
-</app-first-page>
-
-<app-credit-lising-difference [minwidth]="clientWidth" [minheight]="clientHeight">
-</app-credit-lising-difference>
-
-<!-- Olf Screens -->
-
-<!--  Second screen -->
-<app-credit-lising-calculator [minwidth]="clientWidth"
-                              [minheight]="clientHeight"
-                              (getPriceValue)="setPrice($event)"
-                              (getFirstPaymentValue)="setFirstPayment($event)"
-                              (getPeriodValue)="setPeriod($event)"
-                              (getRateValue)="setRate($event)"
-                              (getPlTValue)="setPLT($event)"
-                              (getCreditOrLisingValue)="setCreditOrLising($event)"
-                              >
-
-</app-credit-lising-calculator>
-
-<!-- Third screen -->
-<app-installment-plan [minwidth]="clientWidth" [minheight]="clientHeight">
-</app-installment-plan>
-
-<app-how-submit [minwidth]="clientWidth" [minheight]="clientHeight">
-</app-how-submit>
-
-<app-request [price]="price"
-             [firstPayment]="firstPayment"
-             [period]="period"
-             [rate]="rate"
-             [plt]="plt"
-             [creditLisingValue]="ceditOrLising"
-             [minwidth]="clientWidth"
-             [minheight]="clientHeight">
-</app-request>
+<app-home [minwidth]="clientWidth" [minheight]="clientHeight"></app-home>
