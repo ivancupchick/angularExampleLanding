@@ -5,24 +5,24 @@
  -->
 
 <div class="screen firstScreen" [style.minWidth.px] = "minwidth" [style.minHeight.px] = "minheight">
-    <div [style.minWidth.px] = "minwidth" [style.minHeight.px] = "minheight*0.55" >
+    <div [style.minWidth.px] = "minwidth" [style.minHeight.px] = "minheight*0.60" >
     <div [style]="firstScreenFirstHalfStyle">
-    <div class="screen" [style.minWidth.px] = "minwidth" [style.minHeight.px] = "minheight*0.55" >
+    <div class="screen" [style.minWidth.px] = "minwidth" [style.minHeight.px] = "minheight*0.60" >
       <div class="mainTitleAndDescription">
         <div class="mainTitle">
           <p>КРЕДИТ / ЛИЗИНГ АВТОМОБИЛЕЙ С ПРОБЕГОМ<br> ДЛЯ ФИЗИЧЕСКИХ ЛИЦ</p>
         </div>
         <div class="mainDescription">
-          <p>Мы проанализировали все предложения банков и лизинговых компаний в области финансирования покупки автомобиля и подобрали для Вас самые выгодные условия. Наши партнерские соглашения с банками позволяют выбрать Вам самый лучший вариант финансирования.</p>
+          <p>Благодаря партнерским программам с банками и лизинговыми компаниями Вы можете подобрать у нас самые выгодные для Вас условия финансирования на покупку автомобиля.</p>
         </div>
       </div>
     </div>
     </div>
     </div>
 
-    <div [style.minWidth.px] = "minwidth" [style.minHeight.px] = "minheight*0.45">
+    <div [style.minWidth.px] = "minwidth" [style.minHeight.px] = "minheight*0.40">
     <div [style]="firstScreenSecondHalfStyle">
-    <div class="secondHalfFirstScreenBlocks" [style.minWidth.px] = "minwidth" [style.minHeight.px] = "minheight*0.45">
+    <div class="secondHalfFirstScreenBlocks" [style.minWidth.px] = "minwidth" [style.minHeight.px] = "minheight*0.40">
       <div class="iconContainer">
         <div class="iconForAttract">
           <div class="iconTime iconSize"></div>
@@ -41,7 +41,7 @@
           <p class="iconTitleSize">Любой автомобиль</p>
         </div>
       </div>
-      <button class="bottonToDown" ><p>Подобрать условия</p></button>
+      <button class="bottonToDown" (click)="scrollToRequest()"><p>Оформить заявку</p></button>
       <!-- (click)="scrollToSecondPage()" -->
     </div>
     </div>

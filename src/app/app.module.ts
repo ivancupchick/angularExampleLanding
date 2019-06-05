@@ -31,6 +31,7 @@ import { RequestComponent } from './home/pages/request/request.component';
 import { CreditLisingCalculatorComponent } from './home/pages/credit-lising-calculator/credit-lising-calculator.component';
 import { CalculatorToRequestService } from './home/services/calculator-to-request.service';
 import { SizeServiceService } from './service/size-service.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { SizeServiceService } from './service/size-service.service';
     NgbModule,
     Ng5SliderModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
   providers: [ CalculatorToRequestService, SizeServiceService ],
   bootstrap: [ AppComponent ],

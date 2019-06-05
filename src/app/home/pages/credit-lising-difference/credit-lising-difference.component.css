@@ -1,6 +1,7 @@
 p {
   margin: 0 2px;
   width: 100%;
+  font-size: 2rem;
 }
 .parentFlexColumn {
   display: flex;
@@ -128,4 +129,57 @@ p {
   left: 17px;
   right: 17px;
   border-top: 1px solid #e6e6e6;
+}
+.creditLisingBlocks {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+}
+.advantagesBlocks {
+  box-sizing:border-box;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 95%;
+}
+.mainTitle {
+  margin-bottom:7px;
+  margin-top:4px;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 640px) {
+  .creditLisingBlocks {
+    flex-wrap: wrap;
+  }
+  .creditDescriptionBlock, .lisingDescriptionBlock {
+    width:100%;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  .creditDescriptionBlock p {
+    width: 95%;
+    margin-bottom: 10px;
+  }
+  .firstLineBlockAdvantages, .secondLineBlockAdvantages  {
+    flex-wrap: wrap;
+    margin: 0;
+  }
+  .firstBlockAdvantages, .secondBlockAdvantages, .thirdBlockAdvantages, .fourthBlockAdvantages {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .borderLeft::before, .borderTop::after {
+    border: 0;
+  }
+  .mainTitle {
+    margin-top: 40px;
+  }
+  .imageSize {
+    min-width: 70px;
+    height: 70px;
+    margin: auto 10px;
+  }
 }

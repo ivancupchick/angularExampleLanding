@@ -17,7 +17,7 @@
 .button {
   color: white;
   cursor: pointer;
-  padding: 0 10px;
+  padding: 0 20px;
 }
 .button:focus {
   outline: 0;
@@ -46,6 +46,30 @@
   height: 20px;
   margin-right: 10px;
 }
+.line {
+  position: relative;
+}
+.line::before, .line::after {
+  position: absolute;
+  content: '';
+}
+.line::before {
+  width: 1px;
+  border-left: #ccc solid 1px;
+  top: 5px;
+  bottom: 5px;
+  left: 0px;
+}
+.line::after {
+  width: 1px;
+  border-right: #ccc solid 1px;
+  right: 0px;
+  top: 5px;
+  bottom: 5px;
+}
+.rightbutton {
+  margin-left: -1px;
+}
 
 @media screen and (max-width: 824px) {
   .numberForConnection {
@@ -58,14 +82,20 @@
   .emptyDivForPositionLogo {
     width: 4px;
   }
+  .logo span {
+    font-size: 1.5rem;
+  }
+  .numberForConnection {
+    font-size: 1.5rem;
+  }
 }
 
 @media screen and (max-width: 390px) {
   .logo span {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
   }
   .numberForConnection {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
   }
   .yellowTreangle {
     margin: 0 4px 0 0;

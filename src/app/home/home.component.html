@@ -1,8 +1,9 @@
-<app-first-page>
+<app-first-page (scroll)="scrollToRequest($event)">
 </app-first-page>
-
-<app-credit-lising-difference>
-</app-credit-lising-difference>
+<div #ancorC_Ldifference>
+  <app-credit-lising-difference>
+  </app-credit-lising-difference>
+</div>
 
 <app-installment-plan>
 </app-installment-plan>
@@ -10,5 +11,7 @@
 <app-how-submit>
 </app-how-submit>
 
-<app-request>
-</app-request>
+<div #ancorRequest>
+  <app-request (scroll)="scrollToLisingDifference($event)">
+  </app-request>
+</div>

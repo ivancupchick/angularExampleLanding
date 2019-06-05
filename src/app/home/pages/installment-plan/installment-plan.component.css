@@ -40,6 +40,7 @@ p {
 .container {
   width: 100%;
   height: 100%;
+  color: white;
 }
 .content {
   width: 100%;
@@ -95,7 +96,11 @@ p {
 .whoCanUseContent {
   width: 100%;
   height: 95%;
-  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 0 10px 0;
+  box-sizing: border-box;
 }
 .whoCanUseContent p {
   text-align: center;
@@ -104,4 +109,27 @@ p {
 }
 .marginMinus {
   margin-left: -2px;
+}
+
+@media screen and (max-width: 750px) {
+  table {
+    border-collapse: collapse;
+    table-layout: initial;
+    width: 100%;
+  }
+  td {
+    border: 1px solid #e6e6e6;
+    text-align: center;
+    padding: 15px 20px;
+    width: 25%;
+    font-size: 2vmin;
+  }
+  td p {
+    font-size: initial;
+  }
+}
+@media screen and (max-width: 600px) {
+  td p {
+    font-size: inherit;
+  }
 }

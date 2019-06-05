@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import { CalculatorToRequestService } from '../../services/calculator-to-request.service';
 import { SizeServiceService } from 'src/app/service/size-service.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-request',
@@ -10,6 +11,8 @@ import { SizeServiceService } from 'src/app/service/size-service.service';
   styleUrls: ['./request.component.css']
 })
 export class RequestComponent implements OnInit {
+
+  @Output() scroll: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   name: string;
   phone: string;
@@ -36,7 +39,8 @@ export class RequestComponent implements OnInit {
   constructor(private calculatorService: CalculatorToRequestService,
               protected sanitizer: DomSanitizer,
               private http: HttpClient,
-              private sizeService: SizeServiceService) { }
+              private sizeService: SizeServiceService,
+              private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.sizeService.clientWidth.subscribe( (clientWidth) => {
@@ -92,18 +96,9 @@ export class RequestComponent implements OnInit {
     const percentageStavka = `${(this.rate * 100).toFixed(2)} %`;
     const mountyPayment = `${this.plt.toFixed(2)} BYN`;
     const lisingOrCredit = this.creditLisingValue === 0 ? 'Кредит' : 'Лизинг';
-    console.log(data.value);
-    console.log({
-      name: data.value.name,
-      phone: data.value.phone,
-      price,
-      percentage,
-      period,
-      percentageStavka,
-      mountyPayment,
-      lisingOrCredit,
-    });
-    // this.http.post('../../../../assets/mail.php', {
+
+    // console.log(data.value);
+    // console.log({
     //   name: data.value.name,
     //   phone: data.value.phone,
     //   price,
@@ -112,9 +107,35 @@ export class RequestComponent implements OnInit {
     //   percentageStavka,
     //   mountyPayment,
     //   lisingOrCredit,
-    // }).subscribe( (data: any) => {
-    //     console.log(data);
-    //   }, (error) => console.log(error)
-    // );
+    // });
+    this.http.post('../../../../assets/mail.php', {
+      name: data.value.name,
+      phone: data.value.phone,
+      price,
+      percentage,
+      period,
+      percentageStavka,
+      mountyPayment,
+      lisingOrCredit,
+    }).subscribe( (data: any) => {
+        console.log(data);
+      }, (error) => console.log(error)
+    );
+
+    this.name = '';
+    this.phone = '';
+    this.openSnackBar('Спасибо! Ваша заявка отправлена!', 'OK');
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 3000,
+      verticalPosition: 'top',
+      panelClass: 'test'
+    });
+  }
+
+  public scrollToCLdiffernce() {
+    this.scroll.emit(true);
   }
 }

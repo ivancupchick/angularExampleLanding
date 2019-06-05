@@ -39,18 +39,29 @@ p, h1, div {
   font-family: "Rubik",sans-serif;
   text-align: center;
 }
+.mainDescription:before {
+  top: 0;
+  height: 1px;
+  left: 75px;
+  right: 75px;
+  border-top: 1px solid #e6e6e6;
+  content: '';
+  position: absolute;
+}
 .mainDescription {
+  position: relative;
   color: white;
   width: 50%;
 }
 .mainDescription p {
+  margin-top: 40px;
   font-size: 1.6rem;
   text-align: center;
 }
 .bottonToDown {
   position: absolute;
   bottom: 16vmin;
-  left: 101vmin;
+  left: 96vmin;
 
   background: #ffffff00;
   border-color: #00000000;
@@ -88,7 +99,7 @@ p, h1, div {
 
 
 .iconContainer {
-  width: 105vmin;
+  width: 97vmin;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -150,6 +161,7 @@ p, h1, div {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 15px;
   }
   .bottonToDown:hover {
     background: #ffffffee;
@@ -184,6 +196,7 @@ p, h1, div {
     width: 90%;
   }
   .mainDescription p {
+
     text-indent: 1.5em;
     font-size: 1.4rem;
     text-align: justify;

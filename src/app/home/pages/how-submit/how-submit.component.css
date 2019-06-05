@@ -22,8 +22,12 @@ p {
   height: 100%;
   padding: 30px;
 }
+.container h3 {
+  text-align: center;
+}
 .stepsToGetting {
   display: flex;
+  justify-content: space-around;
   width: 90%;
 }
 .step {
@@ -81,6 +85,11 @@ p {
 .advantage {
   width: 19%;
 }
+.advantage h4 {
+  margin-bottom: 13px;
+  font-size: 2.0rem;
+  text-align: center;
+}
 .advantage1Image {
   background-image: url(../../../../assets/images/service/ourAdvantages/advant1.png);
   background-size: cover;
@@ -100,4 +109,26 @@ p {
 .advantage5Image {
   background-image: url(../../../../assets/images/service/ourAdvantages/advant5.png);
   background-size: cover;
+}
+@media screen and (max-width: 830px) {
+  .ourAdvantages {
+    flex-direction: column;
+  }
+  .advantage {
+    width: 100%;
+    margin-top: 15px;
+  }
+}
+@media screen and (max-width: 690px) {
+  .stepsToGetting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 95%;
+  }
+  .toNextStep{
+    transform: rotate(90deg);
+  }
+
 }
