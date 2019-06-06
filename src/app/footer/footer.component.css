@@ -20,6 +20,8 @@
   display: flex;
 }
 .divFooterIcons div .value {
+  text-decoration: none;
+  color: inherit;
   /* font-size: 2rem; */
 }
 .divFooterIconPhone {

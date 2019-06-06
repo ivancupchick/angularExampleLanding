@@ -38,6 +38,11 @@
   font-size: 2.2rem;
   display: flex;
 }
+.numberForConnection a {
+  text-align: center;
+  color: inherit;
+  text-decoration: none;
+}
 .yellowTreangle {
   background: url(../../assets/images/service/triangle.svg);
   background-size: cover;
@@ -75,6 +80,9 @@
   .numberForConnection {
     margin-right: 5%;
   }
+  .numberForConnection a {
+    margin-top: 4px;
+  }
   .logo {
     margin-left: 5%
   }
@@ -90,15 +98,20 @@
   }
 }
 
-@media screen and (max-width: 390px) {
-  .logo span {
-    font-size: 1.3rem;
-  }
-  .numberForConnection {
-    font-size: 1.3rem;
-  }
+@media screen and (max-width: 440px) {
   .yellowTreangle {
     margin: 0 4px 0 0;
     height: auto;
+    display: none;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .logo span {
+    font-size: 1rem;
+  }
+  .numberForConnection {
+    font-size: 1.2rem;
+    margin-right: 6px;
   }
 }
