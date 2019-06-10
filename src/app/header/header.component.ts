@@ -2,12 +2,17 @@ import { Component, OnInit, OnDestroy, ChangeDetectorRef, ViewChild, ElementRef 
 import { SizeServiceService } from '../service/size-service.service';
 import { MediaMatcher } from '@angular/cdk/layout';
 
+export const routes: any[] = [
+  {title: 'Калькулятор кредита и лизинга', path: 'credit-calculator' },
+  // {title: 'Калькулятор рассрочки', path: 'installment-calculator' }
+];
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  routes = routes;
 
   clientWidth = 0;
 

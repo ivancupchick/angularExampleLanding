@@ -12,6 +12,7 @@ export class CalculatorToRequestService {
   rate: BehaviorSubject<number> = new BehaviorSubject(0);
   plt: BehaviorSubject<number> = new BehaviorSubject(0);
   creditOrLising: BehaviorSubject<number> = new BehaviorSubject(0);
+  creditOrInstallment: BehaviorSubject<number> = new BehaviorSubject(0); // 0 - credit, 1 - installment
 
   constructor() { }
 }

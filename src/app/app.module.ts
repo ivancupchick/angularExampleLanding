@@ -35,6 +35,7 @@ import { RequestComponent } from './home/pages/request/request.component';
 import { CreditLisingCalculatorComponent } from './home/pages/credit-lising-calculator/credit-lising-calculator.component';
 import { CalculatorToRequestService } from './home/services/calculator-to-request.service';
 import { SizeServiceService } from './service/size-service.service';
+import { InstallmentCalculatorComponent } from './home/pages/installment-calculator/installment-calculator.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { SizeServiceService } from './service/size-service.service';
     HeaderComponent,
     RequestComponent,
     CreditLisingCalculatorComponent,
+    InstallmentCalculatorComponent,
   ],
   imports: [
     BrowserModule,

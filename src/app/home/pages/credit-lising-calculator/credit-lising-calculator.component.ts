@@ -256,6 +256,7 @@ export class CreditLisingCalculatorComponent implements OnInit {
     this.calculatorService.price.next(this.price);
     this.calculatorService.creditOrLising.next(this.creditLisingValue);
     this.calculatorService.rate.next(selectedPercentagePayment * 0.01);
+    this.calculatorService.creditOrInstallment.next(0);
 
     return selectedPercentagePayment * 0.01;
   }

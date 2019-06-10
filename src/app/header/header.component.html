@@ -3,12 +3,18 @@
   <!-- Desktop Navigation -->
   <div class="desktopNav">
     <div class="emptyDivForPositionLogo"></div>
+
     <div routerLink = "" routerLinkActive="active-link" class="logo button line">
       <span>AV-Finance</span>
     </div>
-    <div routerLink = "/calculator" class="logo button line rightbutton">
-      <span>Калькулятор</span>
+
+    <div *ngFor="let route of routes"
+        [routerLink]="route.path"
+         routerLinkActive="active-link"
+         class="logo button line rightbutton">
+      <span>{{route.title}}</span>
     </div>
+
   </div>
 
   <!-- Mobile Navigation -->
@@ -24,7 +30,11 @@
         <mat-nav-list>
           <h3 style="text-align: center;">AV-Finance</h3>
           <a mat-list-item (click)="snav.toggle()" routerLink="">Главная</a>
-          <a mat-list-item (click)="snav.toggle()" routerLink="/calculator">Калькулятор</a>
+          <a mat-list-item *ngFor="let route of routes"
+                          (click)="snav.toggle()"
+                          [routerLink]="route.path">
+            {{route.title}}
+          </a>
         </mat-nav-list>
       </mat-sidenav>
 
