@@ -175,7 +175,7 @@ export class CreditLisingCalculatorComponent implements OnInit {
     this.secondScreenStyle = this.transform(
       `background:  linear-gradient(41deg, #00000000 ${secondScreenFirstLineSize}px, #ffcc0099 ${secondScreenFirstLineSize + 1}px,
        #ffcc0099 ${secondScreenSecondLineSize}px, #00000000 ${secondScreenSecondLineSize + 1}px),
-       url(../../../../assets/images/service/secondScreen.png); background-size: cover;`
+       url(../../../../assets/images/service/secondScreen.jpg); background-size: cover;`
     );
   }
 

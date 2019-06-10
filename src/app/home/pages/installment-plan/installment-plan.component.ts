@@ -37,7 +37,7 @@ export class InstallmentPlanComponent implements OnInit {
     const thirdScreenLineSize = 1118 + ((height - 766) * 1.509);
     this.thirdScreenStyle = this.transform(
       `background: linear-gradient(41deg, #3333334d 30%, #3333334d 30%, #3333334d ${thirdScreenLineSize}px,
-       #ffcc0099 ${thirdScreenLineSize + 1}px), url(../../../../assets/images/service/secondScreen.png);
+       #ffcc0099 ${thirdScreenLineSize + 1}px), url(../../../../assets/images/service/secondScreen.jpg);
        background-size: cover;`
     );
   }

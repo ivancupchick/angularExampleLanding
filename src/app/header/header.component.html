@@ -1,13 +1,37 @@
 <div [style.minWidth.px] = "clientWidth" class="header">
-  <div style="display: flex;">
+
+  <!-- Desktop Navigation -->
+  <div class="desktopNav">
     <div class="emptyDivForPositionLogo"></div>
     <div routerLink = "" routerLinkActive="active-link" class="logo button line">
       <span>AV-Finance</span>
     </div>
-  <div routerLink = "/calculator" class="logo button line rightbutton">
-    <span>Калькулятор</span>
+    <div routerLink = "/calculator" class="logo button line rightbutton">
+      <span>Калькулятор</span>
+    </div>
   </div>
+
+  <!-- Mobile Navigation -->
+  <div class="mobileNav" [class.example-is-mobile]="mobileQuery.matches">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 40 : 0">
+      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                         [fixedInViewport]="mobileQuery.matches"
+                         fixedTopGap="40">
+        <mat-nav-list>
+          <h3 style="text-align: center;">AV-Finance</h3>
+          <a mat-list-item (click)="snav.toggle()" routerLink="">Главная</a>
+          <a mat-list-item (click)="snav.toggle()" routerLink="/calculator">Калькулятор</a>
+        </mat-nav-list>
+      </mat-sidenav>
+
+    </mat-sidenav-container>
   </div>
+
+  <!-- Number for connection -->
   <span class="numberForConnection">
     <div class="yellowTreangle"></div>
     <a href="tel:+375336892989">+375(33)689-29-89</a>

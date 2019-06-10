@@ -14,11 +14,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatListModule } from '@angular/material/list';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-
 import { Ng5SliderModule } from 'ng5-slider';
+
 import { PriceVisiblePipe } from './price-visible.pipe';
 import { CreditLisingDifferenceComponent } from './home/pages/credit-lising-difference/credit-lising-difference.component';
 import { InstallmentPlanComponent } from './home/pages/installment-plan/installment-plan.component';
@@ -31,7 +35,6 @@ import { RequestComponent } from './home/pages/request/request.component';
 import { CreditLisingCalculatorComponent } from './home/pages/credit-lising-calculator/credit-lising-calculator.component';
 import { CalculatorToRequestService } from './home/services/calculator-to-request.service';
 import { SizeServiceService } from './service/size-service.service';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -64,7 +67,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     Ng5SliderModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [ CalculatorToRequestService, SizeServiceService ],
   bootstrap: [ AppComponent ],
