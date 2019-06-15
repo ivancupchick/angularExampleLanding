@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser';
 import { Options } from 'ng5-slider';
-import { CalculatorToRequestService } from '../../services/calculator-to-request.service';
+import { CalculatorToRequestService } from '../home/services/calculator-to-request.service';
 import { SizeServiceService } from 'src/app/service/size-service.service';
 
 
@@ -256,7 +256,6 @@ export class CreditLisingCalculatorComponent implements OnInit {
     this.calculatorService.price.next(this.price);
     this.calculatorService.creditOrLising.next(this.creditLisingValue);
     this.calculatorService.rate.next(selectedPercentagePayment * 0.01);
-    this.calculatorService.creditOrInstallment.next(0);
 
     return selectedPercentagePayment * 0.01;
   }

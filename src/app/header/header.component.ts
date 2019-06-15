@@ -4,7 +4,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 
 export const routes: any[] = [
   {title: 'Калькулятор кредита и лизинга', path: 'credit-calculator' },
-  // {title: 'Калькулятор рассрочки', path: 'installment-calculator' }
+  {title: 'Калькулятор рассрочки', path: 'installment-calculator' }
 ];
 @Component({
   selector: 'app-header',

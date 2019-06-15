@@ -1,9 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { Percentages } from '../credit-lising-calculator/credit-lising-calculator.component';
 import { Options } from 'ng5-slider';
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser';
-import { CalculatorToRequestService } from '../../services/calculator-to-request.service';
+import { CalculatorToRequestService } from '../home/services/calculator-to-request.service';
 import { SizeServiceService } from 'src/app/service/size-service.service';
+
+export class Percentages {
+  public 0: number;
+  public 10: number;
+  public 20: number;
+  public 30: number;
+  public 40: number;
+  public 50: number;
+  public 60: number;
+  public 70: number;
+  constructor(one: number, two: number, three: number, four: number, five: number, six: number, seven: number, eight: number) {
+    this[0] = one;
+    this[10] = two;
+    this[20] = three;
+    this[30] = four;
+    this[40] = five;
+    this[50] = six;
+    this[60] = seven;
+    this[70] = eight;
+  }
+}
 
 @Component({
   selector: 'app-installment-calculator',
@@ -88,6 +108,7 @@ export class InstallmentCalculatorComponent implements OnInit {
               private sizeService: SizeServiceService) { }
 
   ngOnInit() {
+
     this.sizeService.clientWidth.subscribe( (clientWidth) => {
       this.minwidth = clientWidth;
     });

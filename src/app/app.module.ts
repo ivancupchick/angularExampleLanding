@@ -21,8 +21,6 @@ import { MatListModule } from '@angular/material/list';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { Ng5SliderModule } from 'ng5-slider';
-
 import { PriceVisiblePipe } from './price-visible.pipe';
 import { CreditLisingDifferenceComponent } from './home/pages/credit-lising-difference/credit-lising-difference.component';
 import { InstallmentPlanComponent } from './home/pages/installment-plan/installment-plan.component';
@@ -32,10 +30,9 @@ import { FooterComponent } from './footer/footer.component';
 import { FirstPageComponent } from './home/pages/first-page/first-page.component';
 import { HeaderComponent } from './header/header.component';
 import { RequestComponent } from './home/pages/request/request.component';
-import { CreditLisingCalculatorComponent } from './home/pages/credit-lising-calculator/credit-lising-calculator.component';
 import { CalculatorToRequestService } from './home/services/calculator-to-request.service';
 import { SizeServiceService } from './service/size-service.service';
-import { InstallmentCalculatorComponent } from './home/pages/installment-calculator/installment-calculator.component';
+import { DeferLoadModule } from '@trademe/ng-defer-load';
 
 @NgModule({
   declarations: [
@@ -49,8 +46,6 @@ import { InstallmentCalculatorComponent } from './home/pages/installment-calcula
     FirstPageComponent,
     HeaderComponent,
     RequestComponent,
-    CreditLisingCalculatorComponent,
-    InstallmentCalculatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,13 +61,14 @@ import { InstallmentCalculatorComponent } from './home/pages/installment-calcula
     MatButtonModule,
     MatTooltipModule,
     NgbModule,
-    Ng5SliderModule,
     HttpClientModule,
     ReactiveFormsModule,
     MatSnackBarModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+
+    DeferLoadModule
   ],
   providers: [ CalculatorToRequestService, SizeServiceService ],
   bootstrap: [ AppComponent ],

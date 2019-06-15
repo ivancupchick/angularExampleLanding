@@ -13,18 +13,6 @@
   <div class="slidersAndBestChoise">
     <mat-card class="slidersBlock">
 
-      <!-- START CREDIT-LISING; USD-BYR SLIDERS -->
-      <div>
-        <div class="booleanSliderLables">
-          <span>Кредит</span>
-          <span>Лизинг</span>
-        </div>
-        <ng5-slider [(value)]="creditLisingValue"  [options]="creditLisingOptions"></ng5-slider>
-        <!-- (valueChange)="isChangedCreditLising()" -->
-      </div>
-      <!-- END CREDIT-LISING; USD-BYR SLIDERS -->
-
-
       <h2 class="titlesWithValues">
         Первый платёж: {{getFirstPayment()}}
       </h2>
@@ -57,7 +45,8 @@
 
       <div class="divForSlider">
           <div class="divSliderContainer">
-            <ng5-slider *ngIf="creditLisingValue === 0 else lisingRepaymentPeriodSlider" [(value)]="creditRepaymentPeriodValue" [options]="creditRepaymentPeriodOptions"></ng5-slider>
+            <!-- *ngIf="creditLisingValue === 0 else lisingRepaymentPeriodSlider" -->
+            <ng5-slider [(value)]="creditRepaymentPeriodValue" [options]="creditRepaymentPeriodOptions"></ng5-slider>
             <ng-template #lisingRepaymentPeriodSlider>
               <ng5-slider [(value)]="lisingRepaymentPeriodValue" [options]="lisingRepaymentPeriodOptions"></ng5-slider>
             </ng-template>

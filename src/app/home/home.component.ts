@@ -10,6 +10,12 @@ export class HomeComponent implements OnInit {
   @ViewChild('ancorRequest') ancorRequest: ElementRef;
   @ViewChild('ancorC_Ldifference') ancorCLdifference: ElementRef;
 
+  showFirstPage = false;
+  showCreLisDiff = false;
+  showIntPlab = false;
+  showHowSub = false;
+  showReq = false;
+
   constructor() {
   }
 
