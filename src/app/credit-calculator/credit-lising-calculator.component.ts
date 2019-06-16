@@ -1,28 +1,33 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser';
 import { Options } from 'ng5-slider';
 import { CalculatorToRequestService } from '../home/services/calculator-to-request.service';
 import { SizeServiceService } from 'src/app/service/size-service.service';
+import { FinancialLogicService } from '../service/financial-logic.service';
 
 
 export class Percentages {
-  public 0: number;
-  public 10: number;
-  public 20: number;
-  public 30: number;
-  public 40: number;
-  public 50: number;
-  public 60: number;
-  public 70: number;
-  constructor(one: number, two: number, three: number, four: number, five: number, six: number, seven: number, eight: number) {
-    this[0] = one;
-    this[10] = two;
-    this[20] = three;
-    this[30] = four;
-    this[40] = five;
-    this[50] = six;
-    this[60] = seven;
-    this[70] = eight;
+  constructor(
+    private _0: number,
+    private _5: number,
+    private _10: number,
+    private _15: number,
+    private _20: number,
+    private _25: number,
+    private _30: number,
+    private _35: number,
+    private _40: number,
+    private _45: number,
+    private _50: number,
+    private _55: number,
+    private _60: number,
+    private _65: number,
+    private _70: number,
+    private _75: number,
+    private _80: number,
+    private _85: number,
+    private _90: number,
+  ) {
   }
 }
 
@@ -49,6 +54,7 @@ export class CreditLisingCalculatorComponent implements OnInit {
 
   creditLisingValue = 0;
   creditLisingOptions: Options = {
+    animate: false,
     floor: 0,
     ceil: 1,
     step: 1,
@@ -58,8 +64,9 @@ export class CreditLisingCalculatorComponent implements OnInit {
     hideLimitLabels: true,
   };
   // credit
-  creditFirstPaymentPercentageValue = 15;
-  creditFirstPaymentPercentageOptions: Options = {
+  firstPaymentValue = 15;
+  firstPaymentOptions: Options = {
+    animate: false,
     floor: 0,
     ceil: 90,
     step: 5,
@@ -75,8 +82,9 @@ export class CreditLisingCalculatorComponent implements OnInit {
       }
     },
   };
-  creditRepaymentPeriodValue = 12;
-  creditRepaymentPeriodOptions: Options = {
+  repaymentPeriodValue = 12;
+  repaymentPeriodOptions: Options = {
+    animate: false,
     floor: 6,
     ceil: 84,
     step: 6,
@@ -93,68 +101,122 @@ export class CreditLisingCalculatorComponent implements OnInit {
     },
   };
   // lising
-  lisingFirstPaymentPercentageValue = 15;
-  lisingFirstPaymentPercentageOptions: Options = {
-    floor: 10,
-    ceil: 90,
-    step: 5,
-    showTicks: true,
-    hideLimitLabels: true,
-    hidePointerLabels: true,
-    getTickColor: (value: number): string => {
-      return 'rgba(255, 255, 255, 0)';
-    },
-    getLegend: (value: number): string => {
-      if (value % 10 === 0) {
-        return value + '%';
-      }
-    },
-  };
-  lisingRepaymentPeriodValue = 12;
-  lisingRepaymentPeriodOptions: Options = {
-    floor: 6,
-    ceil: 60,
-    step: 6,
-    showTicks: true,
-    hideLimitLabels: true,
-    hidePointerLabels: true,
-    getTickColor: (value: number): string => {
-      return 'rgba(255, 255, 255, 0)';
-    },
-    getLegend: (value: number): string => {
-      if (value % 12 === 0) {
-        return value + ' мес';
-      }
-    },
-  };
+  // lisingFirstPaymentPercentageValue = 15;
+  // lisingFirstPaymentPercentageOptions: Options = {
+  //   floor: 10,
+  //   ceil: 90,
+  //   step: 5,
+  //   showTicks: true,
+  //   hideLimitLabels: true,
+  //   hidePointerLabels: true,
+  //   getTickColor: (value: number): string => {
+  //     return 'rgba(255, 255, 255, 0)';
+  //   },
+  //   getLegend: (value: number): string => {
+  //     if (value % 10 === 0) {
+  //       return value + '%';
+  //     }
+  //   },
+  // };
+  // lisingRepaymentPeriodValue = 12;
+  // lisingRepaymentPeriodOptions: Options = {
+  //   floor: 6,
+  //   ceil: 60,
+  //   step: 6,
+  //   showTicks: true,
+  //   hideLimitLabels: true,
+  //   hidePointerLabels: true,
+  //   getTickColor: (value: number): string => {
+  //     return 'rgba(255, 255, 255, 0)';
+  //   },
+  //   getLegend: (value: number): string => {
+  //     if (value % 12 === 0) {
+  //       return value + ' мес';
+  //     }
+  //   },
+  // };
   // end sliders options
 
   // set Percentages
   percentagesForPFOldCredit = {
-    1: new Percentages(15.55, 13.7, 13.5, 13.3, 12.99, 12.7, 11.99, 11.00),
-    2: new Percentages(15.55, 15.55, 14.5, 14.3, 13.99, 13.7, 13.15, 12.20),
-    3: new Percentages(15.55, 15.55, 15.55, 14.7, 14.5, 14.1, 13.6, 12.70),
-    5: new Percentages(15.55, 15.55, 15.55, 15.55, 14.9, 14.5, 13.99, 13.13),
-    7: new Percentages(15.55, 15.55, 15.55, 15.55, 15.55, 14.7, 14.14, 13.5),
+    6: new Percentages(15.55, 15.55, 13.70, 13.70, 13.50, 13.50, 13.30, 13.30, 12.99, 12.99, 12.7,
+                        12.7, 11.99, 11.99, 11.00, 11.00, 11.00, 11.00, 11.00),
+
+    12: new Percentages(15.55, 15.55, 13.70, 13.70, 13.50, 13.50, 13.30, 13.30, 12.99, 12.99, 12.7,
+                        12.7, 11.99, 11.99, 11.00, 11.00, 11.00, 11.00, 11.00),
+
+    18: new Percentages(15.55, 15.55, 15.55, 15.55, 14.50, 14.50, 14.30, 14.30, 13.99, 13.99, 13.7,
+                        13.7, 13.15, 13.15, 12.20, 12.20, 12.20, 12.20, 12.20),
+
+    24: new Percentages(15.55, 15.55, 15.55, 15.55, 14.50, 14.50, 14.30, 14.30, 13.99, 13.99, 13.7,
+                        13.7, 13.15, 13.15, 12.20, 12.20, 12.20, 12.20, 12.20),
+
+    30: new Percentages(15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 14.70, 14.70, 14.50, 14.50, 14.1,
+                        14.1, 13.60, 13.60, 12.70, 12.70, 12.70, 12.70, 12.70),
+
+    36: new Percentages(15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 14.70, 14.70, 14.50, 14.50, 14.1,
+                        14.1, 13.60, 13.60, 12.70, 12.70, 12.70, 12.70, 12.70),
+
+    42: new Percentages(15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 14.90, 14.90, 14.5,
+                        14.5, 13.99, 13.99, 13.13, 13.13, 13.13, 13.13, 13.13),
+
+    48: new Percentages(15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 14.90, 14.90, 14.5,
+                        14.5, 13.99, 13.99, 13.13, 13.13, 13.13, 13.13, 13.13),
+
+    54: new Percentages(15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 14.90, 14.90, 14.5,
+                        14.5, 13.99, 13.99, 13.13, 13.13, 13.13, 13.13, 13.13),
+
+    60: new Percentages(15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 14.90, 14.90, 14.5,
+                        14.5, 13.99, 13.99, 13.13, 13.13, 13.13, 13.13, 13.13),
+
+    66: new Percentages(15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 14.7,
+                        14.7, 14.14, 14.14, 13.50, 13.50, 13.50, 13.50, 13.50),
+
+    72: new Percentages(15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 14.7,
+                        14.7, 14.14, 14.14, 13.50, 13.50, 13.50, 13.50, 13.50),
+
+    78: new Percentages(15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 14.7,
+                        14.7, 14.14, 14.14, 13.50, 13.50, 13.50, 13.50, 13.50),
+
+    84: new Percentages(15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 15.55, 14.7,
+                        14.7, 14.14, 14.14, 13.50, 13.50, 13.50, 13.50, 13.50),
   };
 
   percentagesForPFOldLising = {
-    1: new Percentages(null, 12.7, 12.5, 12.3, 11.99, 11.7, 10.99, 10.00),
-    2: new Percentages(null, 14.5, 13.5, 13.3, 12.99, 12.7, 12.15, 11.2),
-    3: new Percentages(null, 14.5, 14.5, 13.7, 13.5, 13.1, 12.6, 11.7),
-    4: new Percentages(null, 14.5, 14.5, 14.5, 13.99, 13.5, 12.99, 12.12),
-    5: new Percentages(null, 14.5, 14.5, 14.5, 13.99, 13.5, 12.99, 12.12),
+    6: new Percentages(null, null, 12.7, 12.7, 12.5, 12.5, 12.3, 12.3, 11.99, 11.99,  11.7,  11.7, 10.99,
+                        10.99, 10.00, 10.00, 10.00, 10.00, 10.00),
+    12: new Percentages(null, null, 12.7, 12.7, 12.5, 12.5, 12.3, 12.3, 11.99, 11.99,  11.7,  11.7, 10.99,
+                        10.99, 10.00, 10.00, 10.00, 10.00, 10.00),
+    18: new Percentages(null, null, 14.5, 14.5, 13.5, 13.5, 13.3, 13.3, 12.99, 12.99,  12.7,  12.7, 12.15,
+                        12.15, 11.20, 11.20, 11.20, 11.20, 11.20),
+    24: new Percentages(null, null, 14.5, 14.5, 13.5, 13.5, 13.3, 13.3, 12.99, 12.99,  12.7,  12.7, 12.15,
+                        12.15, 11.20, 11.20, 11.20, 11.20, 11.20),
+    30: new Percentages(null, null, 14.5, 14.5, 14.5, 14.5, 13.7, 13.7, 13.50, 13.50,  13.1,  13.1, 12.60,
+                        12.60, 11.70, 11.70, 11.70, 11.70, 11.70),
+    36: new Percentages(null, null, 14.5, 14.5, 14.5, 14.5, 13.7, 13.7, 13.50, 13.50,  13.1,  13.1, 12.60,
+                        12.60, 11.70, 11.70, 11.70, 11.70, 11.70),
+    42: new Percentages(null, null, 14.5, 14.5, 14.5, 14.5, 14.5, 14.5, 13.99, 13.99,  13.5,  13.5, 12.99,
+                        12.99, 12.12, 12.12, 12.12, 12.12, 12.12),
+    48: new Percentages(null, null, 14.5, 14.5, 14.5, 14.5, 14.5, 14.5, 13.99, 13.99,  13.5,  13.5, 12.99,
+                        12.99, 12.12, 12.12, 12.12, 12.12, 12.12),
+    54: new Percentages(null, null, 14.5, 14.5, 14.5, 14.5, 14.5, 14.5, 13.99, 13.99,  13.5,  13.5, 12.99,
+                        12.99, 12.12, 12.12, 12.12, 12.12, 12.12),
+    60: new Percentages(null, null, 14.5, 14.5, 14.5, 14.5, 14.5, 14.5, 13.99, 13.99,  13.5,  13.5, 12.99,
+                        12.99, 12.12, 12.12, 12.12, 12.12, 12.12),
   };
 
-  price = 0;
+  price: number;
+
+  @ViewChild('prices') prices: ElementRef;
 
   constructor(protected sanitizer: DomSanitizer,
               private calculatorService: CalculatorToRequestService,
-              private sizeService: SizeServiceService) { }
-
-
+              private sizeService: SizeServiceService,
+              private financialService: FinancialLogicService) { }
 
   ngOnInit() {
+    this.prices.nativeElement.focus();
+
     this.sizeService.clientWidth.subscribe( (clientWidth) => {
       this.minwidth = clientWidth;
     });
@@ -179,99 +241,96 @@ export class CreditLisingCalculatorComponent implements OnInit {
     );
   }
 
-  public transform(style: string): SafeStyle {
+  private transform(style: string): SafeStyle {
     return this.sanitizer.bypassSecurityTrustStyle(style);
   }
 
-  // BEGIN CALCULATION FUNCTIONS
-  getFirstPaymentPercentageValue(): number {
-    if (this.creditLisingValue === 0) {
-      return this.creditFirstPaymentPercentageValue;
+  switchLisingAndCredit(value: number) {
+    if (value === 0) {
+      if (this.firstPaymentOptions.floor !== 0) {
+        this.setFirstRepaymentOptions( {floor: 0} );
+      }
+      if (this.repaymentPeriodOptions.ceil !== 84) {
+        this.setRepaymentPeriodOptions( {ceil: 84} );
+      }
     } else {
-      return this.lisingFirstPaymentPercentageValue;
+      if (this.firstPaymentOptions.floor !== 10) {
+        this.setFirstRepaymentOptions( {floor: 10} );
+      }
+      if (this.repaymentPeriodOptions.ceil !== 60) {
+        this.setRepaymentPeriodOptions( {ceil: 60} );
+      }
     }
-  }
-  calculateFirstPayment(): number {
-    return +(this.price * (0.01 * this.getFirstPaymentPercentageValue())).toFixed(2);
-  }
-  calculatePeriod(): number {
-    if (this.creditLisingValue === 0) {
-      return this.creditRepaymentPeriodValue;
-    } else {
-      return this.lisingRepaymentPeriodValue;
-    }
-  }
-  getFirstPayment(): string {
-    let firstPaymentValue: number;
-    if (this.creditLisingValue === 0) {
-      firstPaymentValue = this.creditFirstPaymentPercentageValue;
-    } else {
-      firstPaymentValue = this.lisingFirstPaymentPercentageValue;
-    }
-    this.calculatorService.firstPayment.next(`${this.calculateFirstPayment()} BYN (${firstPaymentValue}%)`);
-    //this.getFirstPaymentValue.emit(`${this.calculateFirstPayment()} BYN (${firstPaymentValue}%)`)
-    return `${this.calculateFirstPayment()} BYN (${firstPaymentValue}%)`;
-  }
-  getPeriod(): string {
-    this.calculatorService.period.next(`${this.calculatePeriod()} Месяцв`);
-    return this.calculatePeriod() + ' Месяца';
   }
 
-  getPercentagesForOldAndPF() {
+  private setFirstRepaymentOptions(options?: any) {
+    const newOptions: Options = Object.assign({}, this.firstPaymentOptions);
+
+    for (const key in options) {
+      if (options.hasOwnProperty(key)) {
+        newOptions[key] = options[key];
+      }
+    }
+
+    this.firstPaymentOptions = newOptions;
+  }
+
+  private setRepaymentPeriodOptions(options?: any) {
+    const newOptions: Options = Object.assign({}, this.repaymentPeriodOptions);
+
+    for (const key in options) {
+      if (options.hasOwnProperty(key)) {
+        newOptions[key] = options[key];
+      }
+    }
+
+    this.repaymentPeriodOptions = newOptions;
+  }
+
+  // BEGIN CALCULATION FUNCTIONS
+  calculatePercentagesForOldAndPF() {
     if (this.creditLisingValue === 0) {
       return this.percentagesForPFOldCredit;
     } else {
       return this.percentagesForPFOldLising;
     }
   }
-  calculateRate(): number {
-    const array = this.getPercentagesForOldAndPF();
 
-    let percentagesArray;
-    let tempKey = '-1';
-// tslint:disable-next-line: forin
-    for (const key in array) {
-      if ((this.calculatePeriod() / 12) <= +key && (this.calculatePeriod() / 12) > +tempKey) {
-        percentagesArray = array[key];
-      }
-      tempKey = key;
-    }
-
-    let selectedPercentagePayment;
-    let temporaryPecentagePaymentKey = '0';
-// tslint:disable-next-line: forin
-    for (const key in percentagesArray) {
-      if (this.getFirstPaymentPercentageValue() < +key && this.getFirstPaymentPercentageValue() >= +temporaryPecentagePaymentKey) {
-        selectedPercentagePayment = percentagesArray[temporaryPecentagePaymentKey];
-      }
-      if (this.getFirstPaymentPercentageValue() >= 70) {
-        selectedPercentagePayment = percentagesArray[70];
-      }
-      if (this.getFirstPaymentPercentageValue() == 0) {
-        selectedPercentagePayment = percentagesArray[0];
-      }
-      temporaryPecentagePaymentKey = key;
-    }
-
-    this.calculatorService.price.next(this.price);
-    this.calculatorService.creditOrLising.next(this.creditLisingValue);
-    this.calculatorService.rate.next(selectedPercentagePayment * 0.01);
-
-    return selectedPercentagePayment * 0.01;
-  }
-
-  getPLT(): number {
-    const sum = this.price - ((this.getFirstPaymentPercentageValue() * 0.01) * this.price);
-    const result = this.PLT( (this.calculateRate() / 12), this.calculatePeriod(), sum);
-    if (isNaN(result)) {
-      // show ERROR MESSAGE NOT POSSIBLE GET CREDIT WITH 0 PERCETAGE FIRST PAYMENT AND > 5 YEARS PERIOD REPAYMENT
-      return 0;
-    }
-    this.calculatorService.plt.next(result);
+  getFirstPayment(): string {
+    const result =
+    `${this.financialService.calculateFirstPayment(this.price, this.firstPaymentValue)} BYN (${this.firstPaymentValue}%)`;
+    this.calculatorService.firstPayment.next(result);
     return result;
   }
-  PLT(rate: number, period: number, creditSum: number): number {
-    return (-(-rate * (creditSum *  Math.pow(( 1 + rate), (period)) )) / ( Math.pow((1 + rate), (period)) - 1));
+
+  getPeriod(): string {
+    const result = `${this.repaymentPeriodValue} Месяцв`;
+    this.calculatorService.period.next(result);
+    return result;
+  }
+  getRate() {
+    const result = this.financialService.calculateRate(this.calculatePercentagesForOldAndPF(),
+                                                       this.repaymentPeriodValue,
+                                                       this.firstPaymentValue);
+
+    this.calculatorService.creditOrInstallment.next(0); // 0 is credit or lising
+    this.calculatorService.price.next(this.price);
+    this.calculatorService.creditOrLising.next(this.creditLisingValue);
+    this.calculatorService.rate.next(result * 0.01);
+
+    return (result * 100).toFixed(2);
+  }
+
+  getPLT(): string {
+    const sum = this.price - ((this.firstPaymentValue * 0.01) * this.price);
+    const result = this.financialService.PLT( (this.financialService.calculateRate(this.calculatePercentagesForOldAndPF(),
+    this.repaymentPeriodValue, this.firstPaymentValue) / 12), this.repaymentPeriodValue, sum);
+    if (isNaN(result)) {
+      // show ERROR MESSAGE NOT POSSIBLE GET CREDIT WITH 0 PERCETAGE FIRST PAYMENT AND > 5 YEARS PERIOD REPAYMENT
+      return '';
+    }
+    this.calculatorService.plt.next(result);
+    return result.toFixed(2);
   }
 
   /*

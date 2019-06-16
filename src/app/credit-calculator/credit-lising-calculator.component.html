@@ -6,7 +6,7 @@
   <div class="choiseAutoType">
     <p>Введите стоимость автомобиля:</p>
     <mat-form-field class="price">
-      <input matInput placeholder="" [(ngModel)] = "price" name="price">
+      <input matInput #prices placeholder="" [(ngModel)] = "price" name="price">
     </mat-form-field>
   </div>
 
@@ -19,7 +19,7 @@
           <span>Кредит</span>
           <span>Лизинг</span>
         </div>
-        <ng5-slider [(value)]="creditLisingValue"  [options]="creditLisingOptions"></ng5-slider>
+        <ng5-slider (valueChange)="switchLisingAndCredit($event)" [(value)]="creditLisingValue"  [options]="creditLisingOptions"></ng5-slider>
         <!-- (valueChange)="isChangedCreditLising()" -->
       </div>
       <!-- END CREDIT-LISING; USD-BYR SLIDERS -->
@@ -31,10 +31,8 @@
       <div class="divForSlider">
 
         <div class="divSliderContainer">
-          <ng5-slider *ngIf="creditLisingValue === 0" [(value)]="creditFirstPaymentPercentageValue" [options]="creditFirstPaymentPercentageOptions"></ng5-slider>
-          <ng5-slider *ngIf="creditLisingValue === 1" [(value)]="lisingFirstPaymentPercentageValue" [options]="lisingFirstPaymentPercentageOptions"></ng5-slider>
+          <ng5-slider [(value)]="firstPaymentValue" [options]="firstPaymentOptions"></ng5-slider>
         </div>
-
 
         <!-- <div  matTooltip="Текст подсказки про бегунок c процентом первого платежа"
               matTooltipPosition="above"
@@ -59,10 +57,7 @@
 
       <div class="divForSlider">
           <div class="divSliderContainer">
-            <ng5-slider *ngIf="creditLisingValue === 0 else lisingRepaymentPeriodSlider" [(value)]="creditRepaymentPeriodValue" [options]="creditRepaymentPeriodOptions"></ng5-slider>
-            <ng-template #lisingRepaymentPeriodSlider>
-              <ng5-slider [(value)]="lisingRepaymentPeriodValue" [options]="lisingRepaymentPeriodOptions"></ng5-slider>
-            </ng-template>
+            <ng5-slider [(value)]="repaymentPeriodValue" [options]="repaymentPeriodOptions"></ng5-slider>
           </div>
         <!-- <div  matTooltip="Текст подсказки про бегунок с периодом"
               matTooltipPosition="above"
@@ -80,9 +75,9 @@
         <!-- <h3>Лучший выбор:</h3>
         <img [src]="link" class="image"> -->
         <h3>Процентная ставка:</h3>
-        <h2 class="values">{{(calculateRate() * 100).toFixed(2)}} %</h2>
+        <h2 class="values">{{getRate()}} %</h2>
         <h3>Ежемесячный платёж:</h3>
-        <h2 class="values">{{getPLT().toFixed(2)}} BYN</h2>
+        <h2 class="values">{{getPLT()}} BYN</h2>
         <!--
         <div>Выгода:</div>
         <div>{{getExtraPayment()}}</div>

@@ -6,7 +6,7 @@
   <div class="choiseAutoType">
     <p>Введите стоимость автомобиля:</p>
     <mat-form-field class="price">
-      <input matInput placeholder="" [(ngModel)] = "price" name="price">
+      <input matInput #prices placeholder="" [(ngModel)] = "price" name="price">
     </mat-form-field>
   </div>
 
@@ -19,7 +19,7 @@
       <div class="divForSlider">
 
         <div class="divSliderContainer">
-          <ng5-slider [(value)]="firstPaymentPercentageValue" [options]="firstPaymentPercentageOptions"></ng5-slider>
+          <ng5-slider [(value)]="firstPaymentValue" [options]="firstPaymentOptions"></ng5-slider>
         </div>
 
         <!-- <div  matTooltip="Текст подсказки про бегунок c процентом первого платежа"
@@ -44,13 +44,9 @@
       </h2>
 
       <div class="divForSlider">
-          <div class="divSliderContainer">
-            <!-- *ngIf="creditLisingValue === 0 else lisingRepaymentPeriodSlider" -->
-            <ng5-slider [(value)]="creditRepaymentPeriodValue" [options]="creditRepaymentPeriodOptions"></ng5-slider>
-            <ng-template #lisingRepaymentPeriodSlider>
-              <ng5-slider [(value)]="lisingRepaymentPeriodValue" [options]="lisingRepaymentPeriodOptions"></ng5-slider>
-            </ng-template>
-          </div>
+        <div class="divSliderContainer">
+          <ng5-slider (valueChange)="changeFirstRepaymentFloor($event)" [(value)]="repaymentPeriodValue" [options]="repaymentPeriodOptions"></ng5-slider>
+        </div>
         <!-- <div  matTooltip="Текст подсказки про бегунок с периодом"
               matTooltipPosition="above"
               matTooltipHideDelay="1000"

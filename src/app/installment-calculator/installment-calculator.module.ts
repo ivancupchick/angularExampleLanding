@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 
 import { Routes, RouterModule } from '@angular/router';
+import { FinancialLogicService } from '../service/financial-logic.service';
 
 export const routes: Routes = [
   { path: '', component: InstallmentCalculatorComponent },
@@ -35,7 +36,6 @@ export const routes: Routes = [
     MatButtonModule,
     MatInputModule
   ],
-  providers: [
-  ]
+  providers: [ FinancialLogicService ]
 })
 export class InstallmentCalculatorModule { }
