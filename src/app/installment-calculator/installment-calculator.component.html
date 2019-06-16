@@ -21,23 +21,7 @@
         <div class="divSliderContainer">
           <ng5-slider [(value)]="firstPaymentValue" [options]="firstPaymentOptions"></ng5-slider>
         </div>
-
-        <!-- <div  matTooltip="Текст подсказки про бегунок c процентом первого платежа"
-              matTooltipPosition="above"
-              matTooltipHideDelay="1000"
-              matTooltipClass="toolTipText"
-              class="toolTip">
-          ?
-        </div> -->
       </div>
-
-      <!--
-        for new slider
-
-      <div class="firstRepaymentValues">
-        <span *ngFor="let persentage of creditFirstPaymentPercentageValues">{{persentage}}</span>
-      </div>
-      -->
 
       <h2 class="marginTopForMobile">
         Срок: {{getPeriod()}}
@@ -47,29 +31,16 @@
         <div class="divSliderContainer">
           <ng5-slider (valueChange)="changeFirstRepaymentFloor($event)" [(value)]="repaymentPeriodValue" [options]="repaymentPeriodOptions"></ng5-slider>
         </div>
-        <!-- <div  matTooltip="Текст подсказки про бегунок с периодом"
-              matTooltipPosition="above"
-              matTooltipHideDelay="1000"
-              matTooltipClass="toolTipText"
-              class="toolTip">
-          ?
-        </div> -->
       </div>
       <div style="height: 40px;"></div>
     </mat-card>
 
     <mat-card class="slidersBlock">
       <div class="slidersRightBlock">
-        <!-- <h3>Лучший выбор:</h3>
-        <img [src]="link" class="image"> -->
         <h3>Процентная ставка:</h3>
         <h2 class="values">{{getRate()}} %</h2>
         <h3>Ежемесячный платёж:</h3>
         <h2 class="values">{{getPLT()}} BYN</h2>
-        <!--
-        <div>Выгода:</div>
-        <div>{{getExtraPayment()}}</div>
-        -->
       </div>
     </mat-card>
   </div>

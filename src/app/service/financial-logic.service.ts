@@ -43,22 +43,4 @@ export class FinancialLogicService {
   PLT(rate: number, period: number, creditSum: number): number {
     return (-(-rate * (creditSum *  Math.pow(( 1 + rate), (period)) )) / ( Math.pow((1 + rate), (period)) - 1));
   }
-
-  /*
-  for other advantages for your individual credit/lising
-
-  getOtherBrandRate(): number {
-    return 0.1549;
-  }
-
-
-  getExtraPayment() {
-    const sum = this.price - ((this.firstPaymentPercentageValue * 0.01) * this.price);
-    const result = this.PLT( (this.getRate() / 12), this.repaymentPeriodValue, sum);
-    const compareResult = this.PLT( (this.getOtherBrandRate() / 12), this.repaymentPeriodValue, sum);
-    const finalResult = (result - compareResult) * this.repaymentPeriodValue;
-    return finalResult + ' BYN';
-  }
-  */
-  // THE END CALCULATIONS FUNCTIONS
 }

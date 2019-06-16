@@ -97,17 +97,6 @@ export class RequestComponent implements OnInit {
     const mountyPayment = `${this.plt.toFixed(2)} BYN`;
     const lisingOrCredit = this.creditLisingValue === 0 ? 'Кредит' : 'Лизинг';
 
-    // console.log(data.value);
-    // console.log({
-    //   name: data.value.name,
-    //   phone: data.value.phone,
-    //   price,
-    //   percentage,
-    //   period,
-    //   percentageStavka,
-    //   mountyPayment,
-    //   lisingOrCredit,
-    // });
     this.http.post('../../../../assets/mail.php', {
       name: data.value.name,
       phone: data.value.phone,
