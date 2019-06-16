@@ -1,0 +1,19 @@
+<form #formData='ngForm' (ngSubmit)="submitForm(formData)" id="formaToPost">
+  <h3 mat-dialog-title class="requestTitle">
+    Заказать звонок
+  </h3>
+  <div mat-dialog-content>
+  <input type="hidden" name="project_name" (ngModel)="project_name" value="Обратный Звонок">
+  <input type="hidden" name="admin_email" (ngModel)="admin_email" value="info@av-finance.by">
+  <input type="hidden" name="form_subject" (ngModel)="form_subject" value="New order">
+  <mat-form-field class="requestInputs">
+    <input matInput placeholder="Имя" value="" name="name" [(ngModel)]="name" required>
+  </mat-form-field>
+  <mat-form-field class="requestInputs">
+    <input matInput placeholder="Телефон" value="" name="phone" [(ngModel)]="phone" required>
+  </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button style="width: 200px; height: 40px; font-size: 1.1em;" mat-raised-button [disabled]="!formData.valid" type="submit" color="warn">Отправить заявку</button>
+  </div>
+</form>
