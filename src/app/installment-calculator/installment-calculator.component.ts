@@ -3,6 +3,7 @@ import { Options } from 'ng5-slider';
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser';
 import { CalculatorToRequestService } from '../home/services/calculator-to-request.service';
 import { SizeServiceService } from 'src/app/service/size-service.service';
+import { FinancialLogicService } from '../service/financial-logic.service';
 
 export class Percentages {
   constructor(private _30: number,
@@ -87,7 +88,8 @@ export class InstallmentCalculatorComponent implements OnInit {
 
   constructor(protected sanitizer: DomSanitizer,
               private calculatorService: CalculatorToRequestService,
-              private sizeService: SizeServiceService) { }
+              private sizeService: SizeServiceService,
+              private financialService: FinancialLogicService) { }
 
   ngOnInit() {
     this.prices.nativeElement.focus();
@@ -157,66 +159,41 @@ export class InstallmentCalculatorComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustStyle(style);
   }
 
-  // BEGIN CALCULATION FUNCTIONS
-  calculateFirstPayment(): number {
-    return +(this.price * (0.01 * this.firstPaymentValue)).toFixed(2);
-  }
   getFirstPayment(): string {
-    let firstPaymentValue: number = this.firstPaymentValue;
-    this.calculatorService.firstPayment.next(`${this.calculateFirstPayment()} BYN (${firstPaymentValue}%)`);
-    // this.getFirstPaymentValue.emit(`${this.calculateFirstPayment()} BYN (${firstPaymentValue}%)`)
-    return `${this.calculateFirstPayment()} BYN (${firstPaymentValue}%)`;
+    const result =
+    `${this.financialService.calculateFirstPayment(this.price, this.firstPaymentValue)} BYN (${this.firstPaymentValue}%)`;
+    this.calculatorService.firstPayment.next(result);
+    return result;
   }
+
   getPeriod(): string {
-    this.calculatorService.period.next(`${this.repaymentPeriodValue} Месяцв`);
-    return this.repaymentPeriodValue + ' Месяца';
+    const result = `${this.repaymentPeriodValue} Месяцв`;
+    this.calculatorService.period.next(result);
+    return result;
   }
 
-  calculateRate(): number {
-    const allPercantagesByPeriod = this.percentages;
-
-    let percentagesArray;
-    for (const key in allPercantagesByPeriod) {
-      if (allPercantagesByPeriod.hasOwnProperty(key)) {
-        if ((this.repaymentPeriodValue) === +key) {
-          percentagesArray = allPercantagesByPeriod[key];
-          break;
-        }
-      }
-    }
-
-    let selectedPercentagePayment;
-    for (const key in percentagesArray) {
-      if (percentagesArray.hasOwnProperty(key)) {
-        const keyName: string = key;
-        const keyValue = keyName.slice(1);
-
-        if (this.firstPaymentValue === +keyValue) {
-          selectedPercentagePayment = percentagesArray[key];
-          break;
-        }
-      }
-    }
+  getRate() {
+    const result = this.financialService.calculateRate(this.percentages,
+                                                       this.repaymentPeriodValue,
+                                                       this.firstPaymentValue);
 
     this.calculatorService.price.next(this.price);
     this.calculatorService.creditOrLising.next(2);
-    this.calculatorService.rate.next(selectedPercentagePayment * 0.01);
+    this.calculatorService.rate.next(result * 0.01);
     this.calculatorService.creditOrInstallment.next(1); // 1 is installment
 
-    return selectedPercentagePayment * 0.01;
+    return (result * 100).toFixed(2);
   }
 
-  getPLT(): number {
+  getPLT(): string {
     const sum = this.price - ((this.firstPaymentValue * 0.01) * this.price);
-    const result = this.PLT( (this.calculateRate() / 12), this.repaymentPeriodValue, sum);
+    const result = this.financialService.PLT( (this.financialService.calculateRate(this.percentages,
+    this.repaymentPeriodValue, this.firstPaymentValue) / 12), this.repaymentPeriodValue, sum);
     if (isNaN(result)) {
       // show ERROR MESSAGE NOT POSSIBLE GET CREDIT WITH 0 PERCETAGE FIRST PAYMENT AND > 5 YEARS PERIOD REPAYMENT
-      return 0;
+      return '';
     }
     this.calculatorService.plt.next(result);
-    return result;
-  }
-  PLT(rate: number, period: number, creditSum: number): number {
-    return (-(-rate * (creditSum *  Math.pow(( 1 + rate), (period)) )) / ( Math.pow((1 + rate), (period)) - 1));
+    return result.toFixed(2);
   }
 }

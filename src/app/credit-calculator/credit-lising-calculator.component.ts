@@ -308,6 +308,7 @@ export class CreditLisingCalculatorComponent implements OnInit {
     this.calculatorService.period.next(result);
     return result;
   }
+
   getRate() {
     const result = this.financialService.calculateRate(this.calculatePercentagesForOldAndPF(),
                                                        this.repaymentPeriodValue,

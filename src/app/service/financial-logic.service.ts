@@ -7,7 +7,6 @@ export class FinancialLogicService {
 
   constructor() { }
 
-  // BEGIN CALCULATION FUNCTIONS
   calculateFirstPayment(price: number, firstPayment: number): number {
     return +(price * (0.01 * firstPayment)).toFixed(2);
   }
