@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialogRef } from '@angular/material/dialog';
 import { CalculatorToRequestService } from 'src/app/home/services/calculator-to-request.service';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-call',
@@ -55,8 +56,7 @@ export class CallComponent implements OnInit {
     const mountyPayment = `${this.plt.toFixed(2)} BYN`;
     const lisingOrCredit = this.creditLisingValue === 0 ? 'Кредит' : 'Лизинг';
 
-    console.log(data.value);
-    console.log({
+    this.http.post('../../../../assets/mail.php', {
       name: data.value.name,
       phone: data.value.phone,
       price,
@@ -65,20 +65,10 @@ export class CallComponent implements OnInit {
       percentageStavka,
       mountyPayment,
       lisingOrCredit,
-    });
-    // this.http.post('../../../../assets/mail.php', {
-    //   name: data.value.name,
-    //   phone: data.value.phone,
-    //   price,
-    //   percentage,
-    //   period,
-    //   percentageStavka,
-    //   mountyPayment,
-    //   lisingOrCredit,
-    // }).subscribe( (data: any) => {
-    //     console.log(data);
-    //   }, (error) => console.log(error)
-    // );
+    }).pipe( take(1) ).subscribe( () => {
+
+      }, (error) => console.log(error)
+    );
 
     this.name = '';
     this.phone = '';
