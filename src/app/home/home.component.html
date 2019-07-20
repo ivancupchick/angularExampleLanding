@@ -1,34 +1,14 @@
-<div (deferLoad)="showFirstPage = true">
-  <ng-container *ngIf="showFirstPage">
-    <app-first-page (scroll)="scrollToRequest($event)">
-    </app-first-page>
-  </ng-container>
-</div>
+<app-first-page (scroll)="scrollToRequest($event)">
+</app-first-page>
 
-<div #ancorC_Ldifference (deferLoad)="showCreLisDiff = true">
-  <ng-container *ngIf="showCreLisDiff">
-    <app-credit-lising-difference>
-    </app-credit-lising-difference>
-  </ng-container>
-</div>
+<app-credit-lising-difference>
+</app-credit-lising-difference>
 
-<div (deferLoad)="showIntPlab = true">
-  <ng-container *ngIf="showIntPlab">
-    <app-installment-plan>
-    </app-installment-plan>
-  </ng-container>
-</div>
+<app-installment-plan>
+</app-installment-plan>
 
-<div (deferLoad)="showHowSub = true">
-  <ng-container *ngIf="showHowSub">
-    <app-how-submit>
-    </app-how-submit>
-  </ng-container>
-</div>
+<app-how-submit>
+</app-how-submit>
 
-<div #ancorRequest (deferLoad)="showReq=true">
-  <ng-container *ngIf="showReq">
-    <app-request (scroll)="scrollToLisingDifference($event)" >
-    </app-request>
-  </ng-container>
-</div>
+<app-request (scroll)="scrollToLisingDifference($event)" >
+</app-request>

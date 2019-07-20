@@ -33,7 +33,6 @@ import { HeaderComponent } from './header/header.component';
 import { RequestComponent } from './home/pages/request/request.component';
 import { CalculatorToRequestService } from './home/services/calculator-to-request.service';
 import { SizeServiceService } from './service/size-service.service';
-import { DeferLoadModule } from '@trademe/ng-defer-load';
 import { CallComponent } from './header/call/call.component';
 
 @NgModule({
@@ -71,8 +70,6 @@ import { CallComponent } from './header/call/call.component';
     MatIconModule,
     MatListModule,
     MatDialogModule,
-
-    DeferLoadModule
   ],
   providers: [ CalculatorToRequestService, SizeServiceService ],
   bootstrap: [ AppComponent ],
