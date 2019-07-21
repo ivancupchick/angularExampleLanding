@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef }
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser';
 import { Options } from 'ng5-slider';
 import { CalculatorToRequestService } from '../home/services/calculator-to-request.service';
-import { SizeServiceService } from 'src/app/service/size-service.service';
+import { SizeServiceService } from 'app/service/size-service.service';
 import { FinancialLogicService } from '../service/financial-logic.service';
 
 
@@ -207,7 +207,7 @@ export class CreditLisingCalculatorComponent implements OnInit {
 
   price: number;
 
-  @ViewChild('prices') prices: ElementRef;
+  @ViewChild('prices', { static: true }) prices: ElementRef;
 
   constructor(protected sanitizer: DomSanitizer,
               private calculatorService: CalculatorToRequestService,

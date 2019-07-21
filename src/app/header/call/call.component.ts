@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialogRef } from '@angular/material/dialog';
-import { CalculatorToRequestService } from 'src/app/home/services/calculator-to-request.service';
+import { CalculatorToRequestService } from 'app/home/services/calculator-to-request.service';
 
 @Component({
   selector: 'app-call',
