@@ -20,13 +20,4 @@ export class AppComponent {
       this.sizeService.clientHeight.next(document.documentElement.clientHeight);
     });
   }
-
-
-  // need to modify
-  // scrollToSecondPage() {
-  //   window.scrollTo({ left: 0, top: this.clientHeight, behavior: 'smooth'});
-  // }
-  // scrollToThirdPage() {
-  //   window.scrollTo({ left: 0, top: (this.clientHeight * 3), behavior: 'smooth'});
-  // }
 }
