@@ -1,18 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { SizeServiceService } from './service/size-service.service';
+import { MediaMatcher } from '@angular/cdk/layout';
+import { routes } from './header/header.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
+  routes = routes;
+
   title = 'Кредит / Лизинг на покупку автомобиля';
 
   clientWidth = 0;
   clientHeight = 0;
 
-  constructor(private sizeService: SizeServiceService) {
+  mobileQuery: MediaQueryList;
+
+  private mobileQueryListener: () => void;
+
+  constructor(private sizeService: SizeServiceService,
+              changeDetectorRef: ChangeDetectorRef,
+              media: MediaMatcher
+              ) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this.mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this.mobileQueryListener);
+
     this.sizeService.clientWidth.next(document.documentElement.clientWidth);
     this.sizeService.clientHeight.next(document.documentElement.clientHeight);
     window.addEventListener('resize', () => {
@@ -21,12 +36,7 @@ export class AppComponent {
     });
   }
 
-
-  // need to modify
-  // scrollToSecondPage() {
-  //   window.scrollTo({ left: 0, top: this.clientHeight, behavior: 'smooth'});
-  // }
-  // scrollToThirdPage() {
-  //   window.scrollTo({ left: 0, top: (this.clientHeight * 3), behavior: 'smooth'});
-  // }
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this.mobileQueryListener);
+  }
 }

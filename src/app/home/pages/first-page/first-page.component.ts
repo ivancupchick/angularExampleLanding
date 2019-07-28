@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser';
-import { SizeServiceService } from 'src/app/service/size-service.service';
 import { RequestComponent } from '../request/request.component';
 import { Options } from 'selenium-webdriver/opera';
+import { SizeServiceService } from 'app/service/size-service.service';
 
 @Component({
   selector: 'app-first-page',

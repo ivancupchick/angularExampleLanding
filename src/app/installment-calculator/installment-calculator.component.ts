@@ -2,8 +2,8 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Options } from 'ng5-slider';
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser';
 import { CalculatorToRequestService } from '../home/services/calculator-to-request.service';
-import { SizeServiceService } from 'src/app/service/size-service.service';
 import { FinancialLogicService } from '../service/financial-logic.service';
+import { SizeServiceService } from 'app/service/size-service.service';
 
 export class Percentages {
   constructor(private _30: number,
@@ -84,7 +84,7 @@ export class InstallmentCalculatorComponent implements OnInit {
 
   price;
 
-  @ViewChild('prices') prices: ElementRef;
+  @ViewChild('prices', {static: true}) prices: ElementRef;
 
   constructor(protected sanitizer: DomSanitizer,
               private calculatorService: CalculatorToRequestService,

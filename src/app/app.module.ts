@@ -18,6 +18,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -32,7 +33,7 @@ import { HeaderComponent } from './header/header.component';
 import { RequestComponent } from './home/pages/request/request.component';
 import { CalculatorToRequestService } from './home/services/calculator-to-request.service';
 import { SizeServiceService } from './service/size-service.service';
-import { DeferLoadModule } from '@trademe/ng-defer-load';
+import { CallComponent } from './header/call/call.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { DeferLoadModule } from '@trademe/ng-defer-load';
     FirstPageComponent,
     HeaderComponent,
     RequestComponent,
+    CallComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,11 +69,10 @@ import { DeferLoadModule } from '@trademe/ng-defer-load';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-
-    DeferLoadModule
+    MatDialogModule,
   ],
   providers: [ CalculatorToRequestService, SizeServiceService ],
   bootstrap: [ AppComponent ],
-  entryComponents: [ ]
+  entryComponents: [ CallComponent ]
 })
 export class AppModule { }

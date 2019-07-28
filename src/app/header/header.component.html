@@ -18,27 +18,10 @@
   </div>
 
   <!-- Mobile Navigation -->
-  <div class="mobileNav" [class.example-is-mobile]="mobileQuery.matches">
+  <div class="mobileNav">
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-
-    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 40 : 0">
-      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                         [fixedInViewport]="mobileQuery.matches"
-                         fixedTopGap="40">
-        <mat-nav-list>
-          <h3 style="text-align: center;">AV-Finance</h3>
-          <a mat-list-item (click)="snav.toggle()" routerLink="">Главная</a>
-          <a mat-list-item *ngFor="let route of routes"
-                          (click)="snav.toggle()"
-                          [routerLink]="route.path">
-            {{route.title}}
-          </a>
-        </mat-nav-list>
-      </mat-sidenav>
-
-    </mat-sidenav-container>
   </div>
 
   <!-- Number for connection -->
@@ -46,4 +29,10 @@
     <div class="yellowTreangle"></div>
     <a href="tel:+375336892989">+375(33)689-29-89</a>
   </span>
+</div>
+
+<div class="requestCall">
+  <a mat-fab color="primary" (click)="openModal()" aria-label="Заказать звонок">
+    <mat-icon>phone</mat-icon>
+  </a>
 </div>

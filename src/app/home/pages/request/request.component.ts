@@ -2,8 +2,8 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import { CalculatorToRequestService } from '../../services/calculator-to-request.service';
-import { SizeServiceService } from 'src/app/service/size-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SizeServiceService } from 'app/service/size-service.service';
 
 @Component({
   selector: 'app-request',

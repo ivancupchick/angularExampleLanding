@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SizeServiceService } from 'src/app/service/size-service.service';
 import { SafeStyle, DomSanitizer } from '@angular/platform-browser';
+import { SizeServiceService } from 'app/service/size-service.service';
 
 @Component({
   selector: 'app-credit-lising-difference',

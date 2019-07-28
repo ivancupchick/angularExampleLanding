@@ -7,8 +7,8 @@ import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  @ViewChild('ancorRequest') ancorRequest: ElementRef;
-  @ViewChild('ancorC_Ldifference') ancorCLdifference: ElementRef;
+  @ViewChild('ancorRequest', { static: true }) ancorRequest: ElementRef;
+  @ViewChild('ancorC_Ldifference', { static: true }) ancorCLdifference: ElementRef;
 
   showFirstPage = false;
   showCreLisDiff = false;
