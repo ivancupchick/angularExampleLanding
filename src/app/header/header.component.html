@@ -18,7 +18,7 @@
   </div>
 
   <!-- Mobile Navigation -->
-  <div class="mobileNav" [class.example-is-mobile]="mobileQuery.matches">
+  <div class=" example-container mobileNav" [class.example-is-mobile]="mobileQuery.matches">
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
@@ -27,7 +27,7 @@
       <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                          [fixedInViewport]="mobileQuery.matches"
                          fixedTopGap="40">
-        <!-- <mat-nav-list>
+        <mat-nav-list>
           <h3 style="text-align: center;">AV-Finance</h3>
           <a mat-list-item (click)="snav.toggle()" routerLink="">Главная</a>
           <a mat-list-item *ngFor="let route of routes"
@@ -35,7 +35,7 @@
                           [routerLink]="route.path">
             {{route.title}}
           </a>
-        </mat-nav-list> -->
+        </mat-nav-list>
       </mat-sidenav>
 
     </mat-sidenav-container>

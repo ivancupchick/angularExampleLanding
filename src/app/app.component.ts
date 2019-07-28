@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { SizeServiceService } from './service/size-service.service';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +13,26 @@ export class AppComponent {
   clientWidth = 0;
   clientHeight = 0;
 
-  constructor(private sizeService: SizeServiceService) {
+  mobileQuery: MediaQueryList;
+
+  private mobileQueryListener: () => void;
+
+  constructor(private sizeService: SizeServiceService,
+    changeDetectorRef: ChangeDetectorRef,
+              media: MediaMatcher) {
+                this.mobileQuery = media.matchMedia('(max-width: 600px)');
+                this.mobileQueryListener = () => changeDetectorRef.detectChanges();
+                this.mobileQuery.addListener(this.mobileQueryListener);
+
     this.sizeService.clientWidth.next(document.documentElement.clientWidth);
     this.sizeService.clientHeight.next(document.documentElement.clientHeight);
     window.addEventListener('resize', () => {
       this.sizeService.clientWidth.next(document.documentElement.clientWidth);
       this.sizeService.clientHeight.next(document.documentElement.clientHeight);
     });
+  }
+
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this.mobileQueryListener);
   }
 }
