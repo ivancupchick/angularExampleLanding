@@ -1,14 +1,10 @@
 <div class="header">
-  <!-- <app-header >
-  </app-header> -->
+  <app-header [snav]="snav">
+  </app-header>
 </div>
 
 
-<div class=" example-container mobileNav" [class.example-is-mobile]="mobileQuery.matches">
-  <button mat-icon-button (click)="snav.toggle()">
-    <mat-icon>menu</mat-icon>
-  </button>
-
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 40 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                         [fixedInViewport]="mobileQuery.matches"
