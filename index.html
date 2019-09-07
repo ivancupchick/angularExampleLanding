@@ -1,0 +1,388 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html> -->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <!-- <base href="/"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge">    -->
+  <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
+  <!-- <link rel="manifest" href="manifest.json"> -->
+  <!-- <meta name="theme-color" content="#1976d2"> -->
+  <link href="css/main.css" rel="stylesheet">
+  <script src="js/index.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <div class="header">
+    <div class="header-container">
+        <!-- Desktop Navigation -->
+      <nav class="desktopNav">
+        <div class="emptyDivForPositionLogo"></div>
+          <a href="#">AV-Finance</a>
+          <a href="#">Калькулятор кредита и лизинга</a>
+          <a href="#">Калькулятор рассрочки</a>
+            <!-- <li class="emptyDivForPositionLogo"></li> -->
+        
+            <!-- routerLink = "" routerLinkActive="active-link" -->
+            <!-- <div class="logo button line">
+            <span>AV-Finance</span>
+            </div> -->
+        
+            <!-- <div *ngFor="let route of routes"
+                [routerLink]="route.path"
+                routerLinkActive="active-link"
+                class="logo button line rightbutton">
+            <span>{{route.title}}</span>
+            </div> -->
+      </nav>
+        
+        <!-- Mobile Navigation -->
+      <div class="mobileNav">
+            <!-- mat-icon-button -->
+            <!-- <button (click)="snav.toggle()"> -->
+            <!-- <mat-icon>menu</mat-icon> -->
+            <!-- </button> -->
+            <span>mobile menu icon</span>
+        </div>
+        
+        <!-- Number for connection -->
+        <span class="numberForConnection">
+            <div class="yellowTreangle"></div>
+            <a href="tel:+375336892989">+375(33)689-29-89</a>
+        </span>
+        </div>
+        
+        <div class="requestCall">
+            <!-- mat-fab  color="primary" -->
+        <a (click)="openModal()" aria-label="Заказать звонок">
+            <!-- <mat-icon>phone</mat-icon> -->
+        </a>
+        </div>
+    </div>
+
+
+    <!-- <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 40 : 0">
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                            [fixedInViewport]="mobileQuery.matches"
+                            fixedTopGap="40">
+        <mat-nav-list>
+            <h3 style="text-align: center;">AV-Finance</h3>
+            <a mat-list-item (click)="snav.toggle()" routerLink="">Главная</a>
+            <a mat-list-item *ngFor="let route of routes"
+                            (click)="snav.toggle()"
+                            [routerLink]="route.path">
+            {{route.title}}
+            </a>
+        </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+    </div> -->
+
+    <!-- start first screen -->
+    <div class="screen firstScreen screenWidthHeight">
+        <div class="screen firstHalfFirstScreen">
+            <div class="mainTitleAndDescription">
+            <div class="mainTitle">
+                <p>КРЕДИТ / ЛИЗИНГ АВТОМОБИЛЕЙ С ПРОБЕГОМ<br> ДЛЯ ФИЗИЧЕСКИХ ЛИЦ</p>
+            </div>
+            <div class="mainDescription">
+                <p>Благодаря партнерским программам с банками и лизинговыми компаниями Вы можете подобрать у нас самые выгодные для Вас условия финансирования на покупку автомобиля.</p>
+            </div>
+            </div>
+        </div>
+    
+        <div class="secondHalfFirstScreen">
+            <div class="iconContainer">
+                <div class="iconForAttract">
+                    <div class="iconTime iconSize"></div>
+                    <p class="iconTitleSize">Быстрое рассмотрение</p>
+                </div>
+                <div class="iconForAttract">
+                    <div class="iconDocument iconSize"></div>
+                    <p class="iconTitleSize">Минимум документов</p>
+                </div>
+                <div class="iconForAttract">
+                    <div class="iconPercentage iconSize"></div>
+                    <p class="iconTitleSize">Выгодные условия</p>
+                </div>
+                <div class="iconForAttract">
+                    <div class="iconTrafic iconSize"></div>
+                    <p class="iconTitleSize">Любой автомобиль</p>
+                </div>
+            </div>
+            <button class="bottonToDown" (click)="scrollToRequest()"><p>Оформить заявку</p></button>
+        </div>
+    </div>
+    <!-- end first screen -->
+
+
+    <!-- start second screen -->
+
+    <div class="screen secondScreen screenWidthHeight">
+        <div class="container">
+        <div class="title"><h3 class="mainTitle">КРЕДИТ/ЛИЗИНГ</h3></div>
+        <div class="title"><p style="margin-bottom: 30px;">на покупку автомобиля с пробегом</p></div>
+        <div class="title"><h3>ОСНОВНЫЕ УСЛОВИЯ:</h3></div>
+        <div class="content parentFlexColumn">
+            <div class="creditLisingBlocks">
+            <div class="creditDescriptionBlock parentFlexColumn border">
+                <h3>КРЕДИТ</h3>
+                <p>Процентная ставка: <strong>от 11% годовых</strong></p>
+                <p>Срок кредита: <strong>до 7 лет</strong></p>
+                <p>Аванс: <strong>от 0% от стоимости автомобиля</strong></p>
+                <p>Валюта: <strong>белорусские рубли</strong></p>
+                <p>Сумма кредита: <strong>до 100000 BYN</strong></p>
+                <p>Досрочное погашение: <strong>без ограничений</strong></p>
+            </div>
+            <div class="lisingDescriptionBlock parentFlexColumn border">
+                <h3>ЛИЗИНГ</h3>
+                <p>Процентная ставка: <strong>от 10% годовых</strong></p>
+                <p>Срок кредита: <strong>до 5 лет</strong></p>
+                <p>Аванс: <strong>от 15% от стоимости автомобиля</strong></p>
+                <p>Валюта: <strong>доллар США, евро</strong></p>
+                <p>Сумма кредита: <strong>до 100000 USD</strong></p>
+                <p>Досрочное погашение: <strong>без ограничений</strong></p>
+            </div>
+            </div>
+            <div class="advantagesBlocks border parentFlexColumn">
+            <div class="firstLineBlockAdvantages ">
+                <div class="firstBlockAdvantages flexContentBetween">
+                <div class="imageAuto imageSize"></div>
+                <div class="imageAutoDescription parentFlexColumn">
+                    <h3>ЛЮБОЙ АВТОМОБИЛЬ</h3>
+                    <p>Вы можете приобрести в кредит или лизинг автомобиль любой марки, года выпуска, стоимости.</p>
+                </div>
+                </div>
+                <div class="secondBlockAdvantages flexContentBetween borderLeft">
+                <div class="imageDocuments imageSize"></div>
+                <div class="imageDocumentsDescription parentFlexColumn">
+                    <h3>НЕОБХОДИМЫЕ ДОКУМЕНТЫ</h3>
+                    <p>Для оформления кредита или лизинга достаточно только вашего паспорта, в некоторых случаях может понадобиться справка о доходах.</p>
+                </div>
+                </div>
+            </div>
+            <div  class="secondLineBlockAdvantages">
+                <div class="thirdBlockAdvantages flexContentBetween borderTop">
+                <div class="imageForWho imageSize"></div>
+                <div class="imageForWhoDescription parentFlexColumn">
+                    <h3>ДЛЯ КОГО</h3>
+                    <p>Для всех платежеспособных граждан РБ.</p>
+                    <p>Для граждан имеющих вид на жительство.</p>
+                </div>
+                </div>
+                <div class="fourthBlockAdvantages flexContentBetween borderLeft borderTop">
+                <div class="imageHowSpeed imageSize"></div>
+                <div class="imageHowSpeedDescription parentFlexColumn">
+                    <h3>КАК БЫСТРО</h3>
+                    <p>Срок рассмотрения заявки составляет от 30 минут до 1 дня.</p>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- end second screen -->
+
+    <!-- start third screen -->
+
+    <div class="screen thirdScreen screenWidthHeight">
+        <div class="container parentFlexColumn borderBlack">
+        <div class="title"><h3 style="margin-bottom:7px; margin-top:4px; font-size: 3rem; font-weight: 600;">РАССРОЧКА</h3></div>
+        <div class="title"><p style="margin-bottom: 30px;">на покупку автомобиля с пробегом</p></div>
+        <div class="title"><h3>ОСНОВНЫЕ УСЛОВИЯ:</h3></div>
+        <div class="content parentFlexColumn">
+            <div class="conditions">
+            <table>
+                <tr>
+                <td><p>Аванс</p></td>
+                <td><p>от 30%</p></td>
+                <td><p>от 50%</p></td>
+                <td><p>от 70%</p></td>
+                </tr>
+                <tr>
+                <td><p>Срок</p></td>
+                <td><p>12 месяцев</p></td>
+                <td><p>18 месяцев</p></td>
+                <td><p>24 месяцев</p></td>
+                </tr>
+                <tr>
+                <td><p>Процентная ставка</p></td>
+                <td><p>0,01%</p></td>
+                <td><p>0,01%</p></td>
+                <td><p>0,01%</p></td>
+                </tr>
+                <tr>
+                <td><p>Валюта</p></td>
+                <td><p>белорусские рубли</p></td>
+                <td><p>белорусские рубли</p></td>
+                <td><p>белорусские рубли</p></td>
+                </tr>
+            </table>
+            </div>
+            <div class="title"><h3 style="margin-top:2em;">РАСПРОСТРАНЯЕТСЯ:</h3></div>
+            <div class="whoCanUse">
+            <div class="whoCanUseChildrenSize">
+                <div class="whoCanUseContent border">
+                <p>На любые автомобили не старше 9 лет</p>
+                </div>
+            </div>
+            <div class="whoCanUseChildrenSize marginMinus">
+                <div class="whoCanUseContent">
+                <p>Автомобили стоимостью от 15000 BYN</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+            
+    <!-- end third screen -->
+
+    <!-- start fourth screen -->
+
+    <div class="screen fourthScreen screenWidthHeight">
+        <div class="container parentFlexColumn">
+            <h3 style="font-size: 3rem; font-weight: 600;">КАК ОФОРМИТЬ КРЕДИТ/РАССРОЧКУ НА АВТО?</h3>
+            <div class="stepsToGetting">
+                <div class="step">
+                <div class="step1Image imageSize"></div>
+                <p>Заполните онлайн заявку</p>
+                </div>
+                <div class="toNextStep"><div></div></div>
+                <div class="step">
+                <div class="step2Image imageSize"></div>
+                <p>Наш специалист свяжется<br>с вами</p>
+                </div>
+                <div class="toNextStep"><div></div></div>
+                <div class="step">
+                <div class="step3Image imageSize"></div>
+                <p>Выберите авто для покупки</p>
+                </div>
+                <div class="toNextStep"><div></div></div>
+                <div class="step">
+                <div class="step4Image imageSize"></div>
+                <p>Оформите договор в<br>офисе</p>
+                </div>
+                <div class="toNextStep"><div></div></div>
+                <div class="step">
+                <div class="step5Image imageSize"></div>
+                <p>Получите автомобиль</p>
+                </div>
+            </div>
+            <h3 style="margin-top: 40px; font-size: 3rem; font-weight: 600;">НАШИ ПРЕИМУЩЕСТВА:</h3>
+            <div class="ourAdvantages">
+                <div class="advantage step">
+                <div class="advantage1Image imageSize"></div>
+                <h4>Выгодные условия</h4>
+                <p>Наши партнерские отношения с банками и лизинговыми компаниями позволяют подобрать для вас самые выгодные условия.</p>
+                </div>
+                <div class="advantage step">
+                <div class="advantage2Image imageSize"></div>
+                <h4>Помощь в подборе авто</h4>
+                <p>Наш специалист со специальным оборудованием поможет подобрать Вам автомобиль.</p>
+                </div>
+                <div class="advantage step">
+                <div class="advantage3Image imageSize"></div>
+                <h4>Скорость</h4>
+                <p>Срок рассмотрения заявки от 30 минут до 1 дня.</p>
+                </div>
+                <div class="advantage step">
+                <div class="advantage4Image imageSize"></div>
+                <h4>Мобильность</h4>
+                <p>Вы можете обратиться в наш офис, либо наш специалист встретится с Вами в удобном для Вас месте.</p>
+                </div>
+                <div class="advantage step">
+                <div class="advantage5Image imageSize"></div>
+                <h4>Индивидуальный подход</h4>
+                <p>Подберем для вас самый лучший вариант финансирования. Без поручителей, дополнительных комиссий. С досрочным погашением и удобным графиком платежей.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+          
+
+    <!-- end fourth screen -->
+
+    <!-- start fifth screen -->
+
+    <div class="screen fifthScreen screenWidthHeight">
+        <div class="request" >
+            <p class="requestTitle"><strong>Заявка на финансирование</strong></p>
+            <p class="requestDescription">Наш специалист свяжется с вами и подробно проконсультирует вас обо всех условиях покупки автомобиля</p>
+            <!-- <form #formData='ngForm' (ngSubmit)="submitForm(formData)" id="formaToPost">
+                <input matInput placeholder="Имя" value="" name="name" [(ngModel)]="name" required>
+                <input matInput placeholder="Телефон" value="" name="phone" [(ngModel)]="phone" required>
+                <button style="width: 200px; height: 40px; font-size: 1.1em;" mat-raised-button [disabled]="!formData.valid" type="submit" color="warn">Отправить заявку</button>
+            </form> -->
+            <div id="formaToPost">
+                <!-- <input type="hidden" name="project_name" (ngModel)="project_name" value="Обратный Звонок">
+                <input type="hidden" name="admin_email" (ngModel)="admin_email" value="info@av-finance.by">
+                <input type="hidden" name="form_subject" (ngModel)="form_subject" value="New order"> -->
+                <div class="request-group">      
+                    <!-- class="requestInputs" -->
+                    <input type="text" required>
+                    <span class="bar"></span>
+                    <label>Имя</label>
+                </div>
+                <div class="request-group">    
+                    <!-- class="requestInputs" -->
+                    <input type="text" required>
+                    <span class="bar"></span>
+                    <label>Телефон</label>
+                </div>
+                <button class="request-button" onclick="submitForm()">Отправить заявку</button>
+            </div>
+        </div>
+        <div class="footer">
+        <!-- <app-footer></app-footer> -->
+            <div class="footerBlockLeft">
+                <p>(с) 2019 Компания AV-Finance - продажа любых автомобилей с пробегом в кредит/лизинг на выгодных условиях. </p>
+            </div>
+            <div class="footerBlockRight" style="display: flex;">
+                <div class="divFooterIcons">
+                <i class="footerIconPhone footerIcon"></i>
+                <div style="display: flex; flex-direction: column; align-items: left; justify-content: space-around">
+                    <span>ТЕЛЕФОНЫ</span>
+                    <a href="tel:+375336892989" class="value">+375(33)689-29-89</a>
+                </div>
+                </div>
+                <div class="divFooterIcons">
+                <i class="footerIconMail footerIcon"></i>
+                <div style="display: flex; flex-direction: column; align-items: left; justify-content: space-around">
+                    <span>НАПИСАТЬ НАМ</span>
+                    <span class="value">info@av-finance.by</span>
+                </div>
+                </div>
+            </div>
+              
+        </div>
+    </div>
+
+    <!-- end fifth screen -->
+            
+
+
+</body>
+
+</html>
