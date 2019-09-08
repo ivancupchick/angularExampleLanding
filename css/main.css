@@ -23,13 +23,13 @@ html {
 }
 
 /* хром, сафари */
-html::-webkit-scrollbar { width: 0; }
+/* html::-webkit-scrollbar { width: 0; } */
 
 /* ie 10+ */
-html { -ms-overflow-style: none; }
+/* html { -ms-overflow-style: none; } */
 
 /* фф (свойство больше не работает, других способов тоже нет)*/
-html { overflow: -moz-scrollbars-none; }
+/* html { overflow: -moz-scrollbars-none; } */
 
 /*
 try this method
@@ -50,7 +50,7 @@ body {
   margin: 0;
 }
 .desktopNav {
-  display: flex; 
+  display: flex;
   /* for empty area */
 }
 .desktopNav a {
@@ -77,10 +77,17 @@ body {
   outline: none;
   font-size: 1.1em;
   border: none;
-} 
+  cursor: pointer;
+}
 .request-button:hover { background: rgb(232,95,76); } /* при наведении курсора мышки */
 .request-button:active { background: rgb(152,15,0); } /* при нажатии */
 
+.container-for-button {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
 
 
 
@@ -377,9 +384,10 @@ h1.example-app-name {
   font-size: 1.6rem;
   text-align: center;
 }
+
 .bottonToDown {
   position: absolute;
-  bottom: 16vmin;
+  top: 12vmin;
   left: 96vmin;
 
   background: #ffffff00;
@@ -389,6 +397,8 @@ h1.example-app-name {
   border-left: 103px solid transparent;
   height: 0;
   width: 430px;
+
+  cursor: pointer;
 }
 .bottonToDown:hover {
   border-top: 90px solid #ffffffee;
@@ -397,8 +407,9 @@ h1.example-app-name {
   outline: 0;
 }
 .bottonToDown:hover p {
-  font-weight: bolder;
-  font-size: 30px;
+  /* font-weight: bolder; */
+  /* font-size: 30px; */
+  color: rgba(173, 0, 0, 0.952);
 }
 .marginTopForMobile {
   margin-top: 25px;
@@ -580,7 +591,7 @@ h1.example-app-name {
 
 
 /* start second screen */
-/* 
+/*
 p {
   margin: 0 2px;
   width: 100%;
@@ -592,24 +603,25 @@ p {
   justify-content: center;
   align-items: center;
 }
-.border {
-  border: 1px solid #e6e6e6;
+.secondScreen .border {
+  border: 1px solid black;
   border-radius: 6px;
 }
 .flexContentBetween {
   display: flex;
   align-items: center;
 }
-.imageSize {
+.secondScreen .imageSize {
   min-width: 100px;
   height: 100px;
   margin: auto 25px;
 }
 
-.container {
+.secondScreen .container {
   margin: 0%;
   width: 100%;
   height: 100%;
+  color: black;
 }
 .title {
   width: 100%;
@@ -703,7 +715,7 @@ p {
   top: 7px;
   bottom: 7px;
   left: 0px;
-  border-left: 1px solid #e6e6e6;
+  border-left: 1px solid black;
   width: 1px;
 }
 .borderTop::after {
@@ -711,7 +723,7 @@ p {
   height: 1px;
   left: 17px;
   right: 17px;
-  border-top: 1px solid #e6e6e6;
+  border-top: 1px solid black;
 }
 .creditLisingBlocks {
   margin-bottom: 20px;
@@ -760,15 +772,15 @@ p {
   .mainTitle {
     margin-top: 40px;
   }
-  .imageSize {
+  .secondScreen .imageSize {
     min-width: 70px;
     height: 70px;
     margin: auto 10px;
   }
 }
 /* end second screen */
-  
-  
+
+
 
 
 
@@ -1004,7 +1016,7 @@ td {
   color: black;
   width: 100%;
   height: 100%;
-  padding: 30px;
+  padding: 0; /* 30px; */
 }
 .fourthScreen .container h3 {
   text-align: center;
@@ -1013,6 +1025,7 @@ td {
   display: flex;
   justify-content: space-around;
   width: 90%;
+  padding-right: 50px;
 }
 .step {
   display: flex;
@@ -1062,7 +1075,7 @@ td {
 }
 
 .ourAdvantages {
-  width: 100%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
 }
@@ -1223,9 +1236,6 @@ td {
   }
   #formaToPost {
     width: auto;
-  }
-  .requestTitle {
-    font-size: 5.9vmin;
   }
   .requestDescription {
     font-size: 3vmin;
@@ -1446,12 +1456,12 @@ input:focus {
 }
 
 label {
-  color: black;
+  color: #00000055;
   font-size: 18px;
   position: absolute;
   pointer-events: none;
   left: 10px;
-  top: 15px;
+  top: 10px;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
@@ -1461,7 +1471,8 @@ label {
 input:focus ~ label, input:valid ~ label {
   top: -15px;
   font-size: 14px;
-  color: #5264AE;
+  /* color: #5264AE; */
+  color: rgb(212,75,56);
 }
 
 /* BOTTOM BARS ================================= */
@@ -1476,7 +1487,8 @@ input:focus ~ label, input:valid ~ label {
   width: 0;
   bottom: 0;
   position: absolute;
-  background: #5264AE;
+  /* background: #5264AE; */
+  background: rgb(212,75,56);
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
@@ -1492,4 +1504,56 @@ input:focus ~ label, input:valid ~ label {
 input:focus ~ .bar:before,
 input:focus ~ .bar:after {
   width: 50%;
+}
+
+/* media */
+
+@media screen and (max-width: 1210px) {
+  .bottonToDown {
+    position: relative;
+    left: auto;
+    top: auto;
+    bottom: 9vmin;
+    border: none;
+    background-color: #ffffffcc;
+    align-self: center;
+    height: 100px;
+  }
+  .bottonToDown:hover {
+    background-color: #ffffffdd;
+    border: none;
+  }
+
+  .bottonToDown p {
+    position: static;
+    margin: 0;
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 824px) {
+  .bottonToDown {
+    position: static;
+  }
+  .container-for-button {
+    position: static;
+  }
+  .mainTitle p {
+    font-size: inherit;
+  }
+  td {
+    padding: 10px 0px;
+    font-size: 3.5vmin;
+  }
+
+  input {
+    width: auto;
+  }
+  .bar {
+    width: auto;
+  }
+
+  .stepsToGetting {
+    padding-right: 0;
+  }
 }

@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+
 </body>
 </html> -->
 
@@ -36,12 +36,12 @@
           <a href="#">Калькулятор кредита и лизинга</a>
           <a href="#">Калькулятор рассрочки</a>
             <!-- <li class="emptyDivForPositionLogo"></li> -->
-        
+
             <!-- routerLink = "" routerLinkActive="active-link" -->
             <!-- <div class="logo button line">
             <span>AV-Finance</span>
             </div> -->
-        
+
             <!-- <div *ngFor="let route of routes"
                 [routerLink]="route.path"
                 routerLinkActive="active-link"
@@ -49,7 +49,7 @@
             <span>{{route.title}}</span>
             </div> -->
       </nav>
-        
+
         <!-- Mobile Navigation -->
       <div class="mobileNav">
             <!-- mat-icon-button -->
@@ -58,14 +58,14 @@
             <!-- </button> -->
             <span>mobile menu icon</span>
         </div>
-        
+
         <!-- Number for connection -->
         <span class="numberForConnection">
             <div class="yellowTreangle"></div>
             <a href="tel:+375336892989">+375(33)689-29-89</a>
         </span>
         </div>
-        
+
         <div class="requestCall">
             <!-- mat-fab  color="primary" -->
         <a (click)="openModal()" aria-label="Заказать звонок">
@@ -109,8 +109,11 @@
             </div>
             </div>
         </div>
-    
+
         <div class="secondHalfFirstScreen">
+            <div class="container-for-button">
+                <button class="bottonToDown" (click)="scrollToRequest()"><p>Оформить заявку</p></button>
+            </div>
             <div class="iconContainer">
                 <div class="iconForAttract">
                     <div class="iconTime iconSize"></div>
@@ -129,7 +132,6 @@
                     <p class="iconTitleSize">Любой автомобиль</p>
                 </div>
             </div>
-            <button class="bottonToDown" (click)="scrollToRequest()"><p>Оформить заявку</p></button>
         </div>
     </div>
     <!-- end first screen -->
@@ -256,7 +258,7 @@
         </div>
         </div>
     </div>
-            
+
     <!-- end third screen -->
 
     <!-- start fourth screen -->
@@ -320,7 +322,7 @@
             </div>
         </div>
     </div>
-          
+
 
     <!-- end fourth screen -->
 
@@ -339,15 +341,15 @@
                 <!-- <input type="hidden" name="project_name" (ngModel)="project_name" value="Обратный Звонок">
                 <input type="hidden" name="admin_email" (ngModel)="admin_email" value="info@av-finance.by">
                 <input type="hidden" name="form_subject" (ngModel)="form_subject" value="New order"> -->
-                <div class="request-group">      
+                <div class="request-group">
                     <!-- class="requestInputs" -->
-                    <input type="text" required>
+                    <input id="request-name" type="text" required>
                     <span class="bar"></span>
                     <label>Имя</label>
                 </div>
-                <div class="request-group">    
+                <div class="request-group">
                     <!-- class="requestInputs" -->
-                    <input type="text" required>
+                    <input id="request-phone" type="text" required>
                     <span class="bar"></span>
                     <label>Телефон</label>
                 </div>
@@ -355,7 +357,6 @@
             </div>
         </div>
         <div class="footer">
-        <!-- <app-footer></app-footer> -->
             <div class="footerBlockLeft">
                 <p>(с) 2019 Компания AV-Finance - продажа любых автомобилей с пробегом в кредит/лизинг на выгодных условиях. </p>
             </div>
@@ -375,12 +376,13 @@
                 </div>
                 </div>
             </div>
-              
+
         </div>
     </div>
 
     <!-- end fifth screen -->
-            
+
+
 
 
 </body>
