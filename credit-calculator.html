@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Калькулятор кредита и лизинга</title>
+
+  <link href="css/credit-calculator.css" rel="stylesheet">
+  <script src="js/credit-calculator.js" type="text/javascript"></script>
+</head>
+<body>
+
+  <div class="screenWidthHeight creditCalculator">
+    <h1 class="page2Title">ПОДБЕРИТЕ ИНДИВИДУАЛЬНЫЙ ВАРИАНТ ФИНАНСИРОВАНИЯ</h1>
+    <div class="choiseAutoType">
+      <p>Введите стоимость автомобиля:</p>
+      <!-- <mat-form-field class="price"> -->
+        <input type="number" placeholder="Цена" [(ngModel)] = "price" name="price">
+      <!-- </mat-form-field> -->
+    </div>
+
+    <div class="slidersAndBestChoise">
+      <mat-card class="slidersBlock">
+
+        <!-- START CREDIT-LISING; USD-BYR SLIDERS -->
+        <div>
+          <div class="booleanSliderLables">
+            <span>Кредит</span>
+            <span>Лизинг</span>
+          </div>
+          <input max="1" step="1" class="credit-lising-input" type="range">
+          <!-- <ng5-slider (valueChange)="switchLisingAndCredit($event)" [(value)]="creditLisingValue"  [options]="creditLisingOptions"></ng5-slider> -->
+          <!-- (valueChange)="isChangedCreditLising()" -->
+        </div>
+        <!-- END CREDIT-LISING; USD-BYR SLIDERS -->
+
+
+        <h2 class="titlesWithValues">
+          Первый платёж: {{getFirstPayment()}}
+        </h2>
+        <div class="divForSlider">
+
+          <div class="divSliderContainer">
+            <input type="range">
+            <!-- <ng5-slider [(value)]="firstPaymentValue" [options]="firstPaymentOptions"></ng5-slider> -->
+          </div>
+
+          <!-- <div  matTooltip="Текст подсказки про бегунок c процентом первого платежа"
+                matTooltipPosition="above"
+                matTooltipHideDelay="1000"
+                matTooltipClass="toolTipText"
+                class="toolTip">
+            ?
+          </div> -->
+        </div>
+
+        <!--
+          for new slider
+
+        <div class="firstRepaymentValues">
+          <span *ngFor="let persentage of creditFirstPaymentPercentageValues">{{persentage}}</span>
+        </div>
+        -->
+
+        <h2 class="marginTopForMobile">
+          Срок: {{getPeriod()}}
+        </h2>
+
+        <div class="divForSlider">
+            <div class="divSliderContainer">
+              <input type="range">
+              <!-- <ng5-slider [(value)]="repaymentPeriodValue" [options]="repaymentPeriodOptions"></ng5-slider> -->
+            </div>
+          <!-- <div  matTooltip="Текст подсказки про бегунок с периодом"
+                matTooltipPosition="above"
+                matTooltipHideDelay="1000"
+                matTooltipClass="toolTipText"
+                class="toolTip">
+            ?
+          </div> -->
+        </div>
+        <div style="height: 40px;"></div>
+      </mat-card>
+
+      <div class="slidersBlock">
+        <div class="slidersRightBlock">
+          <!-- <h3>Лучший выбор:</h3>
+          <img [src]="link" class="image"> -->
+          <h3>Процентная ставка:</h3>
+          <h2 class="values">{{getRate()}} %</h2>
+          <h3>Ежемесячный платёж:</h3>
+          <h2 class="values">{{getPLT()}} BYN</h2>
+          <!--
+          <div>Выгода:</div>
+          <div>{{getExtraPayment()}}</div>
+          -->
+        </div>
+      </div>
+    </div>
+
+    <button mat-raised-button class="aboutConditions" routerLink="" color="primary" >Подробнее об условиях</button>
+  </div>
+
+
+</body>
+</html>
